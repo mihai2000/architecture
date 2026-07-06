@@ -81,7 +81,7 @@ export default function Home() {
 							</h2>
 						</div>
 						<Link
-							href="/contact"
+							href="/projects"
 							className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-700 transition hover:text-black"
 						>
 							Start a project

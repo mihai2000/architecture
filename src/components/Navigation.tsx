@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 interface NavigationProps {
-	currentPage?: "home" | "contact";
+	currentPage?: "home" | "contact" | "projects" | "about";
 }
 
 export default function Navigation({ currentPage = "home" }: NavigationProps) {
@@ -11,13 +11,23 @@ export default function Navigation({ currentPage = "home" }: NavigationProps) {
 				href="/"
 				className="text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
 			>
-				Studio Name
+				Catalin Carp Studio
 			</Link>
 			<nav className="flex flex-wrap gap-4 text-[0.7rem] uppercase tracking-[0.3em] text-zinc-700">
-				<Link href="/#projects" className="transition hover:text-black">
+				<Link
+					href="/projects"
+					className={`transition hover:text-black ${
+						currentPage === "projects" ? "font-semibold" : ""
+					}`}
+				>
 					Projects
 				</Link>
-				<Link href="/#about" className="transition hover:text-black">
+				<Link
+					href="/about"
+					className={`transition hover:text-black ${
+						currentPage === "about" ? "font-semibold" : ""
+					}`}
+				>
 					About
 				</Link>
 				<Link
