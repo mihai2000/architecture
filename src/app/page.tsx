@@ -1,3 +1,7 @@
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import Link from "next/link";
+
 const projects = [
 	{
 		title: "M House",
@@ -24,25 +28,7 @@ const projects = [
 export default function Home() {
 	return (
 		<div className="min-h-screen bg-[#f3efe8] text-zinc-900">
-			<header className="flex flex-wrap items-center justify-between border-b border-zinc-300 px-6 py-5 sm:px-8 lg:px-12">
-				<a
-					href="#"
-					className="text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
-				>
-					Studio Name
-				</a>
-				<nav className="flex flex-wrap gap-4 text-[0.7rem] uppercase tracking-[0.3em] text-zinc-700">
-					<a href="#projects" className="transition hover:text-black">
-						Projects
-					</a>
-					<a href="#about" className="transition hover:text-black">
-						About
-					</a>
-					<a href="#contact" className="transition hover:text-black">
-						Contact
-					</a>
-				</nav>
-			</header>
+			<Navigation currentPage="home" />
 
 			<main className="px-6 py-8 sm:px-8 lg:px-12 lg:py-10">
 				<section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
@@ -94,12 +80,12 @@ export default function Home() {
 								Recent projects
 							</h2>
 						</div>
-						<a
-							href="#contact"
+						<Link
+							href="/contact"
 							className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-700 transition hover:text-black"
 						>
 							Start a project
-						</a>
+						</Link>
 					</div>
 
 					<div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -137,10 +123,7 @@ export default function Home() {
 						</p>
 					</div>
 
-					<div
-						id="contact"
-						className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
-					>
+					<div className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10">
 						<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 							Contact
 						</p>
@@ -151,15 +134,17 @@ export default function Home() {
 							We welcome commissions, collaborations, and conversations about
 							future spaces.
 						</p>
-						<a
-							href="mailto:hello@yourstudio.com"
+						<Link
+							href="/contact"
 							className="mt-8 inline-flex text-[0.7rem] uppercase tracking-[0.35em] text-zinc-100 transition hover:text-white"
 						>
-							hello@yourstudio.com
-						</a>
+							Get in touch
+						</Link>
 					</div>
 				</section>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }
