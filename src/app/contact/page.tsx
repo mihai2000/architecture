@@ -1,6 +1,7 @@
 "use client";
 
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function ContactPage() {
@@ -9,15 +10,15 @@ export default function ContactPage() {
 	return (
 		<div className="mx-auto max-w-2xl">
 			{/* Page Title */}
-			<div className="mb-12">
+			<Reveal className="mb-12">
 				<h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-4">
 					{t.contact.heading}
 				</h1>
 				<p className="text-zinc-700 text-lg">{t.contact.lead}</p>
-			</div>
+			</Reveal>
 
 			{/* Contact Info */}
-			<div className="mb-12 grid gap-8 sm:grid-cols-2">
+			<Reveal delay={80} className="mb-12 grid gap-8 sm:grid-cols-2">
 				<div>
 					<h3 className="text-sm font-semibold uppercase tracking-[0.2em] mb-2">
 						{t.contact.emailLabel}
@@ -60,12 +61,15 @@ export default function ContactPage() {
 						{t.contact.hoursValue[1]}
 					</p>
 				</div>
-			</div>
+			</Reveal>
 
 			{/* Form Container */}
-			<div className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10 backdrop-blur-sm">
+			<Reveal
+				delay={160}
+				className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10 backdrop-blur-sm"
+			>
 				<ContactForm />
-			</div>
+			</Reveal>
 		</div>
 	);
 }

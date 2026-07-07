@@ -1,8 +1,11 @@
 "use client";
 
 import ProjectCarousel from "@/components/ProjectCarousel";
+import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import { projects } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { locales } from "@/lib/i18n/translations";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,11 +14,18 @@ export default function Home() {
 	const featuredProject =
 		projects.find((project) => project.slug === "event-house") ??
 		projects[0];
+	const categoryCount = new Set(projects.map((project) => project.type)).size;
+
+	const stats = [
+		{ value: projects.length, label: t.home.statsProjects },
+		{ value: categoryCount, label: t.home.statsCategories },
+		{ value: locales.length, label: t.home.statsLanguages },
+	];
 
 	return (
 		<>
 			<section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-				<div className="flex flex-col justify-between rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+				<Reveal className="flex flex-col justify-between rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
 					<div>
 						<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 							{t.home.eyebrow}
@@ -27,9 +37,24 @@ export default function Home() {
 					<p className="mt-8 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
 						{t.home.lead}
 					</p>
-				</div>
+					{/* <div className="mt-8 flex gap-8 border-t border-zinc-200 pt-6">
+						{stats.map((stat) => (
+							<div key={stat.label}>
+								<p className="text-2xl font-semibold tabular-nums">
+									<CountUp value={stat.value} />
+								</p>
+								<p className="mt-1 text-[0.65rem] uppercase tracking-[0.25em] text-zinc-500">
+									{stat.label}
+								</p>
+							</div>
+						))}
+					</div> */}
+				</Reveal>
 
-				<div className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10">
+				<Reveal
+					delay={120}
+					className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
+				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 						{t.home.featuredLabel}
 					</p>
@@ -58,37 +83,39 @@ export default function Home() {
 							{t.home.viewProject}
 						</Link>
 					</div>
-				</div>
+				</Reveal>
 			</section>
 
 			<section id="projects" className="mt-14">
-				<div className="flex items-end justify-between gap-4 border-b border-zinc-300 pb-4">
-					{/* <div>
-						<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
-							Selected work
-						</p>
-						<h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
-							Recent projects
-						</h2>
-					</div> */}
-					<Link
-						href="/projects"
-						className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-700 transition hover:text-black"
-					>
-						{t.home.viewProjects}
-					</Link>
-				</div>
+				<Reveal>
+					<div className="flex items-end justify-between gap-4 border-b border-zinc-300 pb-4">
+						<div>
+							<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+								{t.home.selectedWork}
+							</p>
+							<h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
+								{t.home.recentProjects}
+							</h2>
+						</div>
+						<Link
+							href="/projects"
+							className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-700 transition hover:text-black"
+						>
+							{t.home.viewProjects}
+						</Link>
+					</div>
 
-				<div className="mt-6">
-					<ProjectCarousel projects={projects} />
-				</div>
+					<div className="mt-6">
+						<ProjectCarousel projects={projects} />
+					</div>
+				</Reveal>
 			</section>
 
 			<section
 				id="about"
 				className="mt-14 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"
 			>
-				<div className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.aboutLabel}
 					</p>
@@ -98,9 +125,12 @@ export default function Home() {
 					<p className="mt-5 text-base leading-8 text-zinc-700">
 						{t.home.aboutText}
 					</p>
-				</div>
+				</Reveal>
 
-				<div className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10">
+				<Reveal
+					delay={120}
+					className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
+				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 						{t.home.contactLabel}
 					</p>
@@ -116,7 +146,7 @@ export default function Home() {
 					>
 						{t.home.getInTouch}
 					</Link>
-				</div>
+				</Reveal>
 			</section>
 		</>
 	);

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Reveal from "@/components/Reveal";
 
 export default function ProjectDetail({ project }: { project: Project }) {
 	const { t, locale } = useLanguage();
@@ -18,7 +19,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 				← {t.projectDetail.back}
 			</Link>
 
-			<header className="mt-6 border-b border-zinc-300 pb-8">
+			<Reveal as="header" className="mt-6 border-b border-zinc-300 pb-8">
 				<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 					{project.type}
 				</p>
@@ -41,9 +42,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						<dd className="mt-1 text-sm text-zinc-800">{project.area}</dd>
 					</div>
 				</dl>
-			</header>
+			</Reveal>
 
-			<div className="relative mt-8 h-72 overflow-hidden rounded-[2rem] sm:h-96">
+			<Reveal
+				delay={100}
+				className="relative mt-8 h-72 overflow-hidden rounded-[2rem] sm:h-96"
+			>
 				<Image
 					src={project.image}
 					alt={project.imageAlt}
@@ -52,17 +56,17 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					priority
 					className="object-cover"
 				/>
-			</div>
+			</Reveal>
 
-			<div className="mt-8 max-w-2xl space-y-4">
+			<Reveal delay={180} className="mt-8 max-w-2xl space-y-4">
 				{paragraphs.map((paragraph, index) => (
 					<p key={index} className="text-base leading-8 text-zinc-700">
 						{paragraph}
 					</p>
 				))}
-			</div>
+			</Reveal>
 
-			<section className="mt-14">
+			<Reveal delay={240} as="section" className="mt-14">
 				<h2 className="text-2xl font-semibold">
 					{t.projectDetail.galleryHeading}
 				</h2>
@@ -87,7 +91,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						</div>
 					))}
 				</div>
-			</section>
+			</Reveal>
 		</article>
 	);
 }

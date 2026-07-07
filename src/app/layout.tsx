@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+import { siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -15,10 +16,25 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+const title = "Catalin Carp Studio | Architecture Portfolio";
+const description =
+	"Architecture portfolio of Catalin Carp, student at the Politehnica University of Timișoara, Faculty of Architecture and Urban Planning.";
+
 export const metadata: Metadata = {
-	title: "Catalin Carp Studio | Architecture Portfolio",
-	description:
-		"Architecture portfolio of Catalin Carp, student at the Politehnica University of Timișoara, Faculty of Architecture and Urban Planning.",
+	metadataBase: new URL(siteUrl),
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+		siteName: "Catalin Carp Studio",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title,
+		description,
+	},
 };
 
 export default function RootLayout({

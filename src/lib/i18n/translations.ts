@@ -33,6 +33,9 @@ export type Dictionary = {
 		contactHeading: string;
 		contactText: string;
 		getInTouch: string;
+		statsProjects: string;
+		statsCategories: string;
+		statsLanguages: string;
 	};
 	projects: {
 		eyebrow: string;
@@ -113,6 +116,12 @@ export type Dictionary = {
 		errorInvalidEmail: string;
 		errorGeneric: string;
 	};
+	notFound: {
+		eyebrow: string;
+		heading: string;
+		message: string;
+		backHome: string;
+	};
 };
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -149,6 +158,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			contactText:
 				"We welcome commissions, collaborations, and conversations about future spaces.",
 			getInTouch: "Get in touch",
+			statsProjects: "Projects",
+			statsCategories: "Categories",
+			statsLanguages: "Languages",
 		},
 		projects: {
 			eyebrow: "Selected work",
@@ -239,6 +251,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorInvalidEmail: "Please enter a valid email address",
 			errorGeneric: "An unexpected error occurred.",
 		},
+		notFound: {
+			eyebrow: "404",
+			heading: "This page didn't make it past the concept stage.",
+			message:
+				"The page you're looking for doesn't exist — it may have been moved, renamed, or never built in the first place.",
+			backHome: "Back to home",
+		},
 	},
 	ro: {
 		nav: {
@@ -273,6 +292,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			contactText:
 				"Suntem deschiși la comisioane, colaborări și discuții despre spații viitoare.",
 			getInTouch: "Ia legătura",
+			statsProjects: "Proiecte",
+			statsCategories: "Categorii",
+			statsLanguages: "Limbi",
 		},
 		projects: {
 			eyebrow: "Lucrări selectate",
@@ -362,6 +384,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorRequired: "Te rugăm să completezi toate câmpurile obligatorii",
 			errorInvalidEmail: "Te rugăm să introduci o adresă de email validă",
 			errorGeneric: "A apărut o eroare neașteptată.",
+		},
+		notFound: {
+			eyebrow: "404",
+			heading: "Această pagină nu a trecut de faza de concept.",
+			message:
+				"Pagina pe care o cauți nu există — poate a fost mutată, redenumită sau pur și simplu nu a fost construită niciodată.",
+			backHome: "Înapoi la pagina principală",
 		},
 	},
 };

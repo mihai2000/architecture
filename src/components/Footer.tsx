@@ -34,7 +34,7 @@ export default function Footer() {
 					))}
 				</div>
 				<p className="text-center text-xs text-zinc-600">
-					&copy; {new Date().getFullYear()} Studio Name. {t.footer.rights}
+					&copy; {new Date().getFullYear()} Catalin Carp Studio. {t.footer.rights}
 				</p>
 			</div>
 		</footer>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { GraduationCapIcon, PersonIcon } from "@/components/icons/ProfileIcons";
+import Reveal from "@/components/Reveal";
 
 export default function AboutPage() {
 	const { t } = useLanguage();
@@ -10,7 +11,7 @@ export default function AboutPage() {
 	return (
 		<div>
 			<section className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-				<div>
+				<Reveal>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.about.eyebrow}
 					</p>
@@ -23,9 +24,9 @@ export default function AboutPage() {
 					<p className="mt-4 text-base leading-8 text-zinc-700">
 						{t.about.body}
 					</p>
-				</div>
+				</Reveal>
 
-				<div className="relative mx-auto w-full max-w-xs">
+				<Reveal delay={120} className="relative mx-auto w-full max-w-xs">
 					<div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-[2rem] border border-dashed border-zinc-300 bg-white/70 text-zinc-400">
 						<PersonIcon />
 						<p className="text-[0.65rem] uppercase tracking-[0.3em]">
@@ -35,11 +36,11 @@ export default function AboutPage() {
 					<div className="absolute -bottom-4 -right-4 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-zinc-900 text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]">
 						<GraduationCapIcon />
 					</div>
-				</div>
+				</Reveal>
 			</section>
 
 			<section className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-				<div className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.about.educationLabel}
 					</p>
@@ -52,9 +53,12 @@ export default function AboutPage() {
 					<p className="mt-5 text-base leading-8 text-zinc-700">
 						{t.about.educationText}
 					</p>
-				</div>
+				</Reveal>
 
-				<div className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10">
+				<Reveal
+					delay={120}
+					className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
+				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 						{t.about.focusLabel}
 					</p>
@@ -68,11 +72,11 @@ export default function AboutPage() {
 							</li>
 						))}
 					</ul>
-				</div>
+				</Reveal>
 			</section>
 
 			<section className="mt-14">
-				<div className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.about.approachLabel}
 					</p>
@@ -88,7 +92,7 @@ export default function AboutPage() {
 					>
 						{t.about.getInTouch}
 					</Link>
-				</div>
+				</Reveal>
 			</section>
 		</div>
 	);
