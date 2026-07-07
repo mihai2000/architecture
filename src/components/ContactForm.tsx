@@ -260,6 +260,7 @@
 
 import emailjs from "@emailjs/browser";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // Uncomment these if you want to save messages to Firestore later
 // import firebaseApp from "@/lib/firebase";
@@ -278,6 +279,7 @@ interface FormData {
 }
 
 export default function ContactForm() {
+	const { t } = useLanguage();
 	const [formData, setFormData] = useState<FormData>({
 		name: "",
 		email: "",
@@ -317,14 +319,14 @@ export default function ContactForm() {
 		try {
 			// Validate required fields
 			if (!formData.name || !formData.email || !formData.message) {
-				throw new Error("Please fill in all required fields");
+				throw new Error(t.contactForm.errorRequired);
 			}
 
 			// Validate email
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 			if (!emailRegex.test(formData.email)) {
-				throw new Error("Please enter a valid email address");
+				throw new Error(t.contactForm.errorInvalidEmail);
 			}
 
 			console.log("Form validation passed.");
@@ -378,7 +380,7 @@ export default function ContactForm() {
 			console.error("Contact form error:", err);
 
 			setError(
-				err instanceof Error ? err.message : "An unexpected error occurred.",
+				err instanceof Error ? err.message : t.contactForm.errorGeneric,
 			);
 		} finally {
 			setLoading(false);
@@ -390,7 +392,7 @@ export default function ContactForm() {
 			{/* Name */}
 			<div>
 				<label htmlFor="name" className="block text-sm font-medium mb-2">
-					Name <span className="text-red-500">*</span>
+					{t.contactForm.nameLabel} <span className="text-red-500">*</span>
 				</label>
 
 				<input
@@ -400,7 +402,7 @@ export default function ContactForm() {
 					value={formData.name}
 					onChange={handleChange}
 					disabled={loading}
-					placeholder="Your name"
+					placeholder={t.contactForm.namePlaceholder}
 					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
 				/>
 			</div>
@@ -408,7 +410,7 @@ export default function ContactForm() {
 			{/* Email */}
 			<div>
 				<label htmlFor="email" className="block text-sm font-medium mb-2">
-					Email <span className="text-red-500">*</span>
+					{t.contactForm.emailLabel} <span className="text-red-500">*</span>
 				</label>
 
 				<input
@@ -418,7 +420,7 @@ export default function ContactForm() {
 					value={formData.email}
 					onChange={handleChange}
 					disabled={loading}
-					placeholder="your@email.com"
+					placeholder={t.contactForm.emailPlaceholder}
 					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
 				/>
 			</div>
@@ -426,7 +428,7 @@ export default function ContactForm() {
 			{/* Subject */}
 			<div>
 				<label htmlFor="subject" className="block text-sm font-medium mb-2">
-					Subject
+					{t.contactForm.subjectLabel}
 				</label>
 
 				<input
@@ -436,7 +438,7 @@ export default function ContactForm() {
 					value={formData.subject}
 					onChange={handleChange}
 					disabled={loading}
-					placeholder="Project inquiry"
+					placeholder={t.contactForm.subjectPlaceholder}
 					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
 				/>
 			</div>
@@ -444,7 +446,7 @@ export default function ContactForm() {
 			{/* Message */}
 			<div>
 				<label htmlFor="message" className="block text-sm font-medium mb-2">
-					Message <span className="text-red-500">*</span>
+					{t.contactForm.messageLabel} <span className="text-red-500">*</span>
 				</label>
 
 				<textarea
@@ -454,7 +456,7 @@ export default function ContactForm() {
 					onChange={handleChange}
 					disabled={loading}
 					rows={6}
-					placeholder="Tell us about your project..."
+					placeholder={t.contactForm.messagePlaceholder}
 					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100 resize-none"
 				/>
 			</div>
@@ -469,7 +471,7 @@ export default function ContactForm() {
 			{/* Success */}
 			{success && (
 				<div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
-					Thank you for your message. We&apos;ll get back to you soon!
+					{t.contactForm.successMessage}
 				</div>
 			)}
 
@@ -479,11 +481,11 @@ export default function ContactForm() {
 				disabled={loading}
 				className="w-full px-6 py-3 bg-zinc-900 text-white font-medium rounded-lg transition hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
 			>
-				{loading ? "Sending..." : "Send Message"}
+				{loading ? t.contactForm.submitting : t.contactForm.submit}
 			</button>
 
 			<p className="text-xs text-zinc-600">
-				<span className="text-red-500">*</span> Required fields
+				<span className="text-red-500">*</span> {t.contactForm.requiredNote}
 			</p>
 		</form>
 	);
