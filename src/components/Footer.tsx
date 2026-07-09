@@ -8,9 +8,21 @@ import {
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const socialLinks = [
-	{ key: "facebook" as const, href: "https://www.facebook.com/catalin.carp.948", Icon: FacebookIcon },
-	{ key: "instagram" as const, href: "https://www.instagram.com/katalin_k_/", Icon: InstagramIcon },
-	{ key: "linkedin" as const, href: "https://www.linkedin.com/", Icon: LinkedinIcon },
+	{
+		key: "facebook" as const,
+		href: "https://www.facebook.com/catalin.carp.948",
+		Icon: FacebookIcon,
+	},
+	{
+		key: "instagram" as const,
+		href: "https://www.instagram.com/katalin_k_/",
+		Icon: InstagramIcon,
+	},
+	{
+		key: "linkedin" as const,
+		href: "https://www.linkedin.com/in/carp-catalin-443182329/",
+		Icon: LinkedinIcon,
+	},
 ];
 
 export default function Footer() {
@@ -34,7 +46,8 @@ export default function Footer() {
 					))}
 				</div>
 				<p className="text-center text-xs text-zinc-600">
-					&copy; {new Date().getFullYear()} Catalin Carp Studio. {t.footer.rights}
+					&copy; {new Date().getFullYear()} Catalin Carp Studio.{" "}
+					{t.footer.rights}
 				</p>
 			</div>
 		</footer>
