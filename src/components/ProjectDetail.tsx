@@ -73,9 +73,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
 			</Link>
 
 			<Reveal as="header" className="mt-6 border-b border-zinc-300 pb-8">
-				<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+				{/* <p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 					{project.type}
-				</p>
+				</p> */}
+				<Image
+					width={50}
+					height={50}
+					src={project.logo}
+					alt={project.imageAlt}
+				/>
 				<h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
 					{project.title}
 				</h1>
@@ -238,9 +244,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 										/>
 									</div>
 								)}
-								<span className="absolute left-3 top-3 rounded-full bg-zinc-900/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white">
+								{/* <span className="absolute left-3 top-3 rounded-full bg-zinc-900/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white">
 									{t.projectDetail.categories[item.category]}
-								</span>
+								</span> */}
 								{item.groupLabel && (
 									<span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[0.65rem] tracking-wide text-zinc-800">
 										{item.groupLabel[locale]}

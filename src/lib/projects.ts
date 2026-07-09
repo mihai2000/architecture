@@ -16,6 +16,7 @@ export type Project = {
 	slug: string;
 	title: string;
 	location: string;
+	logo: string;
 	type: string;
 	image: string;
 	imageAlt: string;
@@ -230,6 +231,7 @@ export const projects: Project[] = [
 		title: "Hostel",
 		location: "Timișoara, Romania",
 		type: "Hostel",
+		logo: "/projects/take-ionescu-hostel/logo/logo-hostel.png",
 		image: "/projects/take-ionescu-hostel/facade-piateta.jpg",
 		imageAlt:
 			"Elevated hostel volume on pilotis with a public plaza opening beneath it",
@@ -285,51 +287,6 @@ export const projects: Project[] = [
 				height: 745,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/plans/facade-take-ionescu.jpg",
-				alt: "Elevation drawing facing Take Ionescu Boulevard",
-				category: "plan",
-				groupKey: "facade-take-ionescu",
-				groupLabel: {
-					en: "Facade — Take Ionescu Blvd.",
-					ro: "Fațadă — Bd. Take Ionescu",
-				},
-				width: 1800,
-				height: 636,
-			},
-			{
-				url: "/projects/take-ionescu-hostel/plans/facade-nicu-filipescu.jpg",
-				alt: "Elevation drawing facing Nicu Filipescu Street",
-				category: "plan",
-				groupKey: "facade-nicu-filipescu",
-				groupLabel: {
-					en: "Facade — Nicu Filipescu St.",
-					ro: "Fațadă — Str. Nicu Filipescu",
-				},
-				width: 1800,
-				height: 637,
-			},
-			{
-				url: "/projects/take-ionescu-hostel/plans/facade-semenic.jpg",
-				alt: "Elevation drawing facing Semenic Street",
-				category: "plan",
-				groupKey: "facade-semenic",
-				groupLabel: { en: "Facade — Semenic St.", ro: "Fațadă — Str. Semenic" },
-				width: 1800,
-				height: 636,
-			},
-			{
-				url: "/projects/take-ionescu-hostel/plans/facade-courtyard.jpg",
-				alt: "Elevation drawing facing the interior courtyard",
-				category: "plan",
-				groupKey: "facade-courtyard",
-				groupLabel: {
-					en: "Facade — Courtyard",
-					ro: "Fațadă — Curte interioară",
-				},
-				width: 1800,
-				height: 637,
-			},
-			{
 				url: "/projects/take-ionescu-hostel/plans/plan-situatie.jpg",
 				alt: "Site plan showing the corner plot within the city block",
 				category: "plan",
@@ -337,6 +294,15 @@ export const projects: Project[] = [
 				groupLabel: { en: "Site Plan", ro: "Plan de Situație" },
 				width: 1800,
 				height: 1272,
+			},
+			{
+				url: "/projects/take-ionescu-hostel/plans/plan-parcare.jpg",
+				alt: "Basement parking plan",
+				category: "plan",
+				groupKey: "plan-parcare",
+				groupLabel: { en: "Parking Plan", ro: "Plan Parcare" },
+				width: 1800,
+				height: 637,
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-parter.jpg",
@@ -393,15 +359,6 @@ export const projects: Project[] = [
 				height: 636,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/plans/plan-parcare.jpg",
-				alt: "Basement parking plan",
-				category: "plan",
-				groupKey: "plan-parcare",
-				groupLabel: { en: "Parking Plan", ro: "Plan Parcare" },
-				width: 1800,
-				height: 637,
-			},
-			{
 				url: "/projects/take-ionescu-hostel/plans/sectiuni.jpg",
 				alt: "Building sections showing the shared interior spaces",
 				category: "plan",
@@ -409,6 +366,51 @@ export const projects: Project[] = [
 				groupLabel: { en: "Sections", ro: "Secțiuni" },
 				width: 1800,
 				height: 1272,
+			},
+			{
+				url: "/projects/take-ionescu-hostel/plans/facade-take-ionescu.jpg",
+				alt: "Elevation drawing facing Take Ionescu Boulevard",
+				category: "plan",
+				groupKey: "facade-take-ionescu",
+				groupLabel: {
+					en: "Facade — Take Ionescu Blvd.",
+					ro: "Fațadă — Bd. Take Ionescu",
+				},
+				width: 1800,
+				height: 636,
+			},
+			{
+				url: "/projects/take-ionescu-hostel/plans/facade-nicu-filipescu.jpg",
+				alt: "Elevation drawing facing Nicu Filipescu Street",
+				category: "plan",
+				groupKey: "facade-nicu-filipescu",
+				groupLabel: {
+					en: "Facade — Nicu Filipescu St.",
+					ro: "Fațadă — Str. Nicu Filipescu",
+				},
+				width: 1800,
+				height: 637,
+			},
+			{
+				url: "/projects/take-ionescu-hostel/plans/facade-semenic.jpg",
+				alt: "Elevation drawing facing Semenic Street",
+				category: "plan",
+				groupKey: "facade-semenic",
+				groupLabel: { en: "Facade — Semenic St.", ro: "Fațadă — Str. Semenic" },
+				width: 1800,
+				height: 636,
+			},
+			{
+				url: "/projects/take-ionescu-hostel/plans/facade-courtyard.jpg",
+				alt: "Elevation drawing facing the interior courtyard",
+				category: "plan",
+				groupKey: "facade-courtyard",
+				groupLabel: {
+					en: "Facade — Courtyard",
+					ro: "Fațadă — Curte interioară",
+				},
+				width: 1800,
+				height: 637,
 			},
 		],
 	},
