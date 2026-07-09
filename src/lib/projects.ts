@@ -227,7 +227,7 @@ export const projects: Project[] = [
 	// },
 	{
 		slug: "take-ionescu-hostel",
-		title: "Take Ionescu Hostel",
+		title: "Hostel",
 		location: "Timișoara, Romania",
 		type: "Hostel",
 		image: "/projects/take-ionescu-hostel/facade-piateta.jpg",
@@ -239,11 +239,11 @@ export const projects: Project[] = [
 		area: "Proiect de an III",
 		description: {
 			en: [
-				"Take Ionescu Hostel starts from a single premise: people are social beings, and a hostel — a form of dwelling defined by everything shared — can turn that idea into a lived experience. The site, where three circulation arteries meet at the end of a city block, suggested the answer: a public piațetă, freed from underneath the building, becomes the main generator of human interaction.",
+				"Hostel starts from a single premise: people are social beings, and a hostel — a form of dwelling defined by everything shared — can turn that idea into a lived experience. The site, where three circulation arteries meet at the end of a city block, suggested the answer: a public piațetă, freed from underneath the building, becomes the main generator of human interaction.",
 				"The accommodation volume is lifted on pilotis, releasing the entire ground floor to people — a plaza that can be rented out for cultural events, compensating for the street-level commercial space that is lost. Reduced to cores and slabs, the structure lets the floors above be reorganized easily as the hostel evolves over time.",
 			],
 			ro: [
-				"Take Ionescu Hostel pornește de la o singură premisă: oamenii sunt ființe sociale, iar un hostel — o formă de locuire definită de tot ce este comun — poate transforma această idee într-o experiență trăită. Amplasamentul, unde se întâlnesc trei artere de circulație la capătul unui cvartal, a sugerat răspunsul: o piațetă publică, eliberată de sub clădire, devine principalul generator de interacțiune umană.",
+				"Hostel pornește de la o singură premisă: oamenii sunt ființe sociale, iar un hostel — o formă de locuire definită de tot ce este comun — poate transforma această idee într-o experiență trăită. Amplasamentul, unde se întâlnesc trei artere de circulație la capătul unui cvartal, a sugerat răspunsul: o piațetă publică, eliberată de sub clădire, devine principalul generator de interacțiune umană.",
 				"Volumul de cazare este ridicat pe piloți, eliberând întregul parter pentru oameni — o piațetă ce poate fi închiriată pentru evenimente culturale, compensând astfel spațiile comerciale pierdute la stradă. Redusă la nuclee și planșee, structura permite reorganizarea facilă a etajelor pe măsură ce hostelul evoluează în timp.",
 			],
 		},
