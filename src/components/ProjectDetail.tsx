@@ -1,17 +1,70 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Project } from "@/lib/projects";
+import { GalleryCategory, Project } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Reveal from "@/components/Reveal";
+import Select from "@/components/ui/Select";
+
+const ALL_GROUPS = "all";
+const CATEGORY_ORDER: GalleryCategory[] = ["sketch", "plan", "photo"];
+const CATEGORY_DOT: Record<GalleryCategory, string> = {
+	sketch: "bg-zinc-400",
+	plan: "bg-amber-600",
+	photo: "bg-sky-500",
+};
 
 export default function ProjectDetail({ project }: { project: Project }) {
 	const { t, locale } = useLanguage();
 	const paragraphs = project.description[locale];
 
+	const categoryCounts = useMemo(() => {
+		const counts: Partial<Record<GalleryCategory, number>> = {};
+		for (const item of project.gallery) {
+			counts[item.category] = (counts[item.category] ?? 0) + 1;
+		}
+		return counts;
+	}, [project.gallery]);
+
+	const availableCategories = useMemo(
+		() => CATEGORY_ORDER.filter((cat) => (categoryCounts[cat] ?? 0) > 0),
+		[categoryCounts],
+	);
+
+	const [categoryFilter, setCategoryFilter] = useState<GalleryCategory>(() =>
+		availableCategories.includes("sketch") ? "sketch" : availableCategories[0],
+	);
+	const [groupFilter, setGroupFilter] = useState(ALL_GROUPS);
+
+	const selectCategory = (cat: GalleryCategory) => {
+		setCategoryFilter(cat);
+		setGroupFilter(ALL_GROUPS);
+	};
+
+	const categoryItems = useMemo(
+		() => project.gallery.filter((item) => item.category === categoryFilter),
+		[project.gallery, categoryFilter],
+	);
+
+	const groups = useMemo(() => {
+		const seen = new Map<string, string>();
+		for (const item of categoryItems) {
+			if (item.groupKey && item.groupLabel && !seen.has(item.groupKey)) {
+				seen.set(item.groupKey, item.groupLabel[locale]);
+			}
+		}
+		return Array.from(seen, ([value, label]) => ({ value, label }));
+	}, [categoryItems, locale]);
+
+	const filteredGallery = useMemo(() => {
+		if (groupFilter === ALL_GROUPS) return categoryItems;
+		return categoryItems.filter((item) => item.groupKey === groupFilter);
+	}, [categoryItems, groupFilter]);
+
 	return (
-		<article>
+		<article className="mx-auto">
 			<Link
 				href="/projects"
 				className="inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-zinc-600 transition hover:text-black"
@@ -44,21 +97,37 @@ export default function ProjectDetail({ project }: { project: Project }) {
 				</dl>
 			</Reveal>
 
-			<Reveal
-				delay={100}
-				className="relative mt-8 h-72 overflow-hidden rounded-[2rem] sm:h-96"
-			>
-				<Image
-					src={project.image}
-					alt={project.imageAlt}
-					fill
-					sizes="100vw"
-					priority
-					className="object-cover"
-				/>
+			<Reveal delay={100} className="mt-8">
+				{project.imageWidth && project.imageHeight ? (
+					<Image
+						src={project.image}
+						alt={project.imageAlt}
+						width={project.imageWidth}
+						height={project.imageHeight}
+						sizes="100vw"
+						loading="eager"
+						fetchPriority="high"
+						className="mx-auto block h-auto w-full max-w-5xl rounded-[2rem]"
+					/>
+				) : (
+					<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
+						<Image
+							src={project.image}
+							alt={project.imageAlt}
+							fill
+							sizes="100vw"
+							loading="eager"
+							fetchPriority="high"
+							className="object-cover"
+						/>
+					</div>
+				)}
 			</Reveal>
 
-			<Reveal delay={180} className="mt-8 max-w-2xl space-y-4">
+			<Reveal
+				delay={180}
+				className="mx-auto mt-8 grid max-w-6xl gap-8  lg:grid-cols-2"
+			>
 				{paragraphs.map((paragraph, index) => (
 					<p key={index} className="text-base leading-8 text-zinc-700">
 						{paragraph}
@@ -66,30 +135,120 @@ export default function ProjectDetail({ project }: { project: Project }) {
 				))}
 			</Reveal>
 
-			<Reveal delay={240} as="section" className="mt-14">
+			<Reveal delay={240} as="section" className="mx-auto mt-14 max-w-5.4xl">
 				<h2 className="text-2xl font-semibold">
 					{t.projectDetail.galleryHeading}
 				</h2>
-				<div className="mt-6 grid gap-4 sm:grid-cols-2">
-					{project.gallery.map((item, index) => (
-						<div
-							key={`${item.category}-${index}`}
-							className="relative overflow-hidden rounded-[1.5rem] border border-zinc-300"
-						>
-							<div className="relative h-56 w-full">
-								<Image
-									src={item.url}
-									alt={item.alt}
-									fill
-									sizes="(min-width: 640px) 50vw, 100vw"
-									className="object-cover"
+
+				{(availableCategories.length > 1 || groups.length > 1) && (
+					<div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+						{availableCategories.length > 1 ? (
+							<div className="flex flex-wrap gap-2">
+								{availableCategories.map((cat) => (
+									<button
+										key={cat}
+										type="button"
+										onClick={() => selectCategory(cat)}
+										aria-pressed={categoryFilter === cat}
+										className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs transition ${
+											categoryFilter === cat
+												? "border-zinc-900 bg-zinc-900 text-white"
+												: "border-zinc-300 text-zinc-700 hover:border-zinc-900 hover:text-zinc-900"
+										}`}
+									>
+										<span
+											className={`h-2 w-2 rounded-full ${CATEGORY_DOT[cat]}`}
+										/>
+										{categoryCounts[cat]}
+										<span className="uppercase tracking-[0.2em]">
+											{t.projectDetail.categories[cat]}
+										</span>
+									</button>
+								))}
+							</div>
+						) : (
+							<span />
+						)}
+
+						{groups.length > 1 && (
+							<div className="flex items-center gap-3">
+								<label
+									htmlFor="gallery-filter"
+									className="text-[0.65rem] uppercase tracking-[0.3em] text-zinc-500"
+								>
+									{t.projectDetail.filterLabel}
+								</label>
+								<Select
+									id="gallery-filter"
+									value={groupFilter}
+									onValueChange={setGroupFilter}
+									options={[
+										{ value: ALL_GROUPS, label: t.projectDetail.filterAll },
+										...groups,
+									]}
+									ariaLabel={t.projectDetail.filterLabel}
 								/>
 							</div>
-							<span className="absolute left-3 top-3 rounded-full bg-zinc-900/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white">
-								{t.projectDetail.categories[item.category]}
-							</span>
-						</div>
-					))}
+						)}
+					</div>
+				)}
+
+				<div
+					className={
+						categoryFilter === "sketch"
+							? "mt-6 flex flex-wrap justify-center gap-4"
+							: "mt-6 grid gap-4 sm:grid-cols-2"
+					}
+				>
+					{filteredGallery.map((item, index) => {
+						const isCappedSketch =
+							item.category === "sketch" && item.width && item.height;
+						return (
+							<div
+								key={`${item.groupKey ?? item.category}-${index}`}
+								className="relative overflow-hidden rounded-[1.5rem] border border-zinc-300"
+							>
+								{isCappedSketch ? (
+									<div className="relative h-56 w-[21rem] sm:h-72 sm:w-[27rem]">
+										<Image
+											src={item.url}
+											alt={item.alt}
+											fill
+											sizes="(min-width: 640px) 27rem, 21rem"
+											className="object-cover"
+										/>
+									</div>
+								) : item.width && item.height ? (
+									<Image
+										src={item.url}
+										alt={item.alt}
+										width={item.width}
+										height={item.height}
+										sizes="(min-width: 640px) 50vw, 100vw"
+										className="h-auto w-full"
+									/>
+								) : (
+									<div className="relative h-56 w-full">
+										<Image
+											src={item.url}
+											alt={item.alt}
+											fill
+											sizes="(min-width: 640px) 50vw, 100vw"
+											className="object-cover"
+										/>
+									</div>
+								)}
+								<span className="absolute left-3 top-3 rounded-full bg-zinc-900/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white">
+									{t.projectDetail.categories[item.category]}
+								</span>
+								{item.groupLabel && (
+									<span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[0.65rem] tracking-wide text-zinc-800">
+										{item.groupLabel[locale]}
+									</span>
+								)}
+							</div>
+						);
+					})}
 				</div>
 			</Reveal>
 		</article>

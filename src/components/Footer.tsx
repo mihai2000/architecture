@@ -8,8 +8,8 @@ import {
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const socialLinks = [
-	{ key: "facebook" as const, href: "https://www.facebook.com/", Icon: FacebookIcon },
-	{ key: "instagram" as const, href: "https://www.instagram.com/", Icon: InstagramIcon },
+	{ key: "facebook" as const, href: "https://www.facebook.com/catalin.carp.948", Icon: FacebookIcon },
+	{ key: "instagram" as const, href: "https://www.instagram.com/katalin_k_/", Icon: InstagramIcon },
 	{ key: "linkedin" as const, href: "https://www.linkedin.com/", Icon: LinkedinIcon },
 ];
 

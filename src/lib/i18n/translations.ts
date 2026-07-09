@@ -53,6 +53,8 @@ export type Dictionary = {
 			sketch: string;
 			plan: string;
 		};
+		filterLabel: string;
+		filterAll: string;
 	};
 	explorer: {
 		all: string;
@@ -173,6 +175,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			locationLabel: "Location",
 			typeLabel: "Type",
 			galleryHeading: "Gallery",
+			filterLabel: "Filter",
+			filterAll: "All",
 			categories: {
 				photo: "Photo",
 				sketch: "Sketch",
@@ -307,6 +311,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			locationLabel: "Locație",
 			typeLabel: "Tip",
 			galleryHeading: "Galerie",
+			filterLabel: "Filtrează",
+			filterAll: "Toate",
 			categories: {
 				photo: "Foto",
 				sketch: "Schiță",
