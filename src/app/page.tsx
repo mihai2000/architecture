@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 
-const SKILLS = ["AutoCAD", "Revit", "SketchUp", "Photoshop"];
+const SKILLS = ["Archicad", "Twinmotion", "SketchUp", "Photoshop"];
 
 export default function Home() {
 	const { t } = useLanguage();
