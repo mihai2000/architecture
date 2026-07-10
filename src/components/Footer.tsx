@@ -7,20 +7,24 @@ import {
 } from "@/components/icons/SocialIcons";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
+const fb = process.env.NEXT_PUBLIC_FACEBOOK;
+const ig = process.env.NEXT_PUBLIC_INSTAGRAM;
+const lin = process.env.NEXT_PUBLIC_LINKEDIN;
+
 const socialLinks = [
 	{
 		key: "facebook" as const,
-		href: "https://www.facebook.com/catalin.carp.948",
+		href: `https://www.facebook.com/${fb}`,
 		Icon: FacebookIcon,
 	},
 	{
 		key: "instagram" as const,
-		href: "https://www.instagram.com/katalin_k_/",
+		href: `https://www.instagram.com/${ig}`,
 		Icon: InstagramIcon,
 	},
 	{
 		key: "linkedin" as const,
-		href: "https://www.linkedin.com/in/carp-catalin-443182329/",
+		href: `https://www.linkedin.com/in/${lin}`,
 		Icon: LinkedinIcon,
 	},
 ];

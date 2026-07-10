@@ -2,76 +2,68 @@
 
 import ProjectCarousel from "@/components/ProjectCarousel";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
 import { projects } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { locales } from "@/lib/i18n/translations";
 import Image from "next/image";
 import Link from "next/link";
+
+const SKILLS = ["AutoCAD", "Revit", "SketchUp", "Photoshop"];
 
 export default function Home() {
 	const { t } = useLanguage();
 	const featuredProject =
-		projects.find((project) => project.slug === "event-house") ??
-		projects[0];
-	const categoryCount = new Set(projects.map((project) => project.type)).size;
-
-	const stats = [
-		{ value: projects.length, label: t.home.statsProjects },
-		{ value: categoryCount, label: t.home.statsCategories },
-		{ value: locales.length, label: t.home.statsLanguages },
-	];
+		projects.find((project) => project.slug === "event-house") ?? projects[0];
 
 	return (
 		<>
-			<section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-				<Reveal className="flex flex-col justify-between rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
-					<div>
-						<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
-							{t.home.eyebrow}
-						</p>
-						<h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[0.95] sm:text-5xl lg:text-6xl">
-							{t.home.heading}
-						</h1>
-					</div>
-					<p className="mt-8 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
+			<section className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
+				<Reveal className="max-w-200 rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+						{t.home.eyebrow}
+					</p>
+					<h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[0.95] sm:text-5xl lg:text-6xl">
+						{t.home.heading}
+					</h1>
+					<p className="mt-6 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
 						{t.home.lead}
 					</p>
-					{/* <div className="mt-8 flex gap-8 border-t border-zinc-200 pt-6">
-						{stats.map((stat) => (
-							<div key={stat.label}>
-								<p className="text-2xl font-semibold tabular-nums">
-									<CountUp value={stat.value} />
-								</p>
-								<p className="mt-1 text-[0.65rem] uppercase tracking-[0.25em] text-zinc-500">
-									{stat.label}
-								</p>
-							</div>
-						))}
-					</div> */}
 				</Reveal>
-
 				<Reveal
 					delay={120}
-					className="rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
+					className="max-w-200 rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
 				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 						{t.home.featuredLabel}
 					</p>
-					<div className="relative mt-6 h-56 overflow-hidden rounded-[1.5rem]">
-						<Image
-							src={featuredProject.image}
-							alt={featuredProject.imageAlt}
-							fill
-							sizes="(min-width: 1024px) 45vw, 100vw"
-							className="object-cover"
-						/>
+					<div className="mt-6 overflow-hidden rounded-[1.5rem]">
+						{featuredProject.imageWidth && featuredProject.imageHeight ? (
+							<Image
+								src={featuredProject.image}
+								alt={featuredProject.imageAlt}
+								width={featuredProject.imageWidth}
+								height={featuredProject.imageHeight}
+								sizes="(min-width: 1024px) 45vw, 100vw"
+								loading="eager"
+								fetchPriority="high"
+								className="h-auto w-full"
+							/>
+						) : (
+							<div className="relative h-56">
+								<Image
+									src={featuredProject.image}
+									alt={featuredProject.imageAlt}
+									fill
+									sizes="(min-width: 1024px) 45vw, 100vw"
+									loading="eager"
+									fetchPriority="high"
+									className="object-cover"
+								/>
+							</div>
+						)}
 					</div>
 					<div className="mt-6 flex items-end justify-between gap-4">
 						<div>
-							<p className="text-xl font-semibold">
-								{featuredProject.title}
-							</p>
+							<p className="text-xl font-semibold">{featuredProject.title}</p>
 							<p className="mt-1 text-sm text-zinc-400">
 								{featuredProject.location}
 							</p>
@@ -82,6 +74,25 @@ export default function Home() {
 						>
 							{t.home.viewProject}
 						</Link>
+					</div>
+				</Reveal>
+
+				<Reveal
+					delay={200}
+					className="flex flex-1 flex-col rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10"
+				>
+					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+						{t.home.skillsHeading}
+					</p>
+					<div className="mt-8 flex flex-1 flex-wrap content-center gap-2">
+						{SKILLS.map((skill) => (
+							<span
+								key={skill}
+								className="rounded-full border border-zinc-300 px-4 py-1.5 text-sm text-zinc-700"
+							>
+								{skill}
+							</span>
+						))}
 					</div>
 				</Reveal>
 			</section>

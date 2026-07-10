@@ -76,7 +76,7 @@ export default function ProjectCarousel({
 	return (
 		<div>
 			<div className="overflow-hidden" ref={emblaRef}>
-				<div className="-ml-4 flex">
+				<div className="-ml-4 flex py-3">
 					{projects.map((project) => (
 						<div
 							key={project.slug}

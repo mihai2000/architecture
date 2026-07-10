@@ -33,9 +33,7 @@ export type Dictionary = {
 		contactHeading: string;
 		contactText: string;
 		getInTouch: string;
-		statsProjects: string;
-		statsCategories: string;
-		statsLanguages: string;
+		skillsHeading: string;
 	};
 	projects: {
 		eyebrow: string;
@@ -55,6 +53,9 @@ export type Dictionary = {
 		};
 		filterLabel: string;
 		filterAll: string;
+		closeLightbox: string;
+		pdfCtaTitle: string;
+		pdfCtaSubtitle: string;
 	};
 	explorer: {
 		all: string;
@@ -145,7 +146,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		home: {
 			eyebrow: "Architecture / Interior / Urban",
 			heading: "Minimal spaces with powerful presence.",
-			lead: "We design calm, contemporary environments shaped by context, light, and materiality. The result is architecture that feels timeless, precise, and quietly bold.",
+			lead: "I'm an architecture student designing calm, contemporary spaces shaped by context, light, and materiality — work that stays timeless, precise, and quietly bold.",
 			featuredLabel: "Featured project",
 			viewProject: "View project",
 			selectedWork: "Selected work",
@@ -154,15 +155,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutLabel: "About",
 			aboutHeading: "Quietly rigorous, deeply human.",
 			aboutText:
-				"Our work ranges from private residences to cultural spaces and urban interventions. Every project is grounded in clarity, proportion, and a careful dialogue with its surroundings.",
+				"My projects range from student housing to urban interventions, developed throughout my architecture studies. Each one is grounded in clarity, proportion, and a careful dialogue with its surroundings.",
 			contactLabel: "Contact",
 			contactHeading: "Let's build something lasting.",
 			contactText:
-				"We welcome commissions, collaborations, and conversations about future spaces.",
+				"Open to feedback, collaborations, and conversations about architecture and future spaces.",
 			getInTouch: "Get in touch",
-			statsProjects: "Projects",
-			statsCategories: "Categories",
-			statsLanguages: "Languages",
+			skillsHeading: "Tools & software",
 		},
 		projects: {
 			eyebrow: "Selected work",
@@ -177,6 +176,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			galleryHeading: "Gallery",
 			filterLabel: "Filter",
 			filterAll: "All",
+			closeLightbox: "Close",
+			pdfCtaTitle: "Full project booklet",
+			pdfCtaSubtitle: "Open the complete PDF presentation",
 			categories: {
 				photo: "Photo",
 				sketch: "Sketch",
@@ -281,7 +283,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		home: {
 			eyebrow: "Arhitectură / Interior / Urban",
 			heading: "Spații minimale, cu o prezență puternică.",
-			lead: "Proiectăm medii calme și contemporane, modelate de context, lumină și materialitate. Rezultatul este o arhitectură care se simte atemporală, precisă și discret îndrăzneață.",
+			lead: "Sunt student la arhitectură și proiectez spații calme și contemporane, modelate de context, lumină și materialitate — lucrări care rămân atemporale, precise și discret îndrăznețe.",
 			featuredLabel: "Proiect recomandat",
 			viewProject: "Vezi proiectul",
 			selectedWork: "Lucrări selectate",
@@ -290,15 +292,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutLabel: "Despre",
 			aboutHeading: "Riguroși în liniște, profund umani.",
 			aboutText:
-				"Lucrările noastre variază de la locuințe private la spații culturale și intervenții urbane. Fiecare proiect pornește de la claritate, proporție și un dialog atent cu împrejurimile sale.",
+				"Proiectele mele variază de la locuințe pentru studenți la intervenții urbane, dezvoltate pe parcursul studiilor mele de arhitectură. Fiecare pornește de la claritate, proporție și un dialog atent cu împrejurimile sale.",
 			contactLabel: "Contact",
 			contactHeading: "Hai să construim ceva durabil.",
 			contactText:
-				"Suntem deschiși la comisioane, colaborări și discuții despre spații viitoare.",
+				"Sunt deschis la feedback, colaborări și discuții despre arhitectură și spații viitoare.",
 			getInTouch: "Ia legătura",
-			statsProjects: "Proiecte",
-			statsCategories: "Categorii",
-			statsLanguages: "Limbi",
+			skillsHeading: "Unelte și software",
 		},
 		projects: {
 			eyebrow: "Lucrări selectate",
@@ -313,6 +313,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			galleryHeading: "Galerie",
 			filterLabel: "Filtrează",
 			filterAll: "Toate",
+			closeLightbox: "Închide",
+			pdfCtaTitle: "Broșura completă a proiectului",
+			pdfCtaSubtitle: "Deschide prezentarea PDF completă",
 			categories: {
 				photo: "Foto",
 				sketch: "Schiță",
