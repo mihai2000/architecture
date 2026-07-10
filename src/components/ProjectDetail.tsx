@@ -99,6 +99,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						height={75}
 						src={project.logo}
 						alt={project.imageAlt}
+						className="h-[75px] w-[75px]"
 					/>
 					<h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-5xl">
 						{project.title}
