@@ -320,7 +320,49 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					})}
 				</div>
 			</Reveal>
+			{/* {lightboxItem && (
+				<div
+					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-10"
+					onClick={() => setLightboxItem(null)}
+				>
+					<button
+						type="button"
+						onClick={() => setLightboxItem(null)}
+						aria-label={t.projectDetail.closeLightbox}
+						className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl leading-none text-white transition hover:bg-white/20"
+					>
+						&times;
+					</button>
 
+					<div
+						className="relative inline-block overflow-hidden rounded-lg"
+						onClick={(e) => e.stopPropagation()}
+					>
+						{lightboxItem.width && lightboxItem.height ? (
+							<Image
+								src={lightboxItem.url}
+								alt={lightboxItem.alt}
+								width={1280}
+								height={905}
+								sizes="90vw"
+								className="block max-h-[85vh] max-w-full rounded-lg "
+							/>
+						) : (
+							// eslint-disable-next-line @next/next/no-img-element
+							<img
+								src={lightboxItem.url}
+								alt={lightboxItem.alt}
+								className="block max-h-[85vh] max-w-full rounded-lg object-contain"
+							/>
+						)}
+						{lightboxItem.groupLabel && (
+							<span className="absolute bottom-4 left-4 z-10 rounded-full border border-red-500 bg-white/90 px-3 py-1 text-[0.65rem] font-medium tracking-wide text-zinc-800 shadow-md">
+								{lightboxItem.groupLabel[locale]}
+							</span>
+						)}
+					</div>
+				</div>
+			)} */}
 			{lightboxItem && (
 				<div
 					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-10"
@@ -345,7 +387,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 								width={1280}
 								height={905}
 								sizes="90vw"
-								className="max-h-[85vh]  max-w-full rounded-lg object-contain"
+								className="max-h-[85vh]  max-w-full rounded-lg"
 							/>
 						) : (
 							// eslint-disable-next-line @next/next/no-img-element
@@ -356,7 +398,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							/>
 						)}
 						{lightboxItem.groupLabel && (
-							<span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[0.65rem] tracking-wide text-zinc-800">
+							<span className="absolute bottom-4 left-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[0.65rem] font-medium text-white backdrop-blur-sm">
 								{lightboxItem.groupLabel[locale]}
 							</span>
 						)}
