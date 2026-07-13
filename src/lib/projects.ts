@@ -52,7 +52,7 @@ const SHARED_GALLERY = [CONSTRUCTION_PHOTO, CONCEPT_SKETCH, FLOOR_PLAN];
 export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
-		title: "Hub Cultural",
+		title: "BIBILIOTECĂ-HUB CULTURAL „ EDUARD PAMFIL ”",
 		location: "Timișoara, Romania",
 		type: "Hub",
 		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
@@ -65,15 +65,15 @@ export const projects: Project[] = [
 		area: "Proiect de an III",
 		description: {
 			en: [
-				"Hostel starts from a single premise: people are social beings, and a hostel — a form of dwelling defined by everything shared — can turn that idea into a lived experience. The site, where three circulation arteries meet at the end of a city block, suggested the answer: a public piațetă, freed from underneath the building, becomes the main generator of human interaction.",
-				"The accommodation volume is lifted on pilotis, releasing the entire ground floor to people — a plaza that can be rented out for cultural events, compensating for the street-level commercial space that is lost. Reduced to cores and slabs, the structure lets the floors above be reorganized easily as the hostel evolves over time.",
+				"A human being is a universe in the making, without a fixed center, without a predetermined meaning. It is precisely this lack of permanence that sets them in motion: they seek direction and purpose, and through that search, they become.",
+				"The library is not merely a container for this search, but an interlocutor—a universe in its own right, with its own logic and density. When these two universes collide, neither remains unchanged: the individual is reshaped through the encounter, while the library finds its meaning through the one who moves through it.",
 			],
 			ro: [
-				"Hostel pornește de la o singură premisă: oamenii sunt ființe sociale, iar un hostel — o formă de locuire definită de tot ce este comun — poate transforma această idee într-o experiență trăită. Amplasamentul, unde se întâlnesc trei artere de circulație la capătul unui cvartal, a sugerat răspunsul: o piațetă publică, eliberată de sub clădire, devine principalul generator de interacțiune umană.",
-				"Volumul de cazare este ridicat pe piloți, eliberând întregul parter pentru oameni — o piațetă ce poate fi închiriată pentru evenimente culturale, compensând astfel spațiile comerciale pierdute la stradă. Redusă la nuclee și planșee, structura permite reorganizarea facilă a etajelor pe măsură ce hostelul evoluează în timp.",
+				"Omul e un Univers în deveniere, fără centru fix, fără sens prestabilit. Tocmai această lipsă de fixitate îl pune în mișcare: el caută direcția și sensul, iar în căutare devine",
+				"Biblioteca nu este un recipient al acestei căutări, ci un interlocutor — un univers de sine stătător, cu propria logică și propria densitate. Când cele două universuri intră în coliziune, niciunul nu rămâne intact: omul se reconfigurează prin întâlnire, biblioteca capătă sens prin cel care o traversează.",
 			],
 		},
-		pdfUrl: "/hostel-proiect.pdf",
+		pdfUrl: "/hub-cultural.pdf",
 		gallery: [
 			{
 				url: "/projects/hub-cultural/street-perspective.jpg",
