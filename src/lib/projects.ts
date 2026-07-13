@@ -52,10 +52,10 @@ const SHARED_GALLERY = [CONSTRUCTION_PHOTO, CONCEPT_SKETCH, FLOOR_PLAN];
 export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
-		title: "BIBILIOTECĂ-HUB CULTURAL „ EDUARD PAMFIL ”",
+		title: "BIBILIOTECĂ-HUB CULTURAL „EDUARD PAMFIL”",
 		location: "Timișoara, Romania",
 		type: "Hub",
-		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
+		logo: "/projects/hub-cultural/logo/library-icon.svg",
 		image: "/projects/hub-cultural/arrival-plaza.jpg",
 		imageAlt:
 			"Arrival plaza of the cultural hub with circular timber building on a rainy day",
@@ -209,7 +209,7 @@ export const projects: Project[] = [
 				height: 660,
 			},
 			{
-				url: "/projects/hub-cultural/plans/fatada-nord1.jpg",
+				url: "/projects/hub-cultural/plans/fatada-nord.jpg",
 				alt: "North facade architectural elevation of the cultural hub",
 				category: "plan",
 				groupKey: "fatada-nord",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
 				height: 660,
 			},
 			{
-				url: "/projects/hub-cultural/plans/fatada-popa-sapca1.jpg",
+				url: "/projects/hub-cultural/plans/fatada-popa-sapca.jpg",
 				alt: "Popa Șapcă street facade architectural elevation of the cultural hub",
 				category: "plan",
 				groupKey: "fatada-popa-sapca",
@@ -227,7 +227,7 @@ export const projects: Project[] = [
 				height: 660,
 			},
 			{
-				url: "/projects/hub-cultural/plans/fatada-strada-oituz1.jpg",
+				url: "/projects/hub-cultural/plans/fatada-strada-oituz.jpg",
 				alt: "Oituz Street facade architectural elevation of the cultural hub",
 				category: "plan",
 				groupKey: "fatada-strada-oituz",
