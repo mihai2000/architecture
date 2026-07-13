@@ -23,7 +23,7 @@ export type Project = {
 	imageWidth?: number;
 	imageHeight?: number;
 	year: number;
-	area: string;
+	area: Record<Locale, string>;
 	description: Record<Locale, string[]>;
 	pdfUrl?: string;
 	gallery: GalleryItem[];
@@ -62,7 +62,7 @@ export const projects: Project[] = [
 		imageWidth: 1280,
 		imageHeight: 773,
 		year: 2026,
-		area: "Proiect de an III",
+		area: { en: "Third-Year Project", ro: "Proiect de an III" },
 		description: {
 			en: [
 				"A human being is a universe in the making, without a fixed center, without a predetermined meaning. It is precisely this lack of permanence that sets them in motion: they seek direction and purpose, and through that search, they become.",
@@ -249,7 +249,7 @@ export const projects: Project[] = [
 		imageWidth: 1280,
 		imageHeight: 773,
 		year: 2026,
-		area: "Proiect de an III",
+		area: { en: "Third-Year Project", ro: "Proiect de an III" },
 		description: {
 			en: [
 				"Hostel starts from a single premise: people are social beings, and a hostel — a form of dwelling defined by everything shared — can turn that idea into a lived experience. The site, where three circulation arteries meet at the end of a city block, suggested the answer: a public piațetă, freed from underneath the building, becomes the main generator of human interaction.",

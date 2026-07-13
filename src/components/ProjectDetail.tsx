@@ -118,7 +118,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						<dt className="text-[0.65rem] uppercase tracking-[0.3em] text-zinc-500">
 							{t.projectDetail.areaLabel}
 						</dt>
-						<dd className="mt-1 text-sm text-zinc-800">{project.area}</dd>
+						<dd className="mt-1 text-sm text-zinc-800">
+							{project.area[locale]}
+						</dd>
 					</div>
 				</dl>
 			</Reveal>
