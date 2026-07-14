@@ -386,8 +386,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							<Image
 								src={lightboxItem.url}
 								alt={lightboxItem.alt}
-								width={1280}
-								height={905}
+								width={lightboxItem.width}
+								height={lightboxItem.height}
 								sizes="90vw"
 								className="max-h-[85vh]  max-w-full rounded-lg"
 							/>
