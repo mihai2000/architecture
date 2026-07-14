@@ -6,7 +6,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 	return (
 		<Link
 			href={`/projects/${project.slug}`}
-			className="group block rounded-[1.5rem] border border-zinc-300 bg-white/70 p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_35px_90px_-30px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30"
+			className="group flex h-full w-full flex-col rounded-[1.5rem] border border-zinc-300 bg-white/70 p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_35px_90px_-30px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30"
 		>
 			<div className="relative isolate overflow-hidden rounded-[1.25rem] bg-zinc-200">
 				{project.imageWidth && project.imageHeight ? (
@@ -34,9 +34,11 @@ export default function ProjectCard({ project }: { project: Project }) {
 					View project
 				</span>
 			</div>
-			<div className="mt-3 flex items-center justify-between gap-2">
-				<div>
-					<h3 className="text-xl font-semibold">{project.title}</h3>
+			<div className="mt-4 flex flex-1 items-end justify-between gap-3">
+				<div className="flex flex-col">
+					<h3 className="min-h-[3.5rem] text-xl font-semibold leading-tight line-clamp-2">
+						{project.title}
+					</h3>
 					<p className="mt-2 text-sm text-zinc-600">{project.location}</p>
 				</div>
 				<span className="text-lg text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
