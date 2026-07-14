@@ -56,7 +56,7 @@ export const projects: Project[] = [
 		location: "Timișoara, Romania",
 		type: "Hub",
 		logo: "/projects/hub-cultural/logo/library-icon.svg",
-		image: "/projects/hub-cultural/arrival-plaza.jpg",
+		image: "/projects/hub-cultural/renders/arrival-plaza.jpg",
 		imageAlt:
 			"Arrival plaza of the cultural hub with circular timber building on a rainy day",
 		imageWidth: 1280,
@@ -73,10 +73,10 @@ export const projects: Project[] = [
 				"Biblioteca nu este un recipient al acestei căutări, ci un interlocutor — un univers de sine stătător, cu propria logică și propria densitate. Când cele două universuri intră în coliziune, niciunul nu rămâne intact: omul se reconfigurează prin întâlnire, biblioteca capătă sens prin cel care o traversează.",
 			],
 		},
-		pdfUrl: "/hub-cultural.pdf",
+		pdfUrl: "/projects/hub-cultural/hub-cultural.pdf",
 		gallery: [
 			{
-				url: "/projects/hub-cultural/street-perspective.jpg",
+				url: "/projects/hub-cultural/renders/street-perspective.jpg",
 				alt: "Street-level perspective of the cultural hub highlighting the timber facade and surrounding urban streetscape",
 				category: "sketch",
 				groupKey: "renders",
@@ -85,7 +85,7 @@ export const projects: Project[] = [
 				height: 853,
 			},
 			{
-				url: "/projects/hub-cultural/urban-boulevard.jpg",
+				url: "/projects/hub-cultural/renders/urban-boulevard.jpg",
 				alt: "View of the cultural hub from the main urban boulevard with pedestrian-friendly public space",
 				category: "sketch",
 				groupKey: "renders",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
 				height: 905,
 			},
 			{
-				url: "/projects/hub-cultural/rooftop-terrace.jpg",
+				url: "/projects/hub-cultural/renders/rooftop-terrace.jpg",
 				alt: "Rooftop terrace with landscaped seating areas overlooking the city skyline",
 				category: "sketch",
 				groupKey: "renders",
@@ -103,7 +103,7 @@ export const projects: Project[] = [
 				height: 745,
 			},
 			{
-				url: "/projects/hub-cultural/library-interior.jpg",
+				url: "/projects/hub-cultural/renders/library-interior.jpg",
 				alt: "Library interior featuring exposed timber structure, bookshelves and collaborative reading spaces",
 				category: "sketch",
 				groupKey: "renders",
@@ -243,7 +243,7 @@ export const projects: Project[] = [
 		location: "Timișoara, Romania",
 		type: "Hostel",
 		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
-		image: "/projects/take-ionescu-hostel/facade-piateta.jpg",
+		image: "/projects/take-ionescu-hostel/renders/facade-piateta.jpg",
 		imageAlt:
 			"Elevated hostel volume on pilotis with a public plaza opening beneath it",
 		imageWidth: 1280,
@@ -260,10 +260,10 @@ export const projects: Project[] = [
 				"Volumul de cazare este ridicat pe piloți, eliberând întregul parter pentru oameni — o piațetă ce poate fi închiriată pentru evenimente culturale, compensând astfel spațiile comerciale pierdute la stradă. Redusă la nuclee și planșee, structura permite reorganizarea facilă a etajelor pe măsură ce hostelul evoluează în timp.",
 			],
 		},
-		pdfUrl: "/hostel-proiect.pdf",
+		pdfUrl: "/projects/take-ionescu-hostel/hostel-proiect.pdf",
 		gallery: [
 			{
-				url: "/projects/take-ionescu-hostel/ground-floor-plaza.jpg",
+				url: "/projects/take-ionescu-hostel/renders/ground-floor-plaza.jpg",
 				alt: "Covered ground-floor plaza beneath the elevated hostel volume",
 				category: "sketch",
 				groupKey: "renders",
@@ -272,7 +272,7 @@ export const projects: Project[] = [
 				height: 905,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/corner-view.jpg",
+				url: "/projects/take-ionescu-hostel/renders/corner-view.jpg",
 				alt: "Corner view of the hostel massing addressing the street",
 				category: "sketch",
 				groupKey: "renders",
@@ -281,7 +281,7 @@ export const projects: Project[] = [
 				height: 853,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/pedestrian-approach.jpg",
+				url: "/projects/take-ionescu-hostel/renders/pedestrian-approach.jpg",
 				alt: "Pedestrian approach toward the hostel entrance",
 				category: "sketch",
 				groupKey: "renders",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
 				height: 905,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/shared-workshop.png",
+				url: "/projects/take-ionescu-hostel/renders/shared-workshop.png",
 				alt: "Shared workshop space inside the hostel under an exposed concrete ceiling",
 				category: "sketch",
 				groupKey: "renders",
