@@ -55,6 +55,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 		};
 	}, [lightboxItem]);
 
+	const badgePosition =
+		lightboxItem?.category === "sketch" ? "bottom-5 left-5" : "top-5 left-5";
+
 	const selectCategory = (cat: GalleryCategory) => {
 		setCategoryFilter(cat);
 		setGroupFilter(ALL_GROUPS);
@@ -135,7 +138,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						sizes="100vw"
 						loading="eager"
 						fetchPriority="high"
-						className="mx-auto block h-auto w-full max-w-5xl rounded-[2rem]"
+						className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
 					/>
 				) : (
 					<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
@@ -259,6 +262,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					{filteredGallery.map((item, index) => {
 						const isCappedSketch =
 							item.category === "sketch" && item.width && item.height;
+
 						return (
 							<div
 								key={`${item.groupKey ?? item.category}-${index}`}
@@ -271,103 +275,63 @@ export default function ProjectDetail({ project }: { project: Project }) {
 										setLightboxItem(item);
 									}
 								}}
-								className="group relative isolate cursor-pointer overflow-hidden rounded-[1.5rem] border border-zinc-300 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_25px_70px_-25px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30"
+								className="group cursor-pointer"
 							>
-								{isCappedSketch ? (
-									<div className="relative h-56 w-[21rem] sm:h-72 sm:w-[27rem]">
+								<div className="relative isolate overflow-hidden rounded-[1.5rem] border border-zinc-300 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_25px_70px_-25px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30">
+									{isCappedSketch ? (
+										<div className="relative h-56 w-[21rem] sm:h-72 sm:w-[27rem]">
+											<Image
+												src={item.url}
+												alt={item.alt}
+												fill
+												sizes="(min-width: 640px) 27rem, 21rem"
+												className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+											/>
+										</div>
+									) : item.width && item.height ? (
 										<Image
 											src={item.url}
 											alt={item.alt}
-											fill
-											sizes="(min-width: 640px) 27rem, 21rem"
-											className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+											width={item.width}
+											height={item.height}
+											sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+											className="h-auto w-full transform-gpu rounded-[1.5rem] transition-transform duration-700 ease-out group-hover:scale-110"
 										/>
-									</div>
-								) : item.width && item.height ? (
-									<Image
-										src={item.url}
-										alt={item.alt}
-										width={item.width}
-										height={item.height}
-										sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-										className="h-auto w-full transform-gpu rounded-[1.5rem] transition-transform duration-700 ease-out group-hover:scale-110"
-									/>
-								) : (
-									<div className="relative h-56 w-full">
-										<Image
-											src={item.url}
-											alt={item.alt}
-											fill
-											sizes="(min-width: 640px) 50vw, 100vw"
-											className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-										/>
-									</div>
-								)}
-								<div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
-								<span className="pointer-events-none absolute inset-0 flex scale-90 items-center justify-center text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-									<span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-										<ExpandIcon />
+									) : (
+										<div className="relative h-56 w-full">
+											<Image
+												src={item.url}
+												alt={item.alt}
+												fill
+												sizes="(min-width: 640px) 50vw, 100vw"
+												className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+											/>
+										</div>
+									)}
+
+									<div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
+
+									<span className="pointer-events-none absolute inset-0 flex scale-90 items-center justify-center text-white opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+										<span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+											<ExpandIcon />
+										</span>
 									</span>
-								</span>
-								{/* <span className="absolute left-3 top-3 rounded-full bg-zinc-900/80 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white">
-									{t.projectDetail.categories[item.category]}
-								</span> */}
-								{item.groupLabel && (
-									<span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[0.65rem] tracking-wide text-zinc-800">
-										{item.groupLabel[locale]}
-									</span>
-								)}
+
+									{item.groupLabel && (
+										<span className="absolute bottom-3 left-3 z-10 rounded-full bg-white/85 px-3 py-1 text-[0.65rem] tracking-wide text-zinc-800 shadow-md">
+											{item.groupLabel[locale]}
+										</span>
+									)}
+								</div>
 							</div>
 						);
 					})}
 				</div>
 			</Reveal>
-			{/* {lightboxItem && (
-				<div
-					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-10"
-					onClick={() => setLightboxItem(null)}
-				>
-					<button
-						type="button"
-						onClick={() => setLightboxItem(null)}
-						aria-label={t.projectDetail.closeLightbox}
-						className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl leading-none text-white transition hover:bg-white/20"
-					>
-						&times;
-					</button>
 
-					<div
-						className="relative inline-block overflow-hidden rounded-lg"
-						onClick={(e) => e.stopPropagation()}
-					>
-						{lightboxItem.width && lightboxItem.height ? (
-							<Image
-								src={lightboxItem.url}
-								alt={lightboxItem.alt}
-								width={1280}
-								height={905}
-								sizes="90vw"
-								className="block max-h-[85vh] max-w-full rounded-lg "
-							/>
-						) : (
-							// eslint-disable-next-line @next/next/no-img-element
-							<img
-								src={lightboxItem.url}
-								alt={lightboxItem.alt}
-								className="block max-h-[85vh] max-w-full rounded-lg object-contain"
-							/>
-						)}
-						{lightboxItem.groupLabel && (
-							<span className="absolute bottom-4 left-4 z-10 rounded-full border border-red-500 bg-white/90 px-3 py-1 text-[0.65rem] font-medium tracking-wide text-zinc-800 shadow-md">
-								{lightboxItem.groupLabel[locale]}
-							</span>
-						)}
-					</div>
-				</div>
-			)} */}
 			{lightboxItem && (
 				<div
-					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 sm:p-10"
+					className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-6 lg:p-10"
 					onClick={() => setLightboxItem(null)}
 				>
 					<button
@@ -379,7 +343,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						&times;
 					</button>
 					<div
-						className="relative max-h-full max-w-full"
+						className="relative inline-block max-w-[90vw]"
 						onClick={(e) => e.stopPropagation()}
 					>
 						{lightboxItem.width && lightboxItem.height ? (
@@ -388,8 +352,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
 								alt={lightboxItem.alt}
 								width={lightboxItem.width}
 								height={lightboxItem.height}
-								sizes="90vw"
-								className="max-h-[85vh]  max-w-full rounded-lg"
+								sizes="(min-width: 1536px) 1300px, 90vw"
+								className="block h-auto max-h-[85vh] w-auto max-w-full rounded-lg"
 							/>
 						) : (
 							// eslint-disable-next-line @next/next/no-img-element
@@ -400,7 +364,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							/>
 						)}
 						{lightboxItem.groupLabel && (
-							<span className="absolute bottom-4 left-4 rounded-full border border-white/30 bg-black/60 px-3 py-1 text-[0.65rem] font-medium text-white backdrop-blur-sm">
+							<span
+								className={`absolute ${badgePosition} rounded-full border border-white/30 bg-black/70 px-4 py-1.5 text-[0.65rem] font-medium text-white backdrop-blur-sm`}
+							>
 								{lightboxItem.groupLabel[locale]}
 							</span>
 						)}
