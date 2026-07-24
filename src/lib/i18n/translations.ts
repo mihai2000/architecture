@@ -21,12 +21,21 @@ export type Dictionary = {
 		eyebrow: string;
 		heading: string;
 		lead: string;
+		subLead: string;
 		featuredLabel: string;
 		viewProject: string;
 		selectedWork: string;
 		recentProjects: string;
 		viewProjects: string;
 		aboutLabel: string;
+		languagesTitle: string;
+		language1: string;
+		language2: string;
+		language3: string;
+		interestsTitle: string;
+		interest1: string;
+		interest2: string;
+		interest3: string;
 		aboutHeading: string;
 		aboutText: string;
 		contactLabel: string;
@@ -146,13 +155,23 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		home: {
 			eyebrow: "Architecture / Interior / Urban",
 			heading: "Minimal spaces with powerful presence.",
-			lead: "I'm an architecture student designing calm, contemporary spaces shaped by context, light, and materiality — work that stays timeless, precise, and quietly bold.",
+			lead: "Architecture student at the Faculty of Architecture and Urban Planning in Timișoara, interested in architectural design, graphic representation, and the development of projects from concept to implementation.",
+			subLead:
+				"Eager to gain practical experience in a professional environment while developing my technical and creative skills.",
 			featuredLabel: "Featured project",
 			viewProject: "View project",
 			selectedWork: "Selected work",
 			recentProjects: "Recent projects",
 			viewProjects: "View Projects",
 			aboutLabel: "About",
+			languagesTitle: "Languages",
+			language1: "Romanian - Native",
+			language2: "Russian - Advanced",
+			language3: "English - A2 level",
+			interestsTitle: "Activities & Interests",
+			interest1: "Contemporary Architecture",
+			interest2: "Architectural Photography",
+			interest3: "Sketching & Drawing",
 			aboutHeading: "Quietly rigorous, deeply human.",
 			aboutText:
 				"My projects range from student housing to urban interventions, developed throughout my architecture studies. Each one is grounded in clarity, proportion, and a careful dialogue with its surroundings.",
@@ -283,13 +302,23 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		home: {
 			eyebrow: "Arhitectură / Interior / Urban",
 			heading: "Spații minimale, cu o prezență puternică.",
-			lead: "Sunt student la arhitectură și proiectez spații calme și contemporane, modelate de context, lumină și materialitate — lucrări care rămân atemporale, precise și discret îndrăznețe.",
+			lead: "Student la Facultatea de Arhitectură și Urbanism din Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și procesul de dezvoltare a proiectelor de la concept până la implementare.",
+			subLead:
+				"Dornic să acumulez experiență practică într- un mediu profesional și să îmi dezvolt competențele tehnice și creative.",
 			featuredLabel: "Proiect recomandat",
 			viewProject: "Vezi proiectul",
 			selectedWork: "Lucrări selectate",
 			recentProjects: "Proiecte recente",
 			viewProjects: "Vezi proiectele",
 			aboutLabel: "Despre",
+			languagesTitle: "Limbi străine",
+			language1: "Română - nativ",
+			language2: "Rusă - avansat",
+			language3: "Engleză - nivel A2",
+			interestsTitle: "Activități și interese",
+			interest1: "Arhitectură contemporană",
+			interest2: "Fotografie de arhitectură",
+			interest3: "Schiță și desen",
 			aboutHeading: "Riguroși în liniște, profund umani.",
 			aboutText:
 				"Proiectele mele variază de la locuințe pentru studenți la intervenții urbane, dezvoltate pe parcursul studiilor mele de arhitectură. Fiecare pornește de la claritate, proporție și un dialog atent cu împrejurimile sale.",

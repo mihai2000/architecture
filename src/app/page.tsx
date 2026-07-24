@@ -6,8 +6,10 @@ import { projects } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
+import { Building2, Camera, PencilLine } from "lucide-react";
+import { LanguageSkill } from "@/components/languageSkill/languageSkill";
 
-const SKILLS = ["Archicad", "Twinmotion", "SketchUp", "Photoshop"];
+const SKILLS = ["Archicad", "Twinmotion", "SketchUp", "Adobe Photoshop"];
 
 export default function Home() {
 	const { t } = useLanguage();
@@ -26,6 +28,9 @@ export default function Home() {
 					</h1>
 					<p className="mt-6 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
 						{t.home.lead}
+					</p>
+					<p className="mt-2 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
+						{t.home.subLead}
 					</p>
 				</Reveal>
 				<Reveal
@@ -126,7 +131,7 @@ export default function Home() {
 				id="about"
 				className="mt-14 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]"
 			>
-				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+				{/* <Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.aboutLabel}
 					</p>
@@ -136,6 +141,47 @@ export default function Home() {
 					<p className="mt-5 text-base leading-8 text-zinc-700">
 						{t.home.aboutText}
 					</p>
+				</Reveal> */}
+				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+						{t.home.aboutLabel}
+					</p>
+					<div className="mt-4 grid gap-8 md:grid-cols-2">
+						<div>
+							<h3 className="mb-3 text-md font-semibold uppercase tracking-[0.35em] text-zinc-600">
+								{t.home.languagesTitle}
+							</h3>
+
+							<div className="space-y-4">
+								<LanguageSkill label={`${t.home.language1}`} level={5} />
+								<LanguageSkill label={`${t.home.language2}`} level={4} />
+								<LanguageSkill label={`${t.home.language3}`} level={2} />
+							</div>
+						</div>
+
+						<div>
+							<h3 className="mb-3 text-md font-semibold uppercase tracking-[0.35em] text-zinc-600">
+								{t.home.interestsTitle}
+							</h3>
+
+							<div className="space-y-4">
+								<div className="flex items-center gap-4">
+									<Building2 className="h-6 w-6 text-zinc-600" />
+									<span>{t.home.interest1}</span>
+								</div>
+
+								<div className="flex items-center gap-4">
+									<Camera className="h-6 w-6 text-zinc-600" />
+									<span>{t.home.interest2}</span>
+								</div>
+
+								<div className="flex items-center gap-4">
+									<PencilLine className="h-6 w-6 text-zinc-600" />
+									<span>{t.home.interest3}</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</Reveal>
 
 				<Reveal
