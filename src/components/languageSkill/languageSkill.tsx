@@ -27,8 +27,8 @@ type LanguageSkillProps = {
 
 export function LanguageSkill({ label, level }: LanguageSkillProps) {
 	return (
-		<div className="flex items-center gap-6">
-			<span className="min-w-[180px]">{label}</span>
+		<div className="flex flex-col gap-2 xl:flex-row xl:items-center xl:gap-4">
+			<span className="leading-6">{label}</span>
 
 			<div className="flex gap-2">
 				{[1, 2, 3, 4, 5].map((dot) => (

@@ -30,15 +30,16 @@ export default function ProjectCard({ project }: { project: Project }) {
 					</div>
 				)}
 				<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-				<span className="pointer-events-none absolute bottom-4 left-4 translate-y-2 text-[0.65rem] uppercase tracking-[0.3em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+				<span className="pointer-events-none absolute bottom-4 left-4 hidden translate-y-2 text-[0.65rem] uppercase tracking-[0.3em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:block">
 					View project
 				</span>
 			</div>
 			<div className="mt-4 flex flex-1 items-end justify-between gap-3">
 				<div className="flex flex-col">
-					<h3 className="min-h-[3.5rem] text-xl font-semibold leading-tight line-clamp-2">
+					<h3 className="text-base font-semibold leading-snug line-clamp-2 sm:text-lg lg:text-xl">
 						{project.title}
 					</h3>
+
 					<p className="mt-2 text-sm text-zinc-600">{project.location}</p>
 				</div>
 				<span className="text-lg text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
