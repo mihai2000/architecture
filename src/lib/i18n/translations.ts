@@ -1,6 +1,10 @@
 export type Locale = "en" | "ro";
 
 export const locales: Locale[] = ["en", "ro"];
+type PhilosophyItem = {
+	title: string;
+	description: string;
+};
 
 export type Dictionary = {
 	nav: {
@@ -89,17 +93,51 @@ export type Dictionary = {
 		heading: string;
 		intro: string;
 		body: string;
+		badge1: string;
+		badge2: string;
+		badge3: string;
 		photoPlaceholder: string;
+		currentStatusLabel: string;
+		currentStatus: string;
 		educationLabel: string;
-		institution: string;
+		university: string;
 		faculty: string;
-		educationText: string;
-		focusLabel: string;
-		focusAreas: string[];
-		approachLabel: string;
-		approachHeading: string;
-		approachText: string;
-		getInTouch: string;
+		specialization: string;
+		universityPeriod: string;
+		universityDescription: string;
+		highSchool: string;
+		highSchoolProfile: string;
+		highSchoolPeriod: string;
+		academicFocusLabel: string;
+		academicFocus: string[];
+		primaryInterestLabel: string;
+
+		primaryInterest: string;
+		interestsLabel: string;
+		interestsHeading: string;
+		interests: string[];
+		interestsDescription: string;
+
+		currentInterestsLabel: string;
+		currentInterests: string;
+
+		philosophyLabel: string;
+
+		philosophyHeading: string;
+
+		philosophyItems: PhilosophyItem[];
+
+		goalsLabel: string;
+		goalLabel: string;
+		goal: string;
+
+		goalsHeading: string;
+
+		goals: string[];
+
+		cvTitle: string;
+
+		cvSubtitle: string;
 	};
 	contact: {
 		heading: string;
@@ -224,30 +262,111 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		about: {
 			eyebrow: "About",
-			heading: "An architecture student shaped by Timișoara's streets.",
+			heading: "Learning to turn ideas into thoughtful spaces.",
 			intro:
-				"I'm a student at the Politehnica University of Timișoara, Faculty of Architecture and Urban Planning, where I've spent the past several years learning to translate context, light, and material into space.",
-			body: "My work moves between academic studios and independent projects — from single-family houses to urban-scale interventions — always starting from the same question: how does a building belong to its site? Outside the studio, I'm drawn to the quieter side of architecture: proportion, restraint, the way a well-placed window changes a room. This portfolio brings together a selection of studio projects, competition entries, and personal studies produced throughout my studies.",
+				"I am a third-year Architecture student at the Faculty of Architecture and Urbanism, Politehnica University of Timișoara, with a strong interest in architectural design, visual representation, and developing projects from concept to implementation.",
+			body: "This portfolio brings together academic and personal work completed throughout my studies, reflecting my design process and my interest in residential, cultural, and urban architecture.",
+			badge1: "Architecture",
+			badge2: "Urban Design",
+			badge3: "Architectural Representation",
 			photoPlaceholder: "Portrait coming soon",
+			currentStatusLabel: "Current Status",
+			currentStatus: "3rd Year Architecture Student",
 			educationLabel: "Education",
-			institution: "Politehnica University of Timișoara",
-			faculty: "Faculty of Architecture and Urban Planning",
-			educationText:
-				"Coursework spanning architectural design studios, urban planning, structures, and the history and theory of architecture, with a growing focus on residential and cultural typologies.",
-			focusLabel: "Areas of focus",
-			focusAreas: [
-				"Residential",
-				"Urban",
-				"Interior",
-				"Cultural",
-				"Landscape",
-				"Competitions",
+			university: "Politehnica University of Timișoara",
+
+			faculty: "Faculty of Architecture and Urbanism",
+
+			specialization: "Bachelor's Degree in Architecture",
+
+			universityPeriod: "2023 — Present",
+
+			universityDescription:
+				"Academic training focused on architectural design, urban planning, building structures, architectural history and graphic representation, developing projects from concept to technical documentation.",
+
+			highSchool: "Petru Rareș Theoretical High School",
+
+			highSchoolProfile: "Science Profile",
+
+			highSchoolPeriod: "Graduated 2023",
+
+			academicFocusLabel: "Academic Focus",
+
+			academicFocus: [
+				"Architectural Design",
+				"Urban Design",
+				"Housing",
+				"Public Buildings",
+				"Graphic Representation",
+				"3D Modeling",
+				"Rendering",
+				"Technical Drawings",
 			],
-			approachLabel: "Approach",
-			approachHeading: "Clarity before complexity.",
-			approachText:
-				"I believe good architecture starts with restraint — understanding a site, a program, and a budget before reaching for a gesture. Every project here is an attempt to solve a problem simply, then push that simplicity until it feels inevitable.",
-			getInTouch: "Get in touch",
+			interestsLabel: "INTERESTS",
+
+			interestsHeading: "Areas of Interest",
+
+			interests: [
+				"Residential Architecture",
+				"Public Buildings",
+				"Cultural Spaces",
+				"Urban Design",
+				"Architectural Visualization",
+				"3D Modeling",
+			],
+
+			primaryInterestLabel: "AREA OF INTEREST",
+
+			primaryInterest: "Residential architecture and cultural projects",
+			interestsDescription:
+				"These areas reflect the direction in which I want to grow professionally, combining architectural design, visual representation, and a strong focus on user experience.",
+			currentInterestsLabel: "Current Interests",
+
+			currentInterests:
+				"My current interests include contemporary architecture, public buildings, and integrating visual representation throughout the architectural design process.",
+			philosophyLabel: "Approach",
+
+			philosophyHeading: "Design Principles",
+
+			philosophyItems: [
+				{
+					title: "Context before form",
+					description:
+						"Every project begins with understanding the site, its users, and the relationship between architecture and its surroundings.",
+				},
+				{
+					title: "Clarity before complexity",
+					description:
+						"I value clear and well-reasoned solutions over unnecessary formal complexity.",
+				},
+				{
+					title: "Function shapes space",
+					description:
+						"Spatial organization and user experience are the foundation of every design decision.",
+				},
+				{
+					title: "Attention to detail",
+					description:
+						"I believe materials, proportions, and representation are what transform a good project into a memorable one.",
+				},
+			],
+			goalsLabel: "Current Goals",
+			goalLabel: "Current Goal",
+			goal: "I am eager to gain professional experience and contribute to architectural projects through an internship at an architecture firm.",
+
+			goalsHeading: "What I'm working towards",
+
+			goals: [
+				"Architecture internship",
+				"Participating in architectural competitions",
+				"Improving BIM and Archicad workflows",
+				"Advancing rendering and visualization skills",
+				"Contributing to real-world architectural projects",
+			],
+
+			cvTitle: "Download Full CV",
+
+			cvSubtitle: "Education, skills and academic experience.",
 		},
 		contact: {
 			heading: "Get in Touch",
@@ -371,30 +490,112 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		about: {
 			eyebrow: "Despre",
-			heading: "Un student la arhitectură modelat de străzile Timișoarei.",
+			heading: "Învăț să transform ideile în spații bine gândite.",
 			intro:
-				"Sunt student la Universitatea Politehnica Timișoara, Facultatea de Arhitectură și Urbanism, unde am petrecut ultimii ani învățând să transform contextul, lumina și materialul în spațiu.",
-			body: "Proiectele mele se mișcă între atelierele de facultate și proiecte independente — de la locuințe unifamiliale până la intervenții la scară urbană — pornind mereu de la aceeași întrebare: cum aparține o clădire locului ei? În afara atelierului, mă atrage latura mai discretă a arhitecturii: proporția, reținerea, modul în care o fereastră bine plasată schimbă o cameră întreagă. Acest portofoliu adună o selecție de proiecte de atelier, concursuri de studenți și studii personale realizate pe parcursul facultății.",
+				"Sunt student la Facultatea de Arhitectură și Urbanism din cadrul Universității Politehnica Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și dezvoltarea proiectelor de la concept până la implementare.",
+			body: "Acest portofoliu reunește proiecte academice și personale dezvoltate pe parcursul studiilor, reflectând procesul meu de proiectare și interesul pentru arhitectura rezidențială, culturală și urbană.",
+
+			badge1: "Arhitectură",
+			badge2: "Urbanism",
+			badge3: "Reprezentare grafică",
 			photoPlaceholder: "Portret în curând",
+			currentStatusLabel: "Statut",
+			currentStatus: "Student anul III · Facultatea de Arhitectură și Urbanism",
 			educationLabel: "Educație",
-			institution: "Universitatea Politehnica Timișoara",
+			university: "Universitatea Politehnica Timișoara",
+
 			faculty: "Facultatea de Arhitectură și Urbanism",
-			educationText:
-				"Parcurs academic ce include ateliere de proiectare arhitecturală, urbanism, structuri, precum și istoria și teoria arhitecturii, cu un interes tot mai conturat pentru tipologiile rezidențiale și culturale.",
-			focusLabel: "Domenii de interes",
-			focusAreas: [
-				"Rezidențial",
-				"Urban",
-				"Interior",
-				"Cultural",
-				"Peisagistică",
-				"Concursuri",
+
+			specialization: "Specializarea Arhitectură",
+
+			universityPeriod: "2023 — prezent",
+
+			universityDescription:
+				"Parcurs academic axat pe proiectare arhitecturală, urbanism, structuri, istoria arhitecturii și reprezentare grafică, dezvoltând proiecte de la concept până la documentația tehnică.",
+
+			highSchool: "Liceul Teoretic „Petru Rareș”",
+
+			highSchoolProfile: "Profil Real",
+
+			highSchoolPeriod: "Absolvent 2023",
+
+			academicFocusLabel: "Direcții academice",
+
+			academicFocus: [
+				"Proiectare Arhitecturală",
+				"Urbanism",
+				"Locuințe",
+				"Clădiri Publice",
+				"Reprezentare Grafică",
+				"Modelare 3D",
+				"Randare",
+				"Planșe Tehnice",
 			],
-			approachLabel: "Abordare",
-			approachHeading: "Claritate înainte de complexitate.",
-			approachText:
-				"Cred că o arhitectură bună începe cu reținere — înțelegerea unui amplasament, a unei teme și a unui buget înainte de a recurge la un gest. Fiecare proiect de aici este o încercare de a rezolva o problemă simplu, apoi de a împinge acea simplitate până când pare inevitabilă.",
-			getInTouch: "Ia legătura",
+			interestsLabel: "INTERESE",
+			primaryInterestLabel: "SPECIALIZARE DE INTERES",
+
+			primaryInterest: "Arhitectură rezidențială și proiecte culturale",
+			interestsHeading: "Domenii care mă inspiră",
+
+			interests: [
+				"Arhitectură rezidențială",
+				"Clădiri publice",
+				"Spații culturale",
+				"Urbanism",
+				"Vizualizare arhitecturală",
+				"Modelare 3D",
+			],
+
+			interestsDescription:
+				"Aceste domenii reflectă direcția în care îmi doresc să mă dezvolt profesional, combinând proiectarea arhitecturală, reprezentarea vizuală și atenția pentru experiența utilizatorului.",
+			currentInterestsLabel: "Interese actuale",
+
+			currentInterests:
+				"Îmi dezvolt proiectele pornind de la context, funcționalitate și claritatea soluțiilor, folosind reprezentarea vizuală ca instrument de explorare și comunicare.",
+			philosophyLabel: "Abordare",
+
+			philosophyHeading: "Principii de proiectare",
+
+			philosophyItems: [
+				{
+					title: "Context înainte de formă",
+					description:
+						"Fiecare proiect începe prin înțelegerea locului, a oamenilor și a relației dintre arhitectură și mediul construit.",
+				},
+				{
+					title: "Claritate înainte de complexitate",
+					description:
+						"Prefer soluțiile simple, bine argumentate și coerente, înaintea gesturilor arhitecturale spectaculoase.",
+				},
+				{
+					title: "Funcția modelează spațiul",
+					description:
+						"Organizarea spațiului și experiența utilizatorului reprezintă baza fiecărui proiect.",
+				},
+				{
+					title: "Atenție la detalii",
+					description:
+						"Cred că materialele, proporțiile și reprezentarea sunt cele care transformă un proiect bun într-unul memorabil.",
+				},
+			],
+
+			goal: "Îmi doresc să acumulez experiență profesională și să contribui la proiecte de arhitectură printr-un internship într-un birou de profil.",
+			goalsLabel: "Obiective",
+			goalLabel: "Obiectiv",
+
+			goalsHeading: "În prezent îmi propun",
+
+			goals: [
+				"Obținerea unui internship într-un birou de arhitectură",
+				"Participarea la concursuri de arhitectură",
+				"Perfecționarea fluxurilor BIM și Archicad",
+				"Dezvoltarea abilităților de randare și reprezentare",
+				"Implicarea în proiecte reale",
+			],
+
+			cvTitle: "Descarcă CV-ul complet",
+
+			cvSubtitle: "Educație, competențe și experiență academică.",
 		},
 		contact: {
 			heading: "Ia legătura",

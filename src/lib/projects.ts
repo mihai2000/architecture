@@ -239,7 +239,7 @@ export const projects: Project[] = [
 	{
 		slug: "take-ionescu-hostel",
 		title: "HOSTEL",
-		location: "Timișoara, Romania",
+		location: "Timișoara, Romania 2026",
 		type: "Hostel",
 		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
 		image: "/projects/take-ionescu-hostel/renders/facade-piateta.jpg",
