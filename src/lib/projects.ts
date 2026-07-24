@@ -53,7 +53,7 @@ export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
 		title: "BIBILIOTECĂ-HUB CULTURAL „EDUARD PAMFIL”",
-		location: "Timișoara, Romania",
+		location: "Timișoara, Romania 2026",
 		type: "Hub",
 		logo: "/projects/hub-cultural/logo/library-icon.svg",
 		image: "/projects/hub-cultural/renders/arrival-plaza.jpg",

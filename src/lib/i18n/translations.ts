@@ -154,7 +154,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		home: {
 			eyebrow: "Architecture / Interior / Urban",
-			heading: "Minimal spaces with powerful presence.",
+			heading: "Functional, clear, and thoughtfully planned spaces.",
 			lead: "Architecture student at the Faculty of Architecture and Urban Planning in Timișoara, interested in architectural design, graphic representation, and the development of projects from concept to implementation.",
 			subLead:
 				"Eager to gain practical experience in a professional environment while developing my technical and creative skills.",
@@ -167,7 +167,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			languagesTitle: "Languages",
 			language1: "Romanian - Native",
 			language2: "Russian - Advanced",
-			language3: "English - A2 level",
+			language3: "English - (A2)",
 			interestsTitle: "Activities & Interests",
 			interest1: "Contemporary Architecture",
 			interest2: "Architectural Photography",
@@ -301,11 +301,11 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		home: {
 			eyebrow: "Arhitectură / Interior / Urban",
-			heading: "Spații minimale, cu o prezență puternică.",
+			heading: "Proiectez spații funcționale, clare și atent gândite.",
 			lead: "Student la Facultatea de Arhitectură și Urbanism din Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și procesul de dezvoltare a proiectelor de la concept până la implementare.",
 			subLead:
 				"Dornic să acumulez experiență practică într- un mediu profesional și să îmi dezvolt competențele tehnice și creative.",
-			featuredLabel: "Proiect recomandat",
+			featuredLabel: "Proiect reprezentativ",
 			viewProject: "Vezi proiectul",
 			selectedWork: "Lucrări selectate",
 			recentProjects: "Proiecte recente",
@@ -314,7 +314,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			languagesTitle: "Limbi străine",
 			language1: "Română - nativ",
 			language2: "Rusă - avansat",
-			language3: "Engleză - nivel A2",
+			language3: "Engleză - (A2)",
 			interestsTitle: "Activități și interese",
 			interest1: "Arhitectură contemporană",
 			interest2: "Fotografie de arhitectură",

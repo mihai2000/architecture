@@ -9,8 +9,15 @@ import Link from "next/link";
 import { Building2, Camera, PencilLine } from "lucide-react";
 import { LanguageSkill } from "@/components/languageSkill/languageSkill";
 
-const SKILLS = ["Archicad", "Twinmotion", "SketchUp", "Adobe Photoshop"];
-
+const SKILLS = [
+	{ label: "Archicad", level: 4 },
+	{ label: "Twinmotion", level: 3 },
+	{ label: "SketchUp", level: 4 },
+	{ label: "Adobe Photoshop", level: 4 },
+] satisfies {
+	label: string;
+	level: 1 | 2 | 3 | 4 | 5;
+}[];
 export default function Home() {
 	const { t } = useLanguage();
 	const featuredProject =
@@ -89,14 +96,33 @@ export default function Home() {
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.skillsHeading}
 					</p>
-					<div className="mt-8 flex flex-1 flex-wrap content-center gap-2">
+					{/* <div className="mt-8 flex flex-1 flex-wrap content-center gap-2">
 						{SKILLS.map((skill) => (
 							<span
 								key={skill}
 								className="rounded-full border border-zinc-300 px-4 py-1.5 text-sm text-zinc-700"
 							>
-								{skill}
+								<LanguageSkill label={skill} level={2} />
 							</span>
+						))}
+					</div> */}
+					{/* <div className="mt-8 flex flex-1 flex-wrap content-center gap-2">
+						{SKILLS.map((skill) => (
+							<span
+								key={skill.label}
+								className="rounded-full border border-zinc-300 px-4 py-2 text-sm text-zinc-700"
+							>
+								<LanguageSkill label={skill.label} level={skill.level} />
+							</span>
+						))}
+					</div> */}
+					<div className="mt-8 space-y-4">
+						{SKILLS.map((skill) => (
+							<LanguageSkill
+								key={skill.label}
+								label={skill.label}
+								level={skill.level}
+							/>
 						))}
 					</div>
 				</Reveal>
