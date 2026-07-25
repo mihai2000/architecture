@@ -4,12 +4,14 @@ import {
 	FacebookIcon,
 	InstagramIcon,
 	LinkedinIcon,
+	WhatsappIcon,
 } from "@/components/icons/SocialIcons";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const fb = process.env.NEXT_PUBLIC_FACEBOOK;
 const ig = process.env.NEXT_PUBLIC_INSTAGRAM;
 const lin = process.env.NEXT_PUBLIC_LINKEDIN;
+const wp = process.env.NEXT_PUBLIC_WHATSAPP;
 
 const socialLinks = [
 	{
@@ -26,6 +28,11 @@ const socialLinks = [
 		key: "linkedin" as const,
 		href: `https://www.linkedin.com/in/${lin}`,
 		Icon: LinkedinIcon,
+	},
+	{
+		key: "whatsapp" as const,
+		href: `https://wa.me/${wp}`,
+		Icon: WhatsappIcon,
 	},
 ];
 

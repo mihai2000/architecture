@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { GalleryCategory, GalleryItem, Project } from "@/lib/projects";
-import { useLanguage } from "@/lib/i18n/LanguageContext";
-import Reveal from "@/components/Reveal";
-import Select from "@/components/ui/Select";
 import { DocumentIcon } from "@/components/icons/DocumentIcon";
 import { ExpandIcon } from "@/components/icons/ExpandIcon";
+import Reveal from "@/components/Reveal";
+import Select from "@/components/ui/Select";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { GalleryCategory, GalleryItem, Project } from "@/lib/projects";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
 const ALL_GROUPS = "all";
 const CATEGORY_ORDER: GalleryCategory[] = ["sketch", "plan", "photo"];
@@ -188,7 +188,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							</div>
 						</div>
 						<span className="text-lg text-zinc-500 transition group-hover:translate-x-1">
-							→
+							↗
 						</span>
 					</a>
 				</Reveal>

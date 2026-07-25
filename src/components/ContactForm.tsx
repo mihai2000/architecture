@@ -31,7 +31,7 @@ export default function ContactForm() {
 	}, []);
 
 	const handleChange = (
-		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
 	) => {
 		const { name, value } = e.target;
 
@@ -49,7 +49,12 @@ export default function ContactForm() {
 		setSuccess(false);
 
 		try {
-			if (!formData.name || !formData.email || !formData.message) {
+			if (
+				!formData.name ||
+				!formData.email ||
+				!formData.subject ||
+				!formData.message
+			) {
 				throw new Error(t.contactForm.errorRequired);
 			}
 
@@ -85,9 +90,7 @@ export default function ContactForm() {
 		} catch (err) {
 			console.error("Contact form error:", err);
 
-			setError(
-				err instanceof Error ? err.message : t.contactForm.errorGeneric,
-			);
+			setError(err instanceof Error ? err.message : t.contactForm.errorGeneric);
 		} finally {
 			setLoading(false);
 		}
@@ -132,23 +135,38 @@ export default function ContactForm() {
 			</div>
 
 			{/* Subject */}
-			<div>
-				<label htmlFor="subject" className="block text-sm font-medium mb-2">
-					{t.contactForm.subjectLabel}
+
+			<div className="space-y-2">
+				<label
+					htmlFor="subject"
+					className="text-[0.7rem] font-medium uppercase tracking-[0.2em]"
+				>
+					{t.contact.subjectLabel}
 				</label>
 
-				<input
-					type="text"
+				<select
 					id="subject"
 					name="subject"
 					value={formData.subject}
 					onChange={handleChange}
 					disabled={loading}
-					placeholder={t.contactForm.subjectPlaceholder}
-					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
-				/>
-			</div>
+					className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-700 outline-none transition focus:border-zinc-900 disabled:opacity-50 disabled:bg-zinc-100"
+				>
+					<option value="" disabled>
+						{t.contact.subjectPlaceholder}
+					</option>
 
+					<option value="internship">{t.contact.subjectInternship}</option>
+
+					<option value="collaboration">
+						{t.contact.subjectCollaboration}
+					</option>
+
+					<option value="competition">{t.contact.subjectCompetition}</option>
+
+					<option value="general">{t.contact.subjectGeneral}</option>
+				</select>
+			</div>
 			{/* Message */}
 			<div>
 				<label htmlFor="message" className="block text-sm font-medium mb-2">

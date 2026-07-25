@@ -19,6 +19,7 @@ export type Dictionary = {
 			facebook: string;
 			instagram: string;
 			linkedin: string;
+			whatsapp: string;
 		};
 	};
 	home: {
@@ -146,8 +147,16 @@ export type Dictionary = {
 		phoneLabel: string;
 		locationLabel: string;
 		locationValue: string[];
-		hoursLabel: string;
-		hoursValue: string[];
+		subjectLabel: string;
+		subjectPlaceholder: string;
+		subjectInternship: string;
+		subjectCollaboration: string;
+		subjectCompetition: string;
+		subjectGeneral: string;
+		availableHeading: string;
+		availableLabel: string;
+		availableItems: string[];
+		responseNote: string;
 	};
 	contactForm: {
 		nameLabel: string;
@@ -188,6 +197,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				facebook: "Facebook",
 				instagram: "Instagram",
 				linkedin: "LinkedIn",
+				whatsapp: "Whatsapp",
 			},
 		},
 		home: {
@@ -213,7 +223,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutHeading: "Quietly rigorous, deeply human.",
 			aboutText:
 				"My projects range from student housing to urban interventions, developed throughout my architecture studies. Each one is grounded in clarity, proportion, and a careful dialogue with its surroundings.",
-			contactLabel: "Contact",
+			contactLabel: "Let's connect",
 			contactHeading: "Let's build something lasting.",
 			contactText:
 				"Open to feedback, collaborations, and conversations about architecture and future spaces.",
@@ -369,14 +379,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			cvSubtitle: "Education, skills and academic experience.",
 		},
 		contact: {
-			heading: "Get in Touch",
-			lead: "We'd love to hear about your next project. Send us a message and we'll respond as soon as possible.",
+			heading: "Let's create meaningful spaces together.",
+			lead: "If you have a question, a collaboration proposal, or would like to discuss a project, feel free to send me a message. I'll get back to you as soon as possible..",
 			emailLabel: "Email",
-			phoneLabel: "Phone",
+			phoneLabel: "Whatsapp",
 			locationLabel: "Location",
 			locationValue: ["Timișoara", "Romania"],
-			hoursLabel: "Hours",
-			hoursValue: ["Mon - Fri: 9:00 - 18:00", "Closed on weekends"],
+
+			subjectLabel: "Subject",
+
+			subjectPlaceholder: "Select a subject",
+
+			subjectInternship: "Internship Opportunity",
+
+			subjectCollaboration: "Collaboration Proposal",
+
+			subjectCompetition: "Architecture Competition",
+
+			subjectGeneral: "General Inquiry",
+			availableLabel: "AVAILABLE",
+
+			availableHeading: "I'm currently available for",
+
+			availableItems: [
+				"Internships",
+				"Collaborations",
+				"Architecture Competitions",
+			],
+			responseNote: "I usually reply to all messages within 24–48 hours.",
 		},
 		contactForm: {
 			nameLabel: "Name",
@@ -386,7 +416,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			subjectLabel: "Subject",
 			subjectPlaceholder: "Project inquiry",
 			messageLabel: "Message",
-			messagePlaceholder: "Tell us about your project...",
+			messagePlaceholder: "Tell me a bit about your inquiry...",
 			requiredNote: "Required fields",
 			submit: "Send Message",
 			submitting: "Sending...",
@@ -416,6 +446,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				facebook: "Facebook",
 				instagram: "Instagram",
 				linkedin: "LinkedIn",
+				whatsapp: "Whatsapp",
 			},
 		},
 		home: {
@@ -598,14 +629,30 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			cvSubtitle: "Educație, competențe și experiență academică.",
 		},
 		contact: {
-			heading: "Ia legătura",
-			lead: "Ne-ar plăcea să aflăm despre proiectul tău. Trimite-ne un mesaj și îți vom răspunde cât mai curând posibil.",
+			heading: "Hai să discutăm despre următorul proiect.",
+			lead: "Dacă ai o întrebare, o propunere de colaborare sau dorești să discutăm despre un proiect, trimite-mi un mesaj și îți voi răspunde cât mai curând.",
 			emailLabel: "Email",
-			phoneLabel: "Telefon",
+			phoneLabel: "Whatsapp",
 			locationLabel: "Locație",
 			locationValue: ["Timișoara", "România"],
-			hoursLabel: "Program",
-			hoursValue: ["Luni - Vineri: 9:00 - 18:00", "Închis în weekend"],
+			subjectLabel: "Subiect",
+
+			subjectPlaceholder: "Selectează un subiect",
+
+			subjectInternship: "Oportunitate de internship",
+
+			subjectCollaboration: "Propunere de colaborare",
+
+			subjectCompetition: "Concurs de arhitectură",
+
+			subjectGeneral: "Întrebare generală",
+			availableLabel: "DISPONIBIL",
+
+			availableHeading: "În prezent sunt disponibil pentru",
+
+			availableItems: ["Internship", "Colaborări", "Concursuri de arhitectură"],
+			responseNote:
+				"Încerc să răspund tuturor mesajelor în maximum 24-48 de ore.",
 		},
 		contactForm: {
 			nameLabel: "Nume",
@@ -615,9 +662,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			subjectLabel: "Subiect",
 			subjectPlaceholder: "Solicitare proiect",
 			messageLabel: "Mesaj",
-			messagePlaceholder: "Spune-ne despre proiectul tău...",
+			messagePlaceholder:
+				"Scrie câteva detalii despre motivul pentru care mă contactezi...",
 			requiredNote: "Câmpuri obligatorii",
-			submit: "Trimite mesajul",
+			submit: "Trimite solicitarea",
 			submitting: "Se trimite...",
 			successMessage: "Îți mulțumim pentru mesaj. Îți vom răspunde în curând!",
 			errorRequired: "Te rugăm să completezi toate câmpurile obligatorii",

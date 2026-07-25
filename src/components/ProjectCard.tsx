@@ -1,6 +1,6 @@
+import { Project } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
-import { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
 	return (
@@ -43,7 +43,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 					<p className="mt-2 text-sm text-zinc-600">{project.location}</p>
 				</div>
 				<span className="text-lg text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-					→
+					↗
 				</span>
 			</div>
 		</Link>
