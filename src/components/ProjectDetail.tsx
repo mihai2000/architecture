@@ -5,7 +5,12 @@ import { ExpandIcon } from "@/components/icons/ExpandIcon";
 import Reveal from "@/components/Reveal";
 import Select from "@/components/ui/Select";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { GalleryCategory, GalleryItem, Project } from "@/lib/projects";
+import {
+	GalleryCategory,
+	GalleryItem,
+	Project,
+	projects,
+} from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -19,6 +24,12 @@ const CATEGORY_DOT: Record<GalleryCategory, string> = {
 };
 
 export default function ProjectDetail({ project }: { project: Project }) {
+	const currentIndex = projects.findIndex((p) => p.slug === project.slug);
+
+	const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+
+	const nextProject =
+		currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 	const { t, locale } = useLanguage();
 	const paragraphs = project.description[locale];
 
@@ -91,12 +102,49 @@ export default function ProjectDetail({ project }: { project: Project }) {
 			>
 				← {t.projectDetail.back}
 			</Link>
+			<Reveal as="header" className="mt-10 border-b border-zinc-300 pb-10">
+				<div className="grid gap-10 lg:grid-cols-[240px_1fr] lg:items-center">
+					{/* Left */}
+					<div>
+						<Image
+							width={75}
+							height={75}
+							src={project.logo}
+							alt={project.imageAlt}
+							className="h-[75px] w-[75px]"
+						/>
 
-			<Reveal as="header" className="mt-6 border-b border-zinc-300 pb-8">
-				{/* <p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
-					{project.type}
-				</p> */}
-				<div className="d-flex flex gap-2">
+						<p className="mt-4 text-base text-zinc-600">{project.location}</p>
+
+						<dl className="mt-8 flex gap-x-10">
+							<div>
+								<dt className="text-[0.65rem] uppercase tracking-[0.3em] text-zinc-500">
+									{t.projectDetail.yearLabel}
+								</dt>
+								<dd className="mt-1 text-sm font-medium">{project.year}</dd>
+							</div>
+
+							<div>
+								<dt className="text-[0.65rem] uppercase tracking-[0.3em] text-zinc-500">
+									{t.projectDetail.areaLabel}
+								</dt>
+								<dd className="mt-1 text-sm font-medium">
+									{project.area[locale]}
+								</dd>
+							</div>
+						</dl>
+					</div>
+
+					{/* Center */}
+					<div className="flex justify-center">
+						<h1 className="max-w-5xl text-center text-3xl font-semibold leading-tight sm:text-5xl">
+							{project.title}
+						</h1>
+					</div>
+				</div>
+			</Reveal>
+			{/* <Reveal as="header" className="mt-10 border-b border-zinc-300 pb-8">
+				<div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
 					<Image
 						width={75}
 						height={75}
@@ -126,7 +174,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						</dd>
 					</div>
 				</dl>
-			</Reveal>
+			</Reveal> */}
 
 			<Reveal delay={100} className="mt-8">
 				{project.imageWidth && project.imageHeight ? (
@@ -138,7 +186,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						sizes="100vw"
 						loading="eager"
 						fetchPriority="high"
-						className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
+						// className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
+						className="mx-auto block h-auto w-full max-w-7xl rounded-[2rem]"
 					/>
 				) : (
 					<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
@@ -154,17 +203,25 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					</div>
 				)}
 			</Reveal>
+			<div className="mx-auto max-w-6xl">
+				<p className=" mt-4 text-[0.7rem] uppercase tracking-[0.35em] text-zinc-500">
+					CONCEPT
+				</p>
 
-			<Reveal
-				delay={180}
-				className="mx-auto mt-8 grid max-w-6xl gap-8  lg:grid-cols-2"
-			>
-				{paragraphs.map((paragraph, index) => (
-					<p key={index} className="text-base leading-8 text-zinc-700">
-						{paragraph}
-					</p>
-				))}
-			</Reveal>
+				{/* <h2 className="mt-2 text-3xl font-semibold">
+					{t.projectDetail.conceptHeading}
+				</h2> */}
+				<Reveal
+					delay={180}
+					className="mx-auto mt-8 grid max-w-6xl gap-8  lg:grid-cols-2"
+				>
+					{paragraphs.map((paragraph, index) => (
+						<p key={index} className="text-base leading-8 text-zinc-700">
+							{paragraph}
+						</p>
+					))}
+				</Reveal>
+			</div>
 
 			{project.pdfUrl && (
 				<Reveal delay={210} className="mx-auto mt-8 max-w-6xl">
@@ -172,7 +229,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						href={project.pdfUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group flex items-center justify-between gap-4 rounded-[1.5rem] border border-zinc-300 px-6 py-5 transition hover:border-zinc-900"
+						// className="group flex items-center justify-between gap-4 rounded-[1.5rem] border border-zinc-300 px-6 py-5 transition hover:border-zinc-900"
+						className="group flex items-center justify-between gap-4 rounded-[1.5rem] border border-zinc-300 px-6 py-5 transition transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:shadow-xl group-hover:translate-x-1"
 					>
 						<div className="flex items-center gap-4">
 							<span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-white">
@@ -195,12 +253,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
 			)}
 
 			<Reveal delay={240} as="section" className="mx-auto mt-14">
-				<h2 className="text-2xl font-semibold">
+				<h2 className="uppercase tracking-[0.35em] text-2xl font-semibold">
 					{t.projectDetail.galleryHeading}
 				</h2>
 
 				{(availableCategories.length > 1 || groups.length > 1) && (
-					<div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+					<div className=" mt-4 flex flex-wrap items-center justify-between gap-3">
 						{availableCategories.length > 1 ? (
 							<div className="flex flex-wrap gap-2">
 								{availableCategories.map((cat) => (
@@ -209,7 +267,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 										type="button"
 										onClick={() => selectCategory(cat)}
 										aria-pressed={categoryFilter === cat}
-										className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs transition ${
+										className={`uppercase tracking-[0.35em] inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs transition ${
 											categoryFilter === cat
 												? "border-zinc-900 bg-zinc-900 text-white"
 												: "border-zinc-300 text-zinc-700 hover:border-zinc-900 hover:text-zinc-900"
@@ -255,8 +313,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
 				<div
 					className={
 						categoryFilter === "sketch"
-							? "mt-6 flex flex-wrap justify-center gap-4"
-							: "mt-6 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3"
+							? "mt-10 flex flex-wrap justify-center gap-4"
+							: "mt-10 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3"
 					}
 				>
 					{filteredGallery.map((item, index) => {
@@ -277,7 +335,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 								}}
 								className="group cursor-pointer"
 							>
-								<div className="relative isolate overflow-hidden rounded-[1.5rem] border border-zinc-300 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_25px_70px_-25px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30">
+								<div className=" uppercase tracking-[0.35em] relative isolate overflow-hidden rounded-[2rem] border border-zinc-300 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_25px_70px_-25px_rgba(0,0,0,0.3)] hover:ring-1 hover:ring-inset hover:ring-amber-600/30">
 									{isCappedSketch ? (
 										<div className="relative h-56 w-[21rem] sm:h-72 sm:w-[27rem]">
 											<Image
@@ -285,7 +343,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 												alt={item.alt}
 												fill
 												sizes="(min-width: 640px) 27rem, 21rem"
-												className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+												className="transform-gpu rounded-[2rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
 											/>
 										</div>
 									) : item.width && item.height ? (
@@ -295,7 +353,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 											width={item.width}
 											height={item.height}
 											sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-											className="h-auto w-full transform-gpu rounded-[1.5rem] transition-transform duration-700 ease-out group-hover:scale-110"
+											className="h-auto w-full transform-gpu rounded-[2rem] transition-transform duration-700 ease-out group-hover:scale-110"
 										/>
 									) : (
 										<div className="relative h-56 w-full">
@@ -304,7 +362,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 												alt={item.alt}
 												fill
 												sizes="(min-width: 640px) 50vw, 100vw"
-												className="transform-gpu rounded-[1.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+												className="transform-gpu rounded-[2rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
 											/>
 										</div>
 									)}
@@ -365,7 +423,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						)}
 						{lightboxItem.groupLabel && (
 							<span
-								className={`absolute ${badgePosition} rounded-full border border-white/30 bg-black/70 px-4 py-1.5 text-[0.65rem] font-medium text-white backdrop-blur-sm`}
+								className={` uppercase tracking-[0.35em] absolute ${badgePosition} rounded-full border border-white/30 bg-black/70 px-4 py-1.5 text-[0.65rem] font-medium text-white backdrop-blur-sm`}
 							>
 								{lightboxItem.groupLabel[locale]}
 							</span>
@@ -373,6 +431,45 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					</div>
 				</div>
 			)}
+			<Reveal className="mt-24 border-t border-zinc-300 pt-10">
+				{nextProject ? (
+					<div className="ml-auto max-w-5xl">
+						<Link
+							href={`/projects/${nextProject.slug}`}
+							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
+						>
+							<p className="text-right text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">
+								Next Project →
+							</p>
+
+							<h3 className="mt-5 text-right text-3xl font-semibold leading-tight">
+								{nextProject.title}
+							</h3>
+
+							<p className="mt-2 text-right text-zinc-600">
+								{nextProject.location}
+							</p>
+						</Link>
+					</div>
+				) : previousProject ? (
+					<div className="mr-auto max-w-5xl">
+						<Link
+							href={`/projects/${previousProject.slug}`}
+							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
+						>
+							<p className="text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">
+								← Previous Project
+							</p>
+
+							<h3 className="mt-5 text-3xl font-semibold leading-tight">
+								{previousProject.title}
+							</h3>
+
+							<p className="mt-2 text-zinc-600">{previousProject.location}</p>
+						</Link>
+					</div>
+				) : null}
+			</Reveal>
 		</article>
 	);
 }

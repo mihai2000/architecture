@@ -10,11 +10,7 @@ type SortOption = "title-asc" | "title-desc" | "location-asc";
 
 const ALL_TYPES = "All";
 
-export default function ProjectExplorer({
-	projects,
-}: {
-	projects: Project[];
-}) {
+export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 	const { t } = useLanguage();
 	const [activeType, setActiveType] = useState(ALL_TYPES);
 	const [query, setQuery] = useState("");
@@ -78,7 +74,8 @@ export default function ProjectExplorer({
 				))}
 			</div>
 
-			<div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+			{/* <div className="mt-5 flex flex-wrap items-center justify-between gap-3"> */}
+			<div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
 				<input
 					type="text"
 					value={query}
@@ -104,12 +101,13 @@ export default function ProjectExplorer({
 				</div>
 			</div>
 
-			<p className="mt-5 text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500">
+			<p className="mt-8 text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500">
 				{t.explorer.resultsCount(filtered.length, projects.length)}
 			</p>
 
 			{filtered.length > 0 ? (
-				<div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+				// <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+				<div className="mt-6 grid gap-4 grid gap-8 md:grid-cols-2 2xl:grid-cols-3">
 					{filtered.map((project) => (
 						<ProjectCard key={project.slug} project={project} />
 					))}
