@@ -22,14 +22,21 @@
 // }
 type LanguageSkillProps = {
 	label: string;
+	levelLabel?: string;
 	level: 1 | 2 | 3 | 4 | 5;
 };
 
-export function LanguageSkill({ label, level }: LanguageSkillProps) {
+export function LanguageSkill({
+	label,
+	levelLabel,
+	level,
+}: LanguageSkillProps) {
 	return (
 		<div className="flex flex-col gap-2 xl:flex-row xl:items-center xl:gap-4">
-			<span className="leading-6">{label}</span>
-
+			<div className="flex-1">
+				<span className="leading-6">{label}</span>
+				<p className="text-sm text-zinc-600">{levelLabel}</p>
+			</div>
 			<div className="flex gap-2">
 				{[1, 2, 3, 4, 5].map((dot) => (
 					<div

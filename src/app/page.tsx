@@ -8,15 +8,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { Building2, Camera, PencilLine } from "lucide-react";
 import { LanguageSkill } from "@/components/languageSkill/languageSkill";
-
 const SKILLS = [
-	{ label: "Archicad - Advanced", level: 4 },
-	{ label: "SketchUp - Advanced", level: 4 },
-	{ label: "Adobe Photoshop - Advanced", level: 4 },
-	{ label: "Microsoft Office (Word, Photoshop) - Advanced", level: 4 },
-	{ label: "Twinmotion - Intermediate", level: 3 },
+	{ label: "Archicad", levelLabel: "Advanced", level: 4 },
+	{ label: "SketchUp", levelLabel: "Advanced", level: 4 },
+	{ label: "Adobe Photoshop", levelLabel: "Advanced", level: 4 },
+	{
+		label: "Microsoft Office (Word, Photoshop)",
+		levelLabel: "Advanced",
+		level: 4,
+	},
+	{ label: "Twinmotion", levelLabel: "Intermediate", level: 3 },
+	// ]
+	// const SKILLS = [
+	// 	{ label: "Archicad - Advanced", level: 4 },
+	// 	{ label: "SketchUp - Advanced", level: 4 },
+	// 	{ label: "Adobe Photoshop - Advanced", level: 4 },
+	// 	{ label: "Microsoft Office (Word, Photoshop) - Advanced", level: 4 },
+	// 	{ label: "Twinmotion - Intermediate", level: 3 },
 ] satisfies {
 	label: string;
+	levelLabel: string;
 	level: 1 | 2 | 3 | 4 | 5;
 }[];
 export default function Home() {
@@ -103,6 +114,7 @@ export default function Home() {
 							<LanguageSkill
 								key={skill.label}
 								label={skill.label}
+								levelLabel={skill.levelLabel}
 								level={skill.level}
 							/>
 						))}

@@ -202,7 +202,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		home: {
 			eyebrow: "Architecture / Interior / Urban",
-			heading: "Functional, clear, and thoughtfully planned spaces.",
+			heading: "Exploring Form and Space.",
 			lead: "Architecture student at the Faculty of Architecture and Urban Planning in Timișoara, interested in architectural design, graphic representation, and the development of projects from concept to implementation.",
 			subLead:
 				"Eager to gain practical experience in a professional environment while developing my technical and creative skills.",
@@ -224,7 +224,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutText:
 				"My projects range from student housing to urban interventions, developed throughout my architecture studies. Each one is grounded in clarity, proportion, and a careful dialogue with its surroundings.",
 			contactLabel: "Let's connect",
-			contactHeading: "Let's build something lasting.",
+			contactHeading: "Every project begins with a conversation.",
 			contactText:
 				"Open to feedback, collaborations, and conversations about architecture and future spaces.",
 			getInTouch: "Get in touch",
@@ -274,14 +274,14 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			eyebrow: "About",
 			heading: "Learning to turn ideas into thoughtful spaces.",
 			intro:
-				"I am a third-year Architecture student at the Faculty of Architecture and Urbanism, Politehnica University of Timișoara, with a strong interest in architectural design, visual representation, and developing projects from concept to implementation.",
+				"I am a fourth-year Architecture student at the Faculty of Architecture and Urbanism, Politehnica University of Timișoara, with a strong interest in architectural design, visual representation, and developing projects from concept to implementation.",
 			body: "This portfolio brings together academic and personal work completed throughout my studies, reflecting my design process and my interest in residential, cultural, and urban architecture.",
 			badge1: "Architecture",
 			badge2: "Urban Design",
 			badge3: "Architectural Representation",
 			photoPlaceholder: "Portrait coming soon",
 			currentStatusLabel: "Current Status",
-			currentStatus: "3rd Year Architecture Student",
+			currentStatus: "4th Year Architecture Student",
 			educationLabel: "Education",
 			university: "Politehnica University of Timișoara",
 
@@ -451,7 +451,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		home: {
 			eyebrow: "Arhitectură / Interior / Urban",
-			heading: "Proiectez spații funcționale, clare și atent gândite.",
+			heading: "Între formă și spațiu.",
 			lead: "Student la Facultatea de Arhitectură și Urbanism din Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și procesul de dezvoltare a proiectelor de la concept până la implementare.",
 			subLead:
 				"Dornic să acumulez experiență practică într- un mediu profesional și să îmi dezvolt competențele tehnice și creative.",
@@ -473,7 +473,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutText:
 				"Proiectele mele variază de la locuințe pentru studenți la intervenții urbane, dezvoltate pe parcursul studiilor mele de arhitectură. Fiecare pornește de la claritate, proporție și un dialog atent cu împrejurimile sale.",
 			contactLabel: "Contact",
-			contactHeading: "Hai să construim ceva durabil.",
+			contactHeading: "Fiecare proiect începe cu o conversație.",
 			contactText:
 				"Sunt deschis la feedback, colaborări și discuții despre arhitectură și spații viitoare.",
 			getInTouch: "Ia legătura",
@@ -531,7 +531,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			badge3: "Reprezentare grafică",
 			photoPlaceholder: "Portret în curând",
 			currentStatusLabel: "Statut",
-			currentStatus: "Student anul III · Facultatea de Arhitectură și Urbanism",
+			currentStatus: "Student anul IV · Facultatea de Arhitectură și Urbanism",
 			educationLabel: "Educație",
 			university: "Universitatea Politehnica Timișoara",
 
