@@ -47,7 +47,7 @@ export default function AboutPage() {
 					</div>
 				</Reveal>
 				<Reveal delay={120} className="relative mx-auto mt-8 w-full max-w-xs">
-					<div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-[2rem] border border-dashed border-zinc-300 bg-white/70 text-zinc-400">
+					<div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-[2rem] border-2 border-dashed border-zinc-400 bg-white/70 text-zinc-500">
 						<PersonIcon />
 						<p className="text-[0.65rem] uppercase tracking-[0.3em]">
 							{t.about.photoPlaceholder}

@@ -521,7 +521,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		about: {
 			eyebrow: "Despre",
-			heading: "Învăț să transform ideile în spații bine gândite.",
+			heading: "Învăț să transform ideile în spații.",
 			intro:
 				"Sunt student la Facultatea de Arhitectură și Urbanism din cadrul Universității Politehnica Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și dezvoltarea proiectelor de la concept până la implementare.",
 			body: "Acest portofoliu reunește proiecte academice și personale dezvoltate pe parcursul studiilor, reflectând procesul meu de proiectare și interesul pentru arhitectura rezidențială, culturală și urbană.",
