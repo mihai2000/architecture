@@ -53,6 +53,7 @@ export default function Navigation() {
 			<div className="flex flex-wrap items-center justify-between gap-4">
 				<Link
 					href="/"
+					transitionTypes={["page-nav"]}
 					className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
 				>
 					<Logo className="h-8 w-8 shrink-0" />
@@ -65,6 +66,7 @@ export default function Navigation() {
 							<Link
 								key={link.href}
 								href={link.href}
+								transitionTypes={["page-nav"]}
 								className={`transition hover:text-black ${
 									normalizedPathname === link.href ? "font-semibold" : ""
 								}`}
@@ -102,6 +104,7 @@ export default function Navigation() {
 							<Link
 								key={link.href}
 								href={link.href}
+								transitionTypes={["page-nav"]}
 								className={`transition hover:text-black ${
 									normalizedPathname === link.href ? "font-semibold" : ""
 								}`}
