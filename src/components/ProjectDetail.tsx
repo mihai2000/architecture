@@ -13,7 +13,7 @@ import {
 } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, ViewTransition } from "react";
 
 const ALL_GROUPS = "all";
 const CATEGORY_ORDER: GalleryCategory[] = ["sketch", "plan", "photo"];
@@ -176,33 +176,35 @@ export default function ProjectDetail({ project }: { project: Project }) {
 				</dl>
 			</Reveal> */}
 
-			<Reveal delay={100} className="mt-8">
-				{project.imageWidth && project.imageHeight ? (
-					<Image
-						src={project.image}
-						alt={project.imageAlt}
-						width={project.imageWidth}
-						height={project.imageHeight}
-						sizes="100vw"
-						loading="eager"
-						fetchPriority="high"
-						// className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
-						className="mx-auto block h-auto w-full max-w-7xl rounded-[2rem]"
-					/>
-				) : (
-					<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
+			<div className="mt-8">
+				<ViewTransition name={`project-${project.slug}`} share="morph">
+					{project.imageWidth && project.imageHeight ? (
 						<Image
 							src={project.image}
 							alt={project.imageAlt}
-							fill
+							width={project.imageWidth}
+							height={project.imageHeight}
 							sizes="100vw"
 							loading="eager"
 							fetchPriority="high"
-							className="object-cover"
+							// className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
+							className="mx-auto block h-auto w-full max-w-7xl rounded-[2rem]"
 						/>
-					</div>
-				)}
-			</Reveal>
+					) : (
+						<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
+							<Image
+								src={project.image}
+								alt={project.imageAlt}
+								fill
+								sizes="100vw"
+								loading="eager"
+								fetchPriority="high"
+								className="object-cover"
+							/>
+						</div>
+					)}
+				</ViewTransition>
+			</div>
 			<div className="mx-auto max-w-6xl">
 				<p className=" mt-4 text-[0.7rem] uppercase tracking-[0.35em] text-zinc-500">
 					CONCEPT

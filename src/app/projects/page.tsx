@@ -9,25 +9,21 @@ export default function ProjectsPage() {
 	const { t } = useLanguage();
 
 	return (
-		<Reveal>
-			<section id="projects">
-				{/* <div className="flex items-end justify-between gap-4 border-b border-zinc-300 pb-4"> */}
-				<div className="border-b border-zinc-300 pb-6">
-					<div>
-						<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
-							{t.projects.eyebrow}
-						</p>
-						{/* <h2 className="mt-2 text-2xl font-semibold sm:text-3xl"> */}
-						<h2 className="mt-3 text-3xl font-semibold lg:text-4xl">
-							{t.projects.heading}
-						</h2>
-					</div>
+		<section id="projects">
+			<Reveal className="border-b border-zinc-300 pb-6">
+				<div>
+					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
+						{t.projects.eyebrow}
+					</p>
+					<h2 className="mt-3 text-3xl font-semibold lg:text-4xl">
+						{t.projects.heading}
+					</h2>
 				</div>
+			</Reveal>
 
-				<div className="mt-6">
-					<ProjectExplorer projects={projects} />
-				</div>
-			</section>
-		</Reveal>
+			<div className="mt-6">
+				<ProjectExplorer projects={projects} />
+			</div>
+		</section>
 	);
 }
