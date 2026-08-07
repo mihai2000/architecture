@@ -438,7 +438,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					<div className="ml-auto max-w-5xl">
 						<Link
 							href={`/projects/${nextProject.slug}`}
-							transitionTypes={["page-nav"]}
+							transitionTypes={["nav-forward"]}
 							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
 						>
 							<p className="text-right text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">
@@ -458,7 +458,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					<div className="mr-auto max-w-5xl">
 						<Link
 							href={`/projects/${previousProject.slug}`}
-							transitionTypes={["page-nav"]}
+							transitionTypes={["nav-back"]}
 							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
 						>
 							<p className="text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">

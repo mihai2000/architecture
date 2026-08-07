@@ -7,6 +7,15 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
+const NAV_ORDER = ["/", "/projects", "/about", "/contact"];
+
+function orderIndex(pathname: string | null | undefined) {
+	if (!pathname) return -1;
+	if (pathname === "/") return 0;
+	const [firstSegment] = pathname.split("/").filter(Boolean);
+	return NAV_ORDER.indexOf(`/${firstSegment}`);
+}
+
 function HamburgerIcon({ open }: { open: boolean }) {
 	return (
 		<span className="relative block h-4 w-6">
@@ -48,12 +57,19 @@ export default function Navigation() {
 		{ href: "/contact", label: t.nav.contact },
 	];
 
+	const currentOrder = orderIndex(pathname);
+	const directionTo = (href: string): "nav-forward" | "nav-back" => {
+		const targetOrder = orderIndex(href);
+		if (currentOrder === -1 || targetOrder === -1) return "nav-forward";
+		return targetOrder < currentOrder ? "nav-back" : "nav-forward";
+	};
+
 	return (
 		<header className="border-b border-zinc-300 px-6 py-5 sm:px-8 lg:px-12">
 			<div className="flex flex-wrap items-center justify-between gap-4">
 				<Link
 					href="/"
-					transitionTypes={["page-nav"]}
+					transitionTypes={[directionTo("/")]}
 					className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
 				>
 					<Logo className="h-8 w-8 shrink-0" />
@@ -66,7 +82,7 @@ export default function Navigation() {
 							<Link
 								key={link.href}
 								href={link.href}
-								transitionTypes={["page-nav"]}
+								transitionTypes={[directionTo(link.href)]}
 								className={`transition hover:text-black ${
 									normalizedPathname === link.href ? "font-semibold" : ""
 								}`}
@@ -104,7 +120,7 @@ export default function Navigation() {
 							<Link
 								key={link.href}
 								href={link.href}
-								transitionTypes={["page-nav"]}
+								transitionTypes={[directionTo(link.href)]}
 								className={`transition hover:text-black ${
 									normalizedPathname === link.href ? "font-semibold" : ""
 								}`}

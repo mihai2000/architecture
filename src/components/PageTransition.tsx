@@ -13,8 +13,17 @@ export default function PageTransition({
 	return (
 		<ViewTransition
 			key={pathname}
-			enter={{ "page-nav": "page-enter", default: "none" }}
-			exit={{ "page-nav": "page-exit", default: "none" }}
+			enter={{
+				"nav-forward": "page-enter-forward",
+				"nav-back": "page-enter-back",
+				default: "none",
+			}}
+			exit={{
+				"nav-forward": "page-exit-forward",
+				"nav-back": "page-exit-back",
+				default: "none",
+			}}
+			default="none"
 		>
 			{children}
 		</ViewTransition>

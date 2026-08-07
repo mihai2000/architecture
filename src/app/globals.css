@@ -83,25 +83,49 @@ a {
 	animation: none;
 }
 
-/* Slide between pages for top-level nav (Navigation links, next/previous project). */
-::view-transition-old(.page-exit) {
-	animation: 380ms ease-in-out both page-slide-out;
+/* Slide between pages for top-level nav (Navigation links, next/previous project).
+   Direction follows the site's nav order (Home -> Projects -> About -> Contact):
+   moving to a later page slides forward (left), moving to an earlier one slides back (right). */
+::view-transition-old(.page-exit-forward) {
+	animation: 380ms ease-in-out both page-slide-out-forward;
 }
 
-::view-transition-new(.page-enter) {
-	animation: 380ms ease-in-out both page-slide-in;
+::view-transition-new(.page-enter-forward) {
+	animation: 380ms ease-in-out both page-slide-in-forward;
 }
 
-@keyframes page-slide-out {
+::view-transition-old(.page-exit-back) {
+	animation: 380ms ease-in-out both page-slide-out-back;
+}
+
+::view-transition-new(.page-enter-back) {
+	animation: 380ms ease-in-out both page-slide-in-back;
+}
+
+@keyframes page-slide-out-forward {
 	to {
 		translate: -100vw;
 		opacity: 0;
 	}
 }
 
-@keyframes page-slide-in {
+@keyframes page-slide-in-forward {
 	from {
 		translate: 100vw;
+		opacity: 0;
+	}
+}
+
+@keyframes page-slide-out-back {
+	to {
+		translate: 100vw;
+		opacity: 0;
+	}
+}
+
+@keyframes page-slide-in-back {
+	from {
+		translate: -100vw;
 		opacity: 0;
 	}
 }
