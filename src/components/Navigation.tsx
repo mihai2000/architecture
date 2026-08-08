@@ -1,11 +1,11 @@
 "use client";
 
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import Logo from "@/components/Logo";
-import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Logo from "./Logo";
 
 const NAV_ORDER = ["/", "/projects", "/about", "/contact"];
 
@@ -70,7 +70,7 @@ export default function Navigation() {
 				<Link
 					href="/"
 					transitionTypes={[directionTo("/")]}
-					className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
+					className="flex items-center gap-3 text-[1rem] font-semibold uppercase tracking-[0.35em]"
 				>
 					<Logo className="h-8 w-8 shrink-0" />
 					Catalin Carp Studio
