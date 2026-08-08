@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
+import Image from "next/image";
 
 const NAV_ORDER = ["/", "/projects", "/about", "/contact"];
 
@@ -72,7 +73,15 @@ export default function Navigation() {
 					transitionTypes={[directionTo("/")]}
 					className="flex items-center gap-3 text-[1rem] font-semibold uppercase tracking-[0.35em]"
 				>
-					<Logo className="h-20 w-20 shrink-0" />
+					{/* <Logo className="h-20 w-20 shrink-0" /> */}
+					<Image
+						src="/logo.svg"
+						alt="Catalin Carp Studio"
+						width={80}
+						height={80}
+						draggable={false}
+						decoding="async"
+					/>
 					Catalin Carp Studio
 				</Link>
 

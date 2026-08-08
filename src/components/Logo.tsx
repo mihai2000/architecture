@@ -1,4 +1,4 @@
-export default function Logo({
+﻿export default function Logo({
 	className = "h-16 w-16 sm:h-20 sm:w-20",
 }: {
 	className?: string;
