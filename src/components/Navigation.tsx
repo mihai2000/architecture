@@ -72,7 +72,7 @@ export default function Navigation() {
 					transitionTypes={[directionTo("/")]}
 					className="flex items-center gap-3 text-[1rem] font-semibold uppercase tracking-[0.35em]"
 				>
-					<Logo className="h-8 w-8 shrink-0" />
+					<Logo className="h-20 w-20 shrink-0" />
 					Catalin Carp Studio
 				</Link>
 

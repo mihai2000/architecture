@@ -1,5 +1,5 @@
 export default function Logo({
-	className = "h-8 w-8",
+	className = "h-16 w-16 sm:h-20 sm:w-20",
 }: {
 	className?: string;
 }) {
@@ -11,6 +11,9 @@ export default function Logo({
 			className={className}
 			role="img"
 			aria-label="Catalin Carp Studio"
+			preserveAspectRatio="xMidYMid meet"
+			shapeRendering="geometricPrecision"
+			style={{ display: "block" }}
 		>
 			<path
 				d="M0 0 C413.82 0 827.64 0 1254 0 C1254 413.82 1254 827.64 1254 1254 C840.18 1254 426.36 1254 0 1254 C0 840.18 0 426.36 0 0 Z "
