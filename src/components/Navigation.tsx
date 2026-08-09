@@ -70,7 +70,7 @@ export default function Navigation() {
 				<Link
 					href="/"
 					transitionTypes={[directionTo("/")]}
-					className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
+					className="flex items-center gap-2 text-[0.6rem] font-semibold uppercase tracking-[0.2em] sm:gap-3 sm:text-[0.7rem] sm:tracking-[0.35em]"
 				>
 					{/* <Logo className="h-20 w-20 shrink-0" /> */}
 					<Image
@@ -78,11 +78,12 @@ export default function Navigation() {
 						alt="Catalin Carp Studio"
 						width={80}
 						height={80}
+						className="h-12 w-12 shrink-0 sm:h-16 sm:w-16"
 						draggable={false}
 						decoding="async"
 						loading="eager"
 					/>
-					Catalin Carp Studio
+					<span className="whitespace-nowrap">Catalin Carp Studio</span>
 				</Link>
 
 				<div className="hidden items-center gap-4 md:flex">
