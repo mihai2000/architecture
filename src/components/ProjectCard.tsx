@@ -17,6 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 							alt={project.imageAlt}
 							width={project.imageWidth}
 							height={project.imageHeight}
+							loading="eager"
 							sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
 							className="h-auto w-full transform-gpu rounded-[1.25rem] transition-transform duration-700 ease-out group-hover:scale-110"
 						/>
@@ -25,6 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 							<Image
 								src={project.image}
 								alt={project.imageAlt}
+								loading="eager"
 								fill
 								sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
 								className="transform-gpu rounded-[1.25rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
