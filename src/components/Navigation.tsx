@@ -70,11 +70,11 @@ export default function Navigation() {
 				<Link
 					href="/"
 					transitionTypes={[directionTo("/")]}
-					className="flex items-center gap-3 text-[1rem] font-semibold uppercase tracking-[0.35em]"
+					className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em]"
 				>
 					{/* <Logo className="h-20 w-20 shrink-0" /> */}
 					<Image
-						src="/logo.svg"
+						src="logo/logo.svg"
 						alt="Catalin Carp Studio"
 						width={80}
 						height={80}
