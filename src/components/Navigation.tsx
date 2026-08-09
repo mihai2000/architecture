@@ -2,11 +2,10 @@
 
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Logo from "./Logo";
-import Image from "next/image";
 
 const NAV_ORDER = ["/", "/projects", "/about", "/contact"];
 
@@ -81,6 +80,7 @@ export default function Navigation() {
 						height={80}
 						draggable={false}
 						decoding="async"
+						loading="eager"
 					/>
 					Catalin Carp Studio
 				</Link>
