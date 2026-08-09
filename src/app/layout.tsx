@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title,
 	description,
+	icons: {
+		icon: [{ url: "/favicon.ico", rel: "shortcut icon" }],
+		shortcut: ["/favicon.ico"],
+		apple: [{ url: "/favicon.ico" }],
+	},
 	openGraph: {
 		title,
 		description,
