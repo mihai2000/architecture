@@ -74,7 +74,7 @@ export default function Navigation() {
 				>
 					{/* <Logo className="h-20 w-20 shrink-0" /> */}
 					<Image
-						src="logo/logo.svg"
+						src="/logo/logo.svg"
 						alt="Catalin Carp Studio"
 						width={80}
 						height={80}
