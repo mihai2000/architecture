@@ -37,7 +37,7 @@ export default function Home() {
 
 	return (
 		<>
-			<section className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8 2xl:grid-cols-3">
+			<section className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:items-center lg:gap-8 2xl:grid-cols-3 2xl:items-start">
 				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10 lg:order-3 lg:col-span-2 2xl:order-none 2xl:col-span-1">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.eyebrow}
