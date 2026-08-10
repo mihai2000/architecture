@@ -1,0 +1,251 @@
+/* components/not-found/ArchitecturalPlan.module.css */
+
+.planGrid line {
+    stroke: #dedede;
+    stroke-width: 1;
+    stroke-dasharray: 5 8;
+}
+
+.planGrid {
+    opacity: 0;
+    animation: gridAppear 1.2s ease-out 0.1s forwards;
+}
+
+.planDimension {
+    opacity: 0;
+    animation: dimensionAppear 0.8s ease-out 0.8s forwards;
+}
+
+.planDimension line {
+    stroke: #9d9d9d;
+    stroke-width: 1;
+}
+
+.planText {
+    fill: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.planLabel {
+    font-size: 8px;
+}
+
+.referencePoint {
+    stroke: #777;
+    stroke-width: 1;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: referenceAppear 0.7s ease-out 1.2s forwards;
+}
+
+.referencePointDelayed {
+    animation-delay: 2.8s;
+}
+
+.mainWall {
+    fill: none;
+    stroke: #111;
+    stroke-width: 7;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: drawMainWall 3s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards;
+}
+
+.innerConstruction {
+    fill: none;
+    stroke: #777;
+    stroke-width: 2;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: drawInner 1.6s cubic-bezier(0.65, 0, 0.35, 1) 2.5s forwards;
+}
+
+.innerWall {
+    fill: none;
+    stroke: #777;
+    stroke-width: 2;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawInner 1.2s cubic-bezier(0.65, 0, 0.35, 1) 2.9s forwards;
+}
+
+.innerDashed {
+    fill: none;
+    stroke: #999;
+    stroke-width: 2;
+    stroke-dasharray: 7 6;
+    opacity: 0;
+    animation: fadeDrawing 0.8s ease-out 3.1s forwards;
+}
+
+.stairs {
+    stroke: #777;
+    stroke-width: 2;
+}
+
+.stairs line {
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+    opacity: 0;
+    animation:
+        drawStair 0.4s ease-out forwards,
+        fadeDrawing 0.2s ease-out forwards;
+}
+
+.stairs line:nth-child(1) {
+    animation-delay: 3.4s;
+}
+
+.stairs line:nth-child(2) {
+    animation-delay: 3.5s;
+}
+
+.stairs line:nth-child(3) {
+    animation-delay: 3.6s;
+}
+
+.stairs line:nth-child(4) {
+    animation-delay: 3.7s;
+}
+
+.stairs line:nth-child(5) {
+    animation-delay: 3.8s;
+}
+
+.stairs line:nth-child(6) {
+    animation-delay: 3.9s;
+}
+
+.stairs line:nth-child(7) {
+    animation-delay: 4s;
+}
+
+.serviceBox {
+    stroke: #888;
+    stroke-width: 1.5;
+    opacity: 0;
+    animation: fadeDrawing 0.8s ease-out 4s forwards;
+}
+
+.centralMarker {
+    fill: #111;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    animation: markerAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3.8s forwards;
+}
+
+.undefinedLabel {
+    opacity: 0;
+    animation: fadeDrawing 0.8s ease-out 2.5s forwards;
+}
+
+.undefinedLabel line {
+    stroke: #aaa;
+    stroke-width: 1;
+}
+
+@keyframes gridAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes dimensionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes referenceAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes drawMainWall {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawInner {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawStair {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeDrawing {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes markerAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .planGrid,
+    .planDimension,
+    .referencePoint,
+    .mainWall,
+    .innerConstruction,
+    .innerWall,
+    .innerDashed,
+    .stairs line,
+    .serviceBox,
+    .centralMarker,
+    .undefinedLabel {
+        animation: none !important;
+        opacity: 1 !important;
+        stroke-dashoffset: 0 !important;
+        transform: none !important;
+    }
+}
