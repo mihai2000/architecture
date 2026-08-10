@@ -89,6 +89,10 @@ export type Dictionary = {
 		next: string;
 		goToSlide: (index: number) => string;
 	};
+	comingSoon: {
+		title: string;
+		subtitle: string;
+	};
 	about: {
 		eyebrow: string;
 		heading: string;
@@ -274,6 +278,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			previous: "Previous project",
 			next: "Next project",
 			goToSlide: (index) => `Go to slide ${index}`,
+		},
+		comingSoon: {
+			title: "New project incoming",
+			subtitle: "Currently in the works",
 		},
 		about: {
 			eyebrow: "About",
@@ -529,6 +537,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			previous: "Proiectul anterior",
 			next: "Proiectul următor",
 			goToSlide: (index) => `Mergi la slide-ul ${index}`,
+		},
+		comingSoon: {
+			title: "Proiect nou în curând",
+			subtitle: "În lucru momentan",
 		},
 		about: {
 			eyebrow: "Despre",

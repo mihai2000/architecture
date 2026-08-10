@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import ComingSoonCard from "@/components/ComingSoonCard";
 import ProjectCard from "@/components/ProjectCard";
 import { Project } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -85,6 +86,9 @@ export default function ProjectCarousel({
 							<ProjectCard project={project} />
 						</div>
 					))}
+					<div className="flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] xl:flex-[0_0_25%]">
+						<ComingSoonCard />
+					</div>
 				</div>
 			</div>
 

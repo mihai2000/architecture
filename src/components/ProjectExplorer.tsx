@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ComingSoonCard from "@/components/ComingSoonCard";
 import ProjectCard from "@/components/ProjectCard";
 import Select from "@/components/ui/Select";
 import { Project } from "@/lib/projects";
@@ -115,6 +116,7 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 					{filtered.map((project) => (
 						<ProjectCard key={project.slug} project={project} />
 					))}
+					{!hasActiveFilters && <ComingSoonCard />}
 				</div>
 			) : (
 				<div className="mt-10 rounded-[1.5rem] border border-dashed border-zinc-300 p-10 text-center">

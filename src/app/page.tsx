@@ -18,13 +18,6 @@ const SKILLS = [
 		level: 4,
 	},
 	{ label: "Twinmotion", levelLabel: "Intermediate", level: 3 },
-	// ]
-	// const SKILLS = [
-	// 	{ label: "Archicad - Advanced", level: 4 },
-	// 	{ label: "SketchUp - Advanced", level: 4 },
-	// 	{ label: "Adobe Photoshop - Advanced", level: 4 },
-	// 	{ label: "Microsoft Office (Word, Photoshop) - Advanced", level: 4 },
-	// 	{ label: "Twinmotion - Intermediate", level: 3 },
 ] satisfies {
 	label: string;
 	levelLabel: string;
