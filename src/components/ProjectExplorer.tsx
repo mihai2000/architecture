@@ -80,6 +80,7 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 					type="text"
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
+					maxLength={100}
 					placeholder={t.explorer.searchPlaceholder}
 					className="w-full max-w-xs rounded-full border border-zinc-300 bg-white/70 px-4 py-2 text-sm text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-900/10"
 				/>

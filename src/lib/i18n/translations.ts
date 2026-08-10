@@ -172,7 +172,11 @@ export type Dictionary = {
 		submitting: string;
 		successMessage: string;
 		errorRequired: string;
+		errorInvalidName: string;
 		errorInvalidEmail: string;
+		errorInvalidSubject: string;
+		errorInvalidMessage: string;
+		errorTooFast: string;
 		errorGeneric: string;
 	};
 	notFound: {
@@ -422,7 +426,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			submitting: "Sending...",
 			successMessage: "Thank you for your message. We'll get back to you soon!",
 			errorRequired: "Please fill in all required fields",
+			errorInvalidName:
+				"Please enter a valid name (letters only, 2-100 characters)",
 			errorInvalidEmail: "Please enter a valid email address",
+			errorInvalidSubject: "Please select a valid subject",
+			errorInvalidMessage: "Message must be between 10 and 5000 characters",
+			errorTooFast: "Please wait a moment before sending another message",
 			errorGeneric: "An unexpected error occurred.",
 		},
 		notFound: {
@@ -669,7 +678,12 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			submitting: "Se trimite...",
 			successMessage: "Îți mulțumim pentru mesaj. Îți vom răspunde în curând!",
 			errorRequired: "Te rugăm să completezi toate câmpurile obligatorii",
+			errorInvalidName:
+				"Te rugăm să introduci un nume valid (doar litere, 2-100 caractere)",
 			errorInvalidEmail: "Te rugăm să introduci o adresă de email validă",
+			errorInvalidSubject: "Te rugăm să selectezi un subiect valid",
+			errorInvalidMessage: "Mesajul trebuie să aibă între 10 și 5000 de caractere",
+			errorTooFast: "Te rugăm să aștepți un moment înainte de a trimite alt mesaj",
 			errorGeneric: "A apărut o eroare neașteptată.",
 		},
 		notFound: {

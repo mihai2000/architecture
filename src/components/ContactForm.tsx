@@ -3,6 +3,15 @@
 import emailjs from "@emailjs/browser";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Select from "@/components/ui/Select";
+import {
+	isSubmittingTooFast,
+	isValidEmail,
+	isValidMessage,
+	isValidName,
+	isValidSubject,
+	markSubmitted,
+	sanitizeText,
+} from "@/lib/contactValidation";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface FormData {
@@ -10,6 +19,7 @@ interface FormData {
 	email: string;
 	subject: string;
 	message: string;
+	company: string;
 }
 
 export default function ContactForm() {
@@ -19,6 +29,7 @@ export default function ContactForm() {
 		email: "",
 		subject: "",
 		message: "",
+		company: "",
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -64,6 +75,25 @@ export default function ContactForm() {
 		setSuccess(false);
 
 		try {
+			// Honeypot: real users never fill this field, so a filled value
+			// means a bot submitted the form. Pretend success without sending.
+			if (formData.company) {
+				setFormData({
+					name: "",
+					email: "",
+					subject: "",
+					message: "",
+					company: "",
+				});
+				setSuccess(true);
+				setTimeout(() => setSuccess(false), 5000);
+				return;
+			}
+
+			if (isSubmittingTooFast()) {
+				throw new Error(t.contactForm.errorTooFast);
+			}
+
 			if (
 				!formData.name ||
 				!formData.email ||
@@ -73,28 +103,41 @@ export default function ContactForm() {
 				throw new Error(t.contactForm.errorRequired);
 			}
 
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!isValidName(formData.name)) {
+				throw new Error(t.contactForm.errorInvalidName);
+			}
 
-			if (!emailRegex.test(formData.email)) {
+			if (!isValidEmail(formData.email)) {
 				throw new Error(t.contactForm.errorInvalidEmail);
+			}
+
+			if (!isValidSubject(formData.subject)) {
+				throw new Error(t.contactForm.errorInvalidSubject);
+			}
+
+			if (!isValidMessage(formData.message)) {
+				throw new Error(t.contactForm.errorInvalidMessage);
 			}
 
 			await emailjs.send(
 				process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
 				process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
 				{
-					name: formData.name,
-					email: formData.email,
-					subject: formData.subject,
-					message: formData.message,
+					name: sanitizeText(formData.name),
+					email: sanitizeText(formData.email),
+					subject: sanitizeText(formData.subject),
+					message: sanitizeText(formData.message),
 				},
 			);
+
+			markSubmitted();
 
 			setFormData({
 				name: "",
 				email: "",
 				subject: "",
 				message: "",
+				company: "",
 			});
 
 			setSuccess(true);
@@ -113,6 +156,21 @@ export default function ContactForm() {
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6">
+			{/* Honeypot: hidden from real users, catches basic bots */}
+			<div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+				<label htmlFor="company">Company</label>
+				<input
+					type="text"
+					id="company"
+					name="company"
+					value={formData.company}
+					onChange={handleChange}
+					tabIndex={-1}
+					autoComplete="off"
+					aria-hidden="true"
+				/>
+			</div>
+
 			{/* Name */}
 			<div className="space-y-2">
 				<label
@@ -129,6 +187,7 @@ export default function ContactForm() {
 					value={formData.name}
 					onChange={handleChange}
 					disabled={loading}
+					maxLength={100}
 					placeholder={t.contactForm.namePlaceholder}
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
@@ -150,6 +209,7 @@ export default function ContactForm() {
 					value={formData.email}
 					onChange={handleChange}
 					disabled={loading}
+					maxLength={254}
 					placeholder={t.contactForm.emailPlaceholder}
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
@@ -191,6 +251,7 @@ export default function ContactForm() {
 					value={formData.message}
 					onChange={handleChange}
 					disabled={loading}
+					maxLength={5000}
 					rows={6}
 					placeholder={t.contactForm.messagePlaceholder}
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100 resize-none"
