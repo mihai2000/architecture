@@ -2,6 +2,7 @@
 
 import emailjs from "@emailjs/browser";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import Select from "@/components/ui/Select";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface FormData {
@@ -31,7 +32,7 @@ export default function ContactForm() {
 	}, []);
 
 	const handleChange = (
-		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
 		const { name, value } = e.target;
 
@@ -40,6 +41,20 @@ export default function ContactForm() {
 			[name]: value,
 		}));
 	};
+
+	const handleSubjectChange = (value: string) => {
+		setFormData((prev) => ({
+			...prev,
+			subject: value,
+		}));
+	};
+
+	const subjectOptions = [
+		{ value: "internship", label: t.contact.subjectInternship },
+		{ value: "collaboration", label: t.contact.subjectCollaboration },
+		{ value: "competition", label: t.contact.subjectCompetition },
+		{ value: "general", label: t.contact.subjectGeneral },
+	];
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -99,8 +114,11 @@ export default function ContactForm() {
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6">
 			{/* Name */}
-			<div>
-				<label htmlFor="name" className="block text-sm font-medium mb-2">
+			<div className="space-y-2">
+				<label
+					htmlFor="name"
+					className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-zinc-500"
+				>
 					{t.contactForm.nameLabel} <span className="text-red-500">*</span>
 				</label>
 
@@ -112,13 +130,16 @@ export default function ContactForm() {
 					onChange={handleChange}
 					disabled={loading}
 					placeholder={t.contactForm.namePlaceholder}
-					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
+					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
 			</div>
 
 			{/* Email */}
-			<div>
-				<label htmlFor="email" className="block text-sm font-medium mb-2">
+			<div className="space-y-2">
+				<label
+					htmlFor="email"
+					className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-zinc-500"
+				>
 					{t.contactForm.emailLabel} <span className="text-red-500">*</span>
 				</label>
 
@@ -130,46 +151,37 @@ export default function ContactForm() {
 					onChange={handleChange}
 					disabled={loading}
 					placeholder={t.contactForm.emailPlaceholder}
-					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100"
+					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
 			</div>
 
 			{/* Subject */}
-
 			<div className="space-y-2">
 				<label
 					htmlFor="subject"
-					className="text-[0.7rem] font-medium uppercase tracking-[0.2em]"
+					className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-zinc-500"
 				>
-					{t.contact.subjectLabel}
+					{t.contact.subjectLabel} <span className="text-red-500">*</span>
 				</label>
 
-				<select
+				<Select
 					id="subject"
-					name="subject"
 					value={formData.subject}
-					onChange={handleChange}
+					onValueChange={handleSubjectChange}
+					options={subjectOptions}
+					placeholder={t.contact.subjectPlaceholder}
+					ariaLabel={t.contact.subjectLabel}
 					disabled={loading}
-					className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-zinc-700 outline-none transition focus:border-zinc-900 disabled:opacity-50 disabled:bg-zinc-100"
-				>
-					<option value="" disabled>
-						{t.contact.subjectPlaceholder}
-					</option>
-
-					<option value="internship">{t.contact.subjectInternship}</option>
-
-					<option value="collaboration">
-						{t.contact.subjectCollaboration}
-					</option>
-
-					<option value="competition">{t.contact.subjectCompetition}</option>
-
-					<option value="general">{t.contact.subjectGeneral}</option>
-				</select>
+					variant="field"
+				/>
 			</div>
+
 			{/* Message */}
-			<div>
-				<label htmlFor="message" className="block text-sm font-medium mb-2">
+			<div className="space-y-2">
+				<label
+					htmlFor="message"
+					className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-zinc-500"
+				>
 					{t.contactForm.messageLabel} <span className="text-red-500">*</span>
 				</label>
 
@@ -181,7 +193,7 @@ export default function ContactForm() {
 					disabled={loading}
 					rows={6}
 					placeholder={t.contactForm.messagePlaceholder}
-					className="w-full px-4 py-3 border border-zinc-300 rounded-lg bg-white text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:opacity-50 disabled:bg-zinc-100 resize-none"
+					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100 resize-none"
 				/>
 			</div>
 

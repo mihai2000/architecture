@@ -42,27 +42,42 @@ function CheckIcon() {
 	);
 }
 
+const TRIGGER_STYLES = {
+	pill: "group inline-flex min-w-[9.5rem] items-center justify-between gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-2 text-xs text-zinc-900 outline-none transition hover:border-zinc-900 focus:ring-2 focus:ring-zinc-900/10 data-[state=open]:border-zinc-900",
+	field: "group flex w-full items-center justify-between gap-2 rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-left text-zinc-900 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] data-[state=open]:border-zinc-900 data-[placeholder]:text-zinc-400 disabled:opacity-50 disabled:bg-zinc-100",
+};
+
 export default function Select({
 	id,
 	value,
 	onValueChange,
 	options,
 	ariaLabel,
+	placeholder,
+	disabled,
+	variant = "pill",
 }: {
 	id?: string;
 	value: string;
 	onValueChange: (value: string) => void;
 	options: SelectOption[];
 	ariaLabel?: string;
+	placeholder?: string;
+	disabled?: boolean;
+	variant?: "pill" | "field";
 }) {
 	return (
-		<SelectPrimitive.Root value={value} onValueChange={onValueChange}>
+		<SelectPrimitive.Root
+			value={value}
+			onValueChange={onValueChange}
+			disabled={disabled}
+		>
 			<SelectPrimitive.Trigger
 				id={id}
 				aria-label={ariaLabel}
-				className="group inline-flex min-w-[9.5rem] items-center justify-between gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-2 text-xs text-zinc-900 outline-none transition hover:border-zinc-900 focus:ring-2 focus:ring-zinc-900/10 data-[state=open]:border-zinc-900"
+				className={TRIGGER_STYLES[variant]}
 			>
-				<SelectPrimitive.Value />
+				<SelectPrimitive.Value placeholder={placeholder} />
 				<SelectPrimitive.Icon className="text-zinc-500 group-hover:text-zinc-900">
 					<ChevronIcon />
 				</SelectPrimitive.Icon>
