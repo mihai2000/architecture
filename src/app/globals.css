@@ -32,6 +32,18 @@ a {
 	text-decoration: none;
 }
 
+/* Google's reCAPTCHA badge defaults to position: fixed, anchored to the
+   viewport corner regardless of where its container sits in the page -
+   that's what causes it to float outside the contact card. Render it
+   inline within the form instead (still fully visible, just laid out
+   normally - this is Google's own documented repositioning technique). */
+.grecaptcha-badge {
+	position: relative !important;
+	right: 0 !important;
+	margin: 0 auto;
+	border-radius: 15px !important;
+}
+
 @keyframes select-pop {
 	from {
 		opacity: 0;

@@ -317,6 +317,7 @@ export default function ContactForm() {
 					onChange={handleChange}
 					disabled={loading}
 					maxLength={100}
+					autoComplete="name"
 					placeholder={t.contactForm.namePlaceholder}
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
@@ -339,6 +340,7 @@ export default function ContactForm() {
 					onChange={handleChange}
 					disabled={loading}
 					maxLength={254}
+					autoComplete="email"
 					placeholder={t.contactForm.emailPlaceholder}
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100"
 				/>
@@ -355,6 +357,7 @@ export default function ContactForm() {
 
 				<Select
 					id="subject"
+					name="subject"
 					value={formData.subject}
 					onValueChange={handleSubjectChange}
 					options={subjectOptions}

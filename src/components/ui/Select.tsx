@@ -49,6 +49,7 @@ const TRIGGER_STYLES = {
 
 export default function Select({
 	id,
+	name,
 	value,
 	onValueChange,
 	options,
@@ -58,6 +59,7 @@ export default function Select({
 	variant = "pill",
 }: {
 	id?: string;
+	name?: string;
 	value: string;
 	onValueChange: (value: string) => void;
 	options: SelectOption[];
@@ -68,6 +70,7 @@ export default function Select({
 }) {
 	return (
 		<SelectPrimitive.Root
+			name={name}
 			value={value}
 			onValueChange={onValueChange}
 			disabled={disabled}
