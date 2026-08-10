@@ -186,9 +186,19 @@ export type Dictionary = {
 	};
 	notFound: {
 		eyebrow: string;
-		heading: string;
-		message: string;
+		title: string;
+		description: string;
 		backHome: string;
+		studio: string;
+		project: string;
+		drawing: string;
+		scale: string;
+		revision: string;
+		projectValue: string;
+		drawingValue: string;
+		scaleValue: string;
+		revisionValue: string;
+		undefinedSpace: string;
 	};
 };
 
@@ -445,11 +455,21 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorGeneric: "An unexpected error occurred.",
 		},
 		notFound: {
-			eyebrow: "404",
-			heading: "This page didn't make it past the concept stage.",
-			message:
-				"The page you're looking for doesn't exist — it may have been moved, renamed, or never built in the first place.",
-			backHome: "Back to home",
+			eyebrow: "ERROR / 404",
+			title: "SPACE NOT FOUND.",
+			description:
+				"It seems you've stepped into a space that doesn't exist in the current project.",
+			backHome: "BACK TO HOME",
+			studio: "STUDIO",
+			project: "PROJECT",
+			drawing: "DRAWING",
+			scale: "SCALE",
+			revision: "REVISION",
+			projectValue: "ARCHITECTURE PORTFOLIO",
+			drawingValue: "ERROR / 404",
+			scaleValue: "NTS",
+			revisionValue: "01 / 2026",
+			undefinedSpace: "UNDEFINED SPACE",
 		},
 	},
 	ro: {
@@ -696,17 +716,29 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				"Te rugăm să introduci un nume valid (doar litere, 2-100 caractere)",
 			errorInvalidEmail: "Te rugăm să introduci o adresă de email validă",
 			errorInvalidSubject: "Te rugăm să selectezi un subiect valid",
-			errorInvalidMessage: "Mesajul trebuie să aibă între 10 și 5000 de caractere",
-			errorTooFast: "Te rugăm să aștepți un moment înainte de a trimite alt mesaj",
+			errorInvalidMessage:
+				"Mesajul trebuie să aibă între 10 și 5000 de caractere",
+			errorTooFast:
+				"Te rugăm să aștepți un moment înainte de a trimite alt mesaj",
 			errorRecaptcha: "Te rugăm să completezi verificarea CAPTCHA",
 			errorGeneric: "A apărut o eroare neașteptată.",
 		},
 		notFound: {
-			eyebrow: "404",
-			heading: "Această pagină nu a trecut de faza de concept.",
-			message:
-				"Pagina pe care o cauți nu există — poate a fost mutată, redenumită sau pur și simplu nu a fost construită niciodată.",
-			backHome: "Înapoi la pagina principală",
+			eyebrow: "EROARE / 404",
+			title: "SPAȚIU INEXISTENT.",
+			description:
+				"Se pare că ai ajuns într-un spațiu care nu există în proiectul curent.",
+			backHome: "ÎNAPOI ACASĂ",
+			studio: "STUDIO",
+			project: "PROIECT",
+			drawing: "PLANȘĂ",
+			scale: "SCARĂ",
+			revision: "REVIZIE",
+			projectValue: "PORTOFOLIU DE ARHITECTURĂ",
+			drawingValue: "EROARE / 404",
+			scaleValue: "NTS",
+			revisionValue: "01 / 2026",
+			undefinedSpace: "SPAȚIU INDEFINIT",
 		},
 	},
 };

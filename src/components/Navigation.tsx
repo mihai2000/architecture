@@ -81,7 +81,6 @@ export default function Navigation() {
 						className="h-12 w-12 shrink-0 sm:h-16 sm:w-16"
 						draggable={false}
 						decoding="async"
-						loading="eager"
 					/>
 					<span className="whitespace-nowrap">Catalin Carp Studio</span>
 				</Link>

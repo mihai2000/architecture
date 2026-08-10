@@ -57,7 +57,7 @@ export default function RootLayout({
 			<body className="min-h-full flex flex-col bg-[#f3efe8] text-zinc-900">
 				<LanguageProvider>
 					<Navigation />
-					<main className="flex-1 px-6 py-12 sm:px-8 lg:px-12">
+					<main className="flex-1 px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-10">
 						<PageTransition>{children}</PageTransition>
 					</main>
 					<Footer />
