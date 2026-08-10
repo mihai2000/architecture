@@ -1,6 +1,3 @@
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-import PageTransition from "@/components/PageTransition";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
@@ -55,13 +52,7 @@ export default function RootLayout({
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col bg-[#f3efe8] text-zinc-900">
-				<LanguageProvider>
-					<Navigation />
-					<main className="flex-1 px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-10">
-						<PageTransition>{children}</PageTransition>
-					</main>
-					<Footer />
-				</LanguageProvider>
+				<LanguageProvider>{children}</LanguageProvider>
 			</body>
 		</html>
 	);

@@ -380,8 +380,8 @@
 // }
 "use client";
 
-import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Link from "next/link";
 
 export default function NotFound() {
 	const { t } = useLanguage();
@@ -469,310 +469,231 @@ export default function NotFound() {
 					<div className="absolute left-[48%] top-[14%] h-[58%] w-[48%]">
 						{/* SVG construction drawing */}
 						<svg
-							viewBox="0 0 700 620"
+							viewBox="0 0 647 622"
 							className="h-full w-full"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 							aria-label="Architectural floor plan"
 						>
-							{/* -------------------------------------------------
-							    CONSTRUCTION GRID
-							------------------------------------------------- */}
+							{/* =========================================================
+	    CONSTRUCTION GRID
+	========================================================= */}
 
-							<g className="construction-grid">
-								{[110, 180, 250, 320, 390, 460, 530, 600].map((x) => (
-									<line
-										key={`v-${x}`}
-										x1={x}
-										y1="35"
-										x2={x}
-										y2="570"
-										stroke="#e2e2e2"
-										strokeWidth="1"
-										strokeDasharray="4 7"
-									/>
-								))}
+							<g className="plan-grid">
+								{/* vertical construction lines */}
+								<line x1="99" y1="45" x2="99" y2="610" />
+								<line x1="181" y1="45" x2="181" y2="610" />
+								<line x1="245" y1="45" x2="245" y2="610" />
+								<line x1="316" y1="45" x2="316" y2="610" />
+								<line x1="387" y1="45" x2="387" y2="610" />
+								<line x1="457" y1="45" x2="457" y2="610" />
+								<line x1="528" y1="45" x2="528" y2="610" />
+								<line x1="600" y1="45" x2="600" y2="610" />
 
-								{[90, 160, 230, 300, 370, 440, 510].map((y) => (
-									<line
-										key={`h-${y}`}
-										x1="50"
-										y1={y}
-										x2="650"
-										y2={y}
-										stroke="#e2e2e2"
-										strokeWidth="1"
-										strokeDasharray="4 7"
-									/>
-								))}
+								{/* horizontal construction lines */}
+								<line x1="20" y1="90" x2="625" y2="90" />
+								<line x1="20" y1="167" x2="625" y2="167" />
+								<line x1="20" y1="243" x2="625" y2="243" />
+								<line x1="20" y1="319" x2="625" y2="319" />
+								<line x1="20" y1="397" x2="625" y2="397" />
+								<line x1="20" y1="474" x2="625" y2="474" />
+								<line x1="20" y1="551" x2="625" y2="551" />
 							</g>
 
-							{/* -------------------------------------------------
-							    REFERENCE AXES
-							------------------------------------------------- */}
+							{/* =========================================================
+	    DIMENSION — 12.60
+	========================================================= */}
 
-							<g className="reference-lines">
-								<line
-									x1="190"
-									y1="25"
-									x2="190"
-									y2="570"
-									stroke="#dedede"
-									strokeWidth="1"
-									strokeDasharray="5 7"
-								/>
+							<g className="plan-dimension">
+								<line x1="134" y1="120" x2="498" y2="120" />
+								<line x1="134" y1="112" x2="134" y2="128" />
+								<line x1="498" y1="112" x2="498" y2="128" />
 
-								<line
-									x1="515"
-									y1="25"
-									x2="515"
-									y2="570"
-									stroke="#dedede"
-									strokeWidth="1"
-									strokeDasharray="5 7"
-								/>
-
-								<line
-									x1="55"
-									y1="250"
-									x2="650"
-									y2="250"
-									stroke="#dedede"
-									strokeWidth="1"
-									strokeDasharray="5 7"
-								/>
-							</g>
-
-							{/* -------------------------------------------------
-							    TOP DIMENSION
-							------------------------------------------------- */}
-
-							<g className="dimension-line">
-								<line
-									x1="205"
-									y1="62"
-									x2="530"
-									y2="62"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
-
-								<line
-									x1="205"
-									y1="55"
-									x2="205"
-									y2="69"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
-
-								<line
-									x1="530"
-									y1="55"
-									x2="530"
-									y2="69"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
-
-								<text
-									x="367"
-									y="52"
-									textAnchor="middle"
-									fill="#777"
-									fontSize="9"
-									letterSpacing="2"
-								>
+								<text x="316" y="109" textAnchor="middle" className="plan-text">
 									12.60
 								</text>
 							</g>
 
-							{/* -------------------------------------------------
-							    RIGHT DIMENSION
-							------------------------------------------------- */}
+							{/* =========================================================
+	    DIMENSION — 8.40
+	========================================================= */}
 
-							<g className="dimension-line">
-								<line
-									x1="610"
-									y1="160"
-									x2="610"
-									y2="420"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
-
-								<line
-									x1="603"
-									y1="160"
-									x2="617"
-									y2="160"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
-
-								<line
-									x1="603"
-									y1="420"
-									x2="617"
-									y2="420"
-									stroke="#b8b8b8"
-									strokeWidth="1"
-								/>
+							<g className="plan-dimension">
+								<line x1="560" y1="263" x2="560" y2="484" />
+								<line x1="552" y1="263" x2="568" y2="263" />
+								<line x1="552" y1="484" x2="568" y2="484" />
 
 								<text
-									x="625"
-									y="295"
-									fill="#777"
-									fontSize="9"
-									letterSpacing="2"
-									transform="rotate(90 625 295)"
+									x="578"
+									y="374"
+									textAnchor="middle"
+									transform="rotate(90 578 374)"
+									className="plan-text"
 								>
 									8.40
 								</text>
 							</g>
 
-							{/* -------------------------------------------------
-							    REFERENCE POINT — TOP LEFT
-							------------------------------------------------- */}
+							{/* =========================================================
+	    REFERENCE POINT — TOP LEFT
+	========================================================= */}
 
 							<g className="reference-point">
-								<circle cx="165" cy="82" r="5" stroke="#777" strokeWidth="1" />
-
-								<line x1="155" y1="82" x2="175" y2="82" stroke="#777" />
-
-								<line x1="165" y1="72" x2="165" y2="92" stroke="#777" />
+								<circle cx="99" cy="90" r="7" />
+								<line x1="86" y1="90" x2="112" y2="90" />
+								<line x1="99" y1="77" x2="99" y2="103" />
 							</g>
 
-							{/* -------------------------------------------------
-							    REFERENCE POINT — BOTTOM RIGHT
-							------------------------------------------------- */}
+							{/* =========================================================
+	    REFERENCE POINT — BOTTOM RIGHT
+	========================================================= */}
 
 							<g className="reference-point">
-								<circle cx="585" cy="490" r="5" stroke="#777" strokeWidth="1" />
-
-								<line x1="575" y1="490" x2="595" y2="490" stroke="#777" />
-
-								<line x1="585" y1="480" x2="585" y2="500" stroke="#777" />
+								<circle cx="600" cy="551" r="7" />
+								<line x1="587" y1="551" x2="613" y2="551" />
+								<line x1="600" y1="538" x2="600" y2="564" />
 							</g>
 
-							{/* -------------------------------------------------
-							    MAIN FLOOR PLAN
-							------------------------------------------------- */}
+							{/* =========================================================
+	    MAIN OUTER WALL — BASED ON REFERENCE
+	========================================================= */}
 
 							<path
 								className="main-wall"
 								d="
-									M210 115
-									H430
-									V160
-									H535
-									V335
-									H470
-									V435
-									H210
-									V345
-									H145
-									V275
-									H210
-									Z
-								"
-								stroke="#111111"
-								strokeWidth="5"
-								strokeLinecap="square"
-								strokeLinejoin="miter"
+			M134 178
+			H390
+			V263
+			H498
+			V354
+			H418
+			V484
+			H390
+			V550
+			H174
+			V395
+			H229
+			V319
+			H134
+			Z
+		"
 							/>
 
-							{/* -------------------------------------------------
-							    SECONDARY / DASHED PLAN
-							------------------------------------------------- */}
+							{/* =========================================================
+	    SUBTLE INNER CONSTRUCTION LINE
+	========================================================= */}
 
 							<path
-								className="secondary-wall"
+								className="inner-construction"
 								d="
-									M275 190
-									H390
-									V245
-									H450
-									V330
-									H390
-									V385
-									H275
-									V315
-									H235
-									V260
-									H275
-									Z
-								"
-								stroke="#858585"
-								strokeWidth="2"
-								strokeDasharray="8 6"
+			M209 265
+			H385
+			V479
+			H297
+		"
 							/>
 
-							{/* -------------------------------------------------
-							    DOOR OPENING
-							------------------------------------------------- */}
+							{/* =========================================================
+	    LOWER INNER WALL
+	========================================================= */}
 
 							<path
-								className="door-arc"
-								d="M470 335 A75 75 0 0 0 395 260"
-								stroke="#999"
-								strokeWidth="2"
+								className="inner-wall"
+								d="
+			M174 479
+			H297
+			V550
+		"
 							/>
 
-							<line
-								className="door-line"
-								x1="470"
-								y1="335"
-								x2="395"
-								y2="335"
-								stroke="#777"
-								strokeWidth="2"
-							/>
+							{/* =========================================================
+	    STAIR AREA
+	========================================================= */}
 
-							{/* -------------------------------------------------
-							    STAIRS
-							------------------------------------------------- */}
+							<g className="stairs">
+								<line x1="418" y1="355" x2="497" y2="355" />
 
-							<g className="stairs" stroke="#777" strokeWidth="2">
-								<line x1="485" y1="165" x2="535" y2="165" />
-								<line x1="485" y1="175" x2="535" y2="175" />
-								<line x1="485" y1="185" x2="535" y2="185" />
-								<line x1="485" y1="195" x2="535" y2="195" />
-								<line x1="485" y1="205" x2="535" y2="205" />
-								<line x1="485" y1="215" x2="535" y2="215" />
-								<line x1="485" y1="225" x2="535" y2="225" />
+								<line x1="418" y1="363" x2="497" y2="363" />
+								<line x1="418" y1="372" x2="497" y2="372" />
+								<line x1="418" y1="381" x2="497" y2="381" />
+								<line x1="418" y1="390" x2="497" y2="390" />
+								<line x1="418" y1="399" x2="497" y2="399" />
+								<line x1="418" y1="408" x2="497" y2="408" />
 							</g>
 
-							{/* -------------------------------------------------
-							    CENTRAL MARKER
-							------------------------------------------------- */}
+							{/* =========================================================
+	    ELEVATOR / SERVICE AREA
+	========================================================= */}
+
+							<g className="service-box">
+								<rect x="418" y="388" width="80" height="96" />
+
+								<line x1="418" y1="388" x2="498" y2="484" />
+								<line x1="498" y1="388" x2="418" y2="484" />
+							</g>
+
+							{/* =========================================================
+	    INTERNAL DASHED WALL
+	========================================================= */}
+
+							<path
+								className="inner-dashed"
+								d="
+			M209 265
+			H385
+			V353
+			H418
+		"
+							/>
+
+							{/* =========================================================
+	    CENTRAL MARKER
+	========================================================= */}
 
 							<rect
 								className="central-marker"
-								x="332"
-								y="292"
+								x="286"
+								y="475"
 								width="12"
 								height="12"
-								fill="#111"
 							/>
 
-							{/* -------------------------------------------------
-							    DRAWING LABELS
-							------------------------------------------------- */}
+							{/* =========================================================
+	    UNDEFINED SPACE LABEL
+	========================================================= */}
+
+							<g className="undefined-label">
+								<text x="12" y="437" className="plan-text plan-label">
+									UNDEFINED SPACE
+								</text>
+
+								<line x1="141" y1="434" x2="157" y2="434" />
+							</g>
+
+							{/* =========================================================
+	    VERTICAL EXPLORING SPACE LABEL
+	========================================================= */}
 
 							<text
-								x="65"
-								y="320"
-								fill="#999"
-								fontSize="8"
-								letterSpacing="2"
-								transform="rotate(-90 65 320)"
+								x="70"
+								y="440"
+								transform="rotate(-90 70 440)"
+								className="plan-text plan-label"
 							>
 								EXPLORING SPACE
 							</text>
 
-							<text x="85" y="340" fill="#666" fontSize="8" letterSpacing="1">
-								UNDEFINED SPACE
+							{/* =========================================================
+	    DRAWING NUMBER
+	========================================================= */}
+
+							<text
+								x="628"
+								y="35"
+								transform="rotate(90 628 35)"
+								className="plan-text plan-label"
+							>
+								6R07 / 14.40A
 							</text>
 						</svg>
 					</div>
@@ -880,111 +801,257 @@ export default function NotFound() {
 			{/* =========================================================
 			    DRAWING ANIMATION
 			========================================================= */}
-
 			<style jsx>{`
-				.main-wall {
-					stroke-dasharray: 1500;
-					stroke-dashoffset: 1500;
-					animation: drawMainWall 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+				/* =========================================================
+	   BASE SVG STYLES
+	========================================================= */
+
+				.plan-grid line {
+					stroke: #dedede;
+					stroke-width: 1;
+					stroke-dasharray: 5 8;
 				}
 
-				.secondary-wall {
-					stroke-dasharray: 700;
-					stroke-dashoffset: 700;
+				.plan-dimension line {
+					stroke: #9d9d9d;
+					stroke-width: 1;
+				}
+
+				.plan-text {
+					fill: #666;
+					font-size: 9px;
+					letter-spacing: 2px;
+				}
+
+				.plan-label {
+					font-size: 8px;
+				}
+
+				/* =========================================================
+	   GRID
+	========================================================= */
+
+				.plan-grid {
 					opacity: 0;
-					animation:
-						drawSecondary 1.6s cubic-bezier(0.65, 0, 0.35, 1) 1.4s forwards,
-						fadeIn 0.5s ease 1.4s forwards;
+					animation: gridAppear 1.2s ease-out 0.1s forwards;
 				}
 
-				.door-arc {
-					stroke-dasharray: 120;
-					stroke-dashoffset: 120;
+				/* =========================================================
+	   DIMENSIONS
+	========================================================= */
+
+				.plan-dimension {
 					opacity: 0;
-					animation:
-						drawDoor 0.9s ease-out 2.7s forwards,
-						fadeIn 0.2s ease 2.7s forwards;
+					animation: dimensionAppear 0.8s ease-out 0.8s forwards;
 				}
 
-				.door-line {
-					stroke-dasharray: 100;
-					stroke-dashoffset: 100;
-					opacity: 0;
-					animation:
-						drawDoorLine 0.6s ease-out 2.8s forwards,
-						fadeIn 0.2s ease 2.8s forwards;
-				}
-
-				.stairs line {
-					stroke-dasharray: 55;
-					stroke-dashoffset: 55;
-					opacity: 0;
-					animation:
-						drawStair 0.45s ease-out forwards,
-						fadeIn 0.2s ease forwards;
-				}
-
-				.stairs line:nth-child(1) {
-					animation-delay: 2.8s;
-				}
-
-				.stairs line:nth-child(2) {
-					animation-delay: 2.9s;
-				}
-
-				.stairs line:nth-child(3) {
-					animation-delay: 3s;
-				}
-
-				.stairs line:nth-child(4) {
-					animation-delay: 3.1s;
-				}
-
-				.stairs line:nth-child(5) {
-					animation-delay: 3.2s;
-				}
-
-				.stairs line:nth-child(6) {
-					animation-delay: 3.3s;
-				}
-
-				.stairs line:nth-child(7) {
-					animation-delay: 3.4s;
-				}
-
-				.central-marker {
-					transform-box: fill-box;
-					transform-origin: center;
-					opacity: 0;
-					transform: scale(0);
-					animation: markerIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3.3s
-						forwards;
-				}
+				/* =========================================================
+	   REFERENCE POINTS
+	========================================================= */
 
 				.reference-point {
+					stroke: #777;
+					stroke-width: 1;
 					opacity: 0;
 					transform-box: fill-box;
 					transform-origin: center;
-					animation: referenceIn 0.7s ease-out 3.1s forwards;
+					animation: referenceAppear 0.7s ease-out 1.2s forwards;
 				}
 
 				.reference-point:nth-of-type(2) {
+					animation-delay: 2.8s;
+				}
+
+				/* =========================================================
+	   MAIN WALL
+	========================================================= */
+
+				.main-wall {
+					fill: none;
+					stroke: #111;
+					stroke-width: 7;
+					stroke-linecap: square;
+					stroke-linejoin: miter;
+
+					stroke-dasharray: 1800;
+					stroke-dashoffset: 1800;
+
+					animation: drawMainWall 3s cubic-bezier(0.65, 0, 0.35, 1) 0.5s
+						forwards;
+				}
+
+				/* =========================================================
+	   INNER CONSTRUCTION
+	========================================================= */
+
+				.inner-construction {
+					fill: none;
+					stroke: #777;
+					stroke-width: 2;
+
+					stroke-dasharray: 600;
+					stroke-dashoffset: 600;
+
+					animation: drawInner 1.6s cubic-bezier(0.65, 0, 0.35, 1) 2.5s forwards;
+				}
+
+				.inner-wall {
+					fill: none;
+					stroke: #777;
+					stroke-width: 2;
+
+					stroke-dasharray: 400;
+					stroke-dashoffset: 400;
+
+					animation: drawInner 1.2s cubic-bezier(0.65, 0, 0.35, 1) 2.9s forwards;
+				}
+
+				/* =========================================================
+	   DASHED INTERIOR
+	========================================================= */
+
+				.inner-dashed {
+					fill: none;
+					stroke: #999;
+					stroke-width: 2;
+					stroke-dasharray: 7 6;
+
+					opacity: 0;
+
+					animation: fadeDrawing 0.8s ease-out 3.1s forwards;
+				}
+
+				/* =========================================================
+	   STAIRS
+	========================================================= */
+
+				.stairs {
+					stroke: #777;
+					stroke-width: 2;
+				}
+
+				.stairs line {
+					stroke-dasharray: 80;
+					stroke-dashoffset: 80;
+					opacity: 0;
+
+					animation:
+						drawStair 0.4s ease-out forwards,
+						fadeDrawing 0.2s ease-out forwards;
+				}
+
+				.stairs line:nth-child(1) {
 					animation-delay: 3.4s;
 				}
 
-				.construction-grid {
-					opacity: 0;
-					animation: gridIn 1.2s ease-out 0.4s forwards;
+				.stairs line:nth-child(2) {
+					animation-delay: 3.5s;
 				}
 
-				.reference-lines {
-					opacity: 0;
-					animation: gridIn 1s ease-out 0.8s forwards;
+				.stairs line:nth-child(3) {
+					animation-delay: 3.6s;
 				}
 
-				.dimension-line {
+				.stairs line:nth-child(4) {
+					animation-delay: 3.7s;
+				}
+
+				.stairs line:nth-child(5) {
+					animation-delay: 3.8s;
+				}
+
+				.stairs line:nth-child(6) {
+					animation-delay: 3.9s;
+				}
+
+				.stairs line:nth-child(7) {
+					animation-delay: 4s;
+				}
+
+				/* =========================================================
+	   SERVICE / ELEVATOR BOX
+	========================================================= */
+
+				.service-box {
+					stroke: #888;
+					stroke-width: 1.5;
 					opacity: 0;
-					animation: dimensionIn 0.8s ease-out 1s forwards;
+
+					animation: fadeDrawing 0.8s ease-out 4s forwards;
+				}
+
+				/* =========================================================
+	   CENTRAL MARKER
+	========================================================= */
+
+				.central-marker {
+					fill: #111;
+
+					opacity: 0;
+					transform-box: fill-box;
+					transform-origin: center;
+					transform: scale(0);
+
+					animation: markerAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3.8s
+						forwards;
+				}
+
+				/* =========================================================
+	   LABELS
+	========================================================= */
+
+				.undefined-label {
+					opacity: 0;
+
+					animation: fadeDrawing 0.8s ease-out 2.5s forwards;
+				}
+
+				.undefined-label line {
+					stroke: #aaa;
+					stroke-width: 1;
+				}
+
+				/* =========================================================
+	   KEYFRAMES
+	========================================================= */
+
+				@keyframes gridAppear {
+					from {
+						opacity: 0;
+					}
+
+					to {
+						opacity: 1;
+					}
+				}
+
+				@keyframes dimensionAppear {
+					from {
+						opacity: 0;
+						transform: translateY(-5px);
+					}
+
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+
+				@keyframes referenceAppear {
+					0% {
+						opacity: 0;
+						transform: scale(0.5);
+					}
+
+					70% {
+						opacity: 1;
+						transform: scale(1.15);
+					}
+
+					100% {
+						opacity: 1;
+						transform: scale(1);
+					}
 				}
 
 				@keyframes drawMainWall {
@@ -993,19 +1060,7 @@ export default function NotFound() {
 					}
 				}
 
-				@keyframes drawSecondary {
-					to {
-						stroke-dashoffset: 0;
-					}
-				}
-
-				@keyframes drawDoor {
-					to {
-						stroke-dashoffset: 0;
-					}
-				}
-
-				@keyframes drawDoorLine {
+				@keyframes drawInner {
 					to {
 						stroke-dashoffset: 0;
 					}
@@ -1017,31 +1072,13 @@ export default function NotFound() {
 					}
 				}
 
-				@keyframes fadeIn {
+				@keyframes fadeDrawing {
 					to {
 						opacity: 1;
 					}
 				}
 
-				@keyframes gridIn {
-					to {
-						opacity: 1;
-					}
-				}
-
-				@keyframes dimensionIn {
-					from {
-						opacity: 0;
-						transform: translateY(-4px);
-					}
-
-					to {
-						opacity: 1;
-						transform: translateY(0);
-					}
-				}
-
-				@keyframes markerIn {
+				@keyframes markerAppear {
 					0% {
 						opacity: 0;
 						transform: scale(0);
@@ -1058,29 +1095,22 @@ export default function NotFound() {
 					}
 				}
 
-				@keyframes referenceIn {
-					0% {
-						opacity: 0;
-						transform: scale(0.5);
-					}
-
-					100% {
-						opacity: 1;
-						transform: scale(1);
-					}
-				}
+				/* =========================================================
+	   ACCESSIBILITY
+	========================================================= */
 
 				@media (prefers-reduced-motion: reduce) {
-					.main-wall,
-					.secondary-wall,
-					.door-arc,
-					.door-line,
-					.stairs line,
-					.central-marker,
+					.plan-grid,
+					.plan-dimension,
 					.reference-point,
-					.construction-grid,
-					.reference-lines,
-					.dimension-line {
+					.main-wall,
+					.inner-construction,
+					.inner-wall,
+					.inner-dashed,
+					.stairs line,
+					.service-box,
+					.central-marker,
+					.undefined-label {
 						animation: none !important;
 						opacity: 1 !important;
 						stroke-dashoffset: 0 !important;
