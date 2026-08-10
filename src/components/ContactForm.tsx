@@ -1,7 +1,15 @@
 "use client";
 
 import emailjs from "@emailjs/browser";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import Script from "next/script";
+import {
+	ChangeEvent,
+	FormEvent,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import Select from "@/components/ui/Select";
 import {
 	isSubmittingTooFast,
@@ -13,6 +21,30 @@ import {
 	sanitizeText,
 } from "@/lib/contactValidation";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+declare global {
+	interface Window {
+		grecaptcha?: {
+			render: (
+				container: HTMLElement,
+				params: {
+					sitekey: string;
+					size?: "invisible";
+					callback: (token: string) => void;
+					"expired-callback"?: () => void;
+					"error-callback"?: () => void;
+				},
+			) => number;
+			execute: (widgetId?: number) => void;
+			reset: (widgetId?: number) => void;
+			ready: (callback: () => void) => void;
+		};
+	}
+}
+
+const RECAPTCHA_TIMEOUT_MS = 60_000;
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
 interface FormData {
 	name: string;
@@ -36,11 +68,96 @@ export default function ContactForm() {
 	const [error, setError] = useState<string | null>(null);
 	const [success, setSuccess] = useState(false);
 
+	const recaptchaContainerRef = useRef<HTMLDivElement>(null);
+	const recaptchaWidgetIdRef = useRef<number | null>(null);
+	const recaptchaPendingRef = useRef<{
+		resolve: (token: string) => void;
+		reject: (err: Error) => void;
+	} | null>(null);
+
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
 		}
 	}, []);
+
+	const renderRecaptcha = useCallback(() => {
+		if (!RECAPTCHA_SITE_KEY) return;
+		if (recaptchaWidgetIdRef.current !== null) return;
+		if (!recaptchaContainerRef.current || !window.grecaptcha) return;
+
+		recaptchaWidgetIdRef.current = window.grecaptcha.render(
+			recaptchaContainerRef.current,
+			{
+				sitekey: RECAPTCHA_SITE_KEY,
+				size: "invisible",
+				callback: (token) => {
+					recaptchaPendingRef.current?.resolve(token);
+					recaptchaPendingRef.current = null;
+				},
+				"expired-callback": () => {
+					recaptchaPendingRef.current?.reject(
+						new Error(t.contactForm.errorRecaptcha),
+					);
+					recaptchaPendingRef.current = null;
+				},
+				"error-callback": () => {
+					recaptchaPendingRef.current?.reject(
+						new Error(t.contactForm.errorRecaptcha),
+					);
+					recaptchaPendingRef.current = null;
+				},
+			},
+		);
+	}, [t.contactForm.errorRecaptcha]);
+
+	// Handles the case where the recaptcha script was already loaded by a
+	// previous mount of this component (e.g. navigating back to /contact),
+	// since next/script's onLoad only fires on the script's first load.
+	useEffect(() => {
+		if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+			window.grecaptcha.ready(renderRecaptcha);
+		}
+	}, [renderRecaptcha]);
+
+	// Triggers the invisible widget and waits for the token it produces.
+	// Google may silently pass this in the background, or escalate to a
+	// visible challenge for suspicious requests - either way this resolves
+	// once the user (or the background check) clears it.
+	const getRecaptchaToken = (): Promise<string> => {
+		if (!RECAPTCHA_SITE_KEY) return Promise.resolve("");
+
+		return new Promise((resolve, reject) => {
+			if (recaptchaWidgetIdRef.current === null || !window.grecaptcha) {
+				reject(new Error(t.contactForm.errorRecaptcha));
+				return;
+			}
+
+			const timeoutId = setTimeout(() => {
+				recaptchaPendingRef.current = null;
+				reject(new Error(t.contactForm.errorRecaptcha));
+			}, RECAPTCHA_TIMEOUT_MS);
+
+			recaptchaPendingRef.current = {
+				resolve: (token) => {
+					clearTimeout(timeoutId);
+					resolve(token);
+				},
+				reject: (err) => {
+					clearTimeout(timeoutId);
+					reject(err);
+				},
+			};
+
+			window.grecaptcha.execute(recaptchaWidgetIdRef.current);
+		});
+	};
+
+	const resetRecaptcha = () => {
+		if (recaptchaWidgetIdRef.current !== null) {
+			window.grecaptcha?.reset(recaptchaWidgetIdRef.current);
+		}
+	};
 
 	const handleChange = (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -119,6 +236,8 @@ export default function ContactForm() {
 				throw new Error(t.contactForm.errorInvalidMessage);
 			}
 
+			const recaptchaToken = await getRecaptchaToken();
+
 			await emailjs.send(
 				process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
 				process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
@@ -127,6 +246,7 @@ export default function ContactForm() {
 					email: sanitizeText(formData.email),
 					subject: sanitizeText(formData.subject),
 					message: sanitizeText(formData.message),
+					"g-recaptcha-response": recaptchaToken,
 				},
 			);
 
@@ -150,12 +270,21 @@ export default function ContactForm() {
 
 			setError(err instanceof Error ? err.message : t.contactForm.errorGeneric);
 		} finally {
+			resetRecaptcha();
 			setLoading(false);
 		}
 	};
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6">
+			{RECAPTCHA_SITE_KEY && (
+				<Script
+					src="https://www.google.com/recaptcha/api.js"
+					strategy="afterInteractive"
+					onLoad={() => window.grecaptcha?.ready(renderRecaptcha)}
+				/>
+			)}
+
 			{/* Honeypot: hidden from real users, catches basic bots */}
 			<div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
 				<label htmlFor="company">Company</label>
@@ -257,6 +386,9 @@ export default function ContactForm() {
 					className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-900 focus:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.15)] disabled:opacity-50 disabled:bg-zinc-100 resize-none"
 				/>
 			</div>
+
+			{/* CAPTCHA */}
+			{RECAPTCHA_SITE_KEY && <div ref={recaptchaContainerRef} />}
 
 			{/* Error */}
 			{error && (

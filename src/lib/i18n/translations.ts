@@ -177,6 +177,7 @@ export type Dictionary = {
 		errorInvalidSubject: string;
 		errorInvalidMessage: string;
 		errorTooFast: string;
+		errorRecaptcha: string;
 		errorGeneric: string;
 	};
 	notFound: {
@@ -432,6 +433,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorInvalidSubject: "Please select a valid subject",
 			errorInvalidMessage: "Message must be between 10 and 5000 characters",
 			errorTooFast: "Please wait a moment before sending another message",
+			errorRecaptcha: "Please complete the CAPTCHA verification",
 			errorGeneric: "An unexpected error occurred.",
 		},
 		notFound: {
@@ -684,6 +686,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorInvalidSubject: "Te rugăm să selectezi un subiect valid",
 			errorInvalidMessage: "Mesajul trebuie să aibă între 10 și 5000 de caractere",
 			errorTooFast: "Te rugăm să aștepți un moment înainte de a trimite alt mesaj",
+			errorRecaptcha: "Te rugăm să completezi verificarea CAPTCHA",
 			errorGeneric: "A apărut o eroare neașteptată.",
 		},
 		notFound: {
