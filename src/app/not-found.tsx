@@ -1,8 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-// import ArchitecturalPlan from "@/components/not-found/ArchitecturalPlan";
-import ArchitecturalPlan from "@/components/not-found/ArchitecturalPlan2";
+import ArchitecturalPlan from "@/components/not-found/ArchitecturalPlan";
 import NotFoundInfo from "@/components/not-found/NotFoundInfo";
 import NotFoundTitleBlock from "@/components/not-found/NotFoundTitleBlock";
 

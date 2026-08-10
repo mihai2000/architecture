@@ -1,251 +1,597 @@
 /* components/not-found/ArchitecturalPlan.module.css */
 
-.planGrid line {
-    stroke: #dedede;
-    stroke-width: 1;
-    stroke-dasharray: 5 8;
+.plan {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+
+	--black: #111;
+	--wall-gray: #858585;
+	--construction-gray: #9b9b9b;
+	--outline-gray: #aaa;
+	--grid-gray: #dedede;
+	--text-gray: #666;
 }
 
-.planGrid {
-    opacity: 0;
-    animation: gridAppear 1.2s ease-out 0.1s forwards;
+/* ================================================================
+   GRID
+   ================================================================ */
+
+.grid {
+	opacity: 0;
+	animation: fade-in 900ms ease-out 100ms forwards;
 }
 
-.planDimension {
-    opacity: 0;
-    animation: dimensionAppear 0.8s ease-out 0.8s forwards;
+.grid line {
+	stroke: var(--grid-gray);
+	stroke-width: 0.8;
+	stroke-dasharray: 4 7;
+	vector-effect: non-scaling-stroke;
 }
 
-.planDimension line {
-    stroke: #9d9d9d;
-    stroke-width: 1;
+/* ================================================================
+   REFERENCE AXES
+   ================================================================ */
+
+.referenceAxes {
+	opacity: 0;
+	animation: fade-in 700ms ease-out 250ms forwards;
 }
 
-.planText {
-    fill: #666;
-    font-size: 9px;
-    letter-spacing: 2px;
+.referenceAxes line {
+	stroke: #c1c1c1;
+	stroke-width: 0.8;
+	stroke-dasharray: 3 6;
+	vector-effect: non-scaling-stroke;
 }
 
-.planLabel {
-    font-size: 8px;
-}
+/* ================================================================
+   REFERENCE POINTS
+   ================================================================ */
 
 .referencePoint {
-    stroke: #777;
-    stroke-width: 1;
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: referenceAppear 0.7s ease-out 1.2s forwards;
+	opacity: 0;
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: reference-point 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.referencePointDelayed {
-    animation-delay: 2.8s;
+.referencePoint:nth-child(1) {
+	animation-delay: 700ms;
 }
 
-.mainWall {
-    fill: none;
-    stroke: #111;
-    stroke-width: 7;
-    stroke-linecap: square;
-    stroke-linejoin: miter;
-    stroke-dasharray: 1800;
-    stroke-dashoffset: 1800;
-    animation: drawMainWall 3s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards;
+.referencePoint:nth-child(2) {
+	animation-delay: 800ms;
 }
 
-.innerConstruction {
-    fill: none;
-    stroke: #777;
-    stroke-width: 2;
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
-    animation: drawInner 1.6s cubic-bezier(0.65, 0, 0.35, 1) 2.5s forwards;
+.referencePoint:nth-child(3) {
+	animation-delay: 900ms;
 }
 
-.innerWall {
-    fill: none;
-    stroke: #777;
-    stroke-width: 2;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: drawInner 1.2s cubic-bezier(0.65, 0, 0.35, 1) 2.9s forwards;
+.referencePoint:nth-child(4) {
+	animation-delay: 1000ms;
 }
 
-.innerDashed {
-    fill: none;
-    stroke: #999;
-    stroke-width: 2;
-    stroke-dasharray: 7 6;
-    opacity: 0;
-    animation: fadeDrawing 0.8s ease-out 3.1s forwards;
+.referencePoint circle {
+	fill: #fff;
+	stroke: #888;
+	stroke-width: 1;
+	vector-effect: non-scaling-stroke;
 }
+
+.referencePoint line {
+	stroke: #888;
+	stroke-width: 1;
+	vector-effect: non-scaling-stroke;
+}
+
+/* ================================================================
+   THIN DOUBLE-LINE OUTLINE
+   ================================================================ */
+
+.lightOutline {
+	opacity: 0;
+	animation: reveal-outline 1000ms ease-out 850ms forwards;
+}
+
+.lightOutline path {
+	fill: none;
+	stroke: var(--outline-gray);
+	stroke-width: 1;
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	vector-effect: non-scaling-stroke;
+
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+
+	animation: draw-outline 1200ms ease-out forwards;
+}
+
+.lightOutline path:nth-child(1) {
+	animation-delay: 850ms;
+}
+
+.lightOutline path:nth-child(2) {
+	animation-delay: 950ms;
+}
+
+.lightOutline path:nth-child(3) {
+	animation-delay: 1050ms;
+}
+
+.lightOutline path:nth-child(4) {
+	animation-delay: 1150ms;
+}
+
+.lightOutline path:nth-child(5) {
+	animation-delay: 1250ms;
+}
+
+.lightOutline path:nth-child(6) {
+	animation-delay: 1350ms;
+}
+
+.lightOutline path:nth-child(7) {
+	animation-delay: 1450ms;
+}
+
+.lightOutline path:nth-child(8) {
+	animation-delay: 1550ms;
+}
+
+/* ================================================================
+   DASHED CONSTRUCTION
+   ================================================================ */
+
+.dashedLines {
+	opacity: 0;
+	animation: fade-in 500ms ease-out 2400ms forwards;
+}
+
+.dashedLines path {
+	fill: none;
+	stroke: var(--construction-gray);
+	stroke-width: 1.2;
+	stroke-dasharray: 7 7;
+	stroke-linecap: butt;
+	vector-effect: non-scaling-stroke;
+}
+
+/* ================================================================
+   PRIMARY WALLS
+   ================================================================ */
+
+.primaryWalls path {
+	fill: none;
+	stroke: var(--black);
+	stroke-width: 6.5;
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	vector-effect: non-scaling-stroke;
+
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+
+	animation: draw-wall 900ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.primaryWalls path:nth-child(1) {
+	animation-delay: 900ms;
+}
+
+.primaryWalls path:nth-child(2) {
+	animation-delay: 1020ms;
+}
+
+.primaryWalls path:nth-child(3) {
+	animation-delay: 1140ms;
+}
+
+.primaryWalls path:nth-child(4) {
+	animation-delay: 1260ms;
+}
+
+.primaryWalls path:nth-child(5) {
+	animation-delay: 1380ms;
+}
+
+.primaryWalls path:nth-child(6) {
+	animation-delay: 1500ms;
+}
+
+.primaryWalls path:nth-child(7) {
+	animation-delay: 1620ms;
+}
+
+.primaryWalls path:nth-child(8) {
+	animation-delay: 1740ms;
+}
+
+.primaryWalls path:nth-child(9) {
+	animation-delay: 1860ms;
+}
+
+.primaryWalls path:nth-child(10) {
+	animation-delay: 1980ms;
+}
+
+.primaryWalls path:nth-child(11) {
+	animation-delay: 2100ms;
+}
+
+.primaryWalls path:nth-child(12) {
+	animation-delay: 2220ms;
+}
+
+/* ================================================================
+   SECONDARY / THIN WALLS
+   ================================================================ */
+
+.secondaryWalls {
+	opacity: 0;
+	animation: fade-in 600ms ease-out 2200ms forwards;
+}
+
+.secondaryWalls path {
+	fill: none;
+	stroke: var(--wall-gray);
+	stroke-width: 1.5;
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	vector-effect: non-scaling-stroke;
+
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+
+	animation: draw-thin-wall 700ms ease-out forwards;
+}
+
+.secondaryWalls path:nth-child(1) {
+	animation-delay: 2250ms;
+}
+
+.secondaryWalls path:nth-child(2) {
+	animation-delay: 2350ms;
+}
+
+.secondaryWalls path:nth-child(3) {
+	animation-delay: 2450ms;
+}
+
+.secondaryWalls path:nth-child(4) {
+	animation-delay: 2550ms;
+}
+
+.secondaryWalls path:nth-child(5) {
+	animation-delay: 2650ms;
+}
+
+.secondaryWalls path:nth-child(6) {
+	animation-delay: 2750ms;
+}
+
+/* ================================================================
+   STAIRS
+   ================================================================ */
 
 .stairs {
-    stroke: #777;
-    stroke-width: 2;
+	opacity: 0;
+	animation: fade-in 500ms ease-out 2900ms forwards;
+}
+
+.stairs path {
+	fill: none;
+	stroke: var(--black);
+	stroke-width: 4;
+	stroke-linecap: square;
+	vector-effect: non-scaling-stroke;
+
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+
+	animation: draw-thin-wall 600ms ease-out forwards;
+}
+
+.stairs path:first-child {
+	animation-delay: 2900ms;
+}
+
+.stairs path:last-child {
+	animation-delay: 3400ms;
 }
 
 .stairs line {
-    stroke-dasharray: 80;
-    stroke-dashoffset: 80;
-    opacity: 0;
-    animation:
-        drawStair 0.4s ease-out forwards,
-        fadeDrawing 0.2s ease-out forwards;
-}
+	opacity: 0;
+	stroke: #777;
+	stroke-width: 1.15;
+	vector-effect: non-scaling-stroke;
 
-.stairs line:nth-child(1) {
-    animation-delay: 3.4s;
+	animation: stair-tread 250ms ease-out forwards;
 }
 
 .stairs line:nth-child(2) {
-    animation-delay: 3.5s;
+	animation-delay: 3020ms;
 }
 
 .stairs line:nth-child(3) {
-    animation-delay: 3.6s;
+	animation-delay: 3100ms;
 }
 
 .stairs line:nth-child(4) {
-    animation-delay: 3.7s;
+	animation-delay: 3180ms;
 }
 
 .stairs line:nth-child(5) {
-    animation-delay: 3.8s;
+	animation-delay: 3260ms;
 }
 
 .stairs line:nth-child(6) {
-    animation-delay: 3.9s;
+	animation-delay: 3340ms;
 }
 
 .stairs line:nth-child(7) {
-    animation-delay: 4s;
+	animation-delay: 3420ms;
 }
 
-.serviceBox {
-    stroke: #888;
-    stroke-width: 1.5;
-    opacity: 0;
-    animation: fadeDrawing 0.8s ease-out 4s forwards;
+.stairs line:nth-child(8) {
+	animation-delay: 3500ms;
 }
 
-.centralMarker {
-    fill: #111;
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-    transform: scale(0);
-    animation: markerAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 3.8s forwards;
+.stairs line:nth-child(9) {
+	animation-delay: 3580ms;
 }
 
-.undefinedLabel {
-    opacity: 0;
-    animation: fadeDrawing 0.8s ease-out 2.5s forwards;
+.stairs line:nth-child(10) {
+	animation-delay: 3660ms;
 }
 
-.undefinedLabel line {
-    stroke: #aaa;
-    stroke-width: 1;
+/* ================================================================
+   ELEVATOR / CORE
+   ================================================================ */
+
+.core {
+	opacity: 0;
+	animation: fade-in 600ms ease-out 3700ms forwards;
 }
 
-@keyframes gridAppear {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.core rect {
+	fill: none;
+	stroke: #858585;
+	stroke-width: 1.2;
+	vector-effect: non-scaling-stroke;
 }
 
-@keyframes dimensionAppear {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
+.core line {
+	stroke: #8c8c8c;
+	stroke-width: 1.1;
+	vector-effect: non-scaling-stroke;
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	opacity: 0;
+
+	animation: core-line 500ms ease-out forwards;
 }
 
-@keyframes referenceAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    70% {
-        opacity: 1;
-        transform: scale(1.15);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+.core line:first-of-type {
+	animation-delay: 3800ms;
 }
 
-@keyframes drawMainWall {
-    to {
-        stroke-dashoffset: 0;
-    }
+.core line:last-of-type {
+	animation-delay: 3900ms;
 }
 
-@keyframes drawInner {
-    to {
-        stroke-dashoffset: 0;
-    }
+/* ================================================================
+   DATUM
+
+   No axis exists here. The reference only contains the square.
+   ================================================================ */
+
+.datum {
+	fill: var(--black);
+	opacity: 0;
+
+	transform-box: fill-box;
+	transform-origin: center;
+	transform: scale(0);
+
+	animation: datum 450ms cubic-bezier(0.34, 1.56, 0.64, 1) 3950ms forwards;
 }
 
-@keyframes drawStair {
-    to {
-        stroke-dashoffset: 0;
-    }
+/* ================================================================
+   DIMENSIONS
+   ================================================================ */
+
+.dimensions {
+	opacity: 0;
+	animation: fade-in 600ms ease-out 2000ms forwards;
 }
 
-@keyframes fadeDrawing {
-    to {
-        opacity: 1;
-    }
+.dimensions line {
+	stroke: #929292;
+	stroke-width: 0.9;
+	vector-effect: non-scaling-stroke;
 }
 
-@keyframes markerAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
+.dimensionText {
+	fill: var(--text-gray);
 
-    70% {
-        opacity: 1;
-        transform: scale(1.25);
-    }
+	font-family: Arial, Helvetica, sans-serif;
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+	font-size: 9px;
+	font-weight: 400;
+	letter-spacing: 1.6px;
 }
+
+/* ================================================================
+   ANNOTATIONS
+   ================================================================ */
+
+.annotations,
+.verticalAnnotation,
+.drawingIdentifier,
+.identifierLine {
+	opacity: 0;
+	animation: fade-in 650ms ease-out 2550ms forwards;
+}
+
+.annotations line,
+.identifierLine {
+	stroke: #999;
+	stroke-width: 0.9;
+	vector-effect: non-scaling-stroke;
+}
+
+.annotationText,
+.verticalAnnotation,
+.drawingIdentifier {
+	fill: var(--text-gray);
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: 7.5px;
+	font-weight: 400;
+	letter-spacing: 1.8px;
+}
+
+/* ================================================================
+   KEYFRAMES
+   ================================================================ */
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes reference-point {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+
+	70% {
+		opacity: 1;
+		transform: scale(1.08);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes reveal-outline {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes draw-outline {
+	from {
+		stroke-dashoffset: 1;
+	}
+
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes draw-wall {
+	from {
+		stroke-dashoffset: 1;
+	}
+
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes draw-thin-wall {
+	from {
+		stroke-dashoffset: 1;
+	}
+
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes stair-tread {
+	from {
+		opacity: 0;
+		transform: translateY(-3px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes core-line {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes datum {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	70% {
+		opacity: 1;
+		transform: scale(1.15);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-
-    .planGrid,
-    .planDimension,
-    .referencePoint,
-    .mainWall,
-    .innerConstruction,
-    .innerWall,
-    .innerDashed,
-    .stairs line,
-    .serviceBox,
-    .centralMarker,
-    .undefinedLabel {
-        animation: none !important;
-        opacity: 1 !important;
-        stroke-dashoffset: 0 !important;
-        transform: none !important;
-    }
+	.grid,
+	.referenceAxes,
+	.referencePoint,
+	.lightOutline,
+	.lightOutline path,
+	.dashedLines,
+	.primaryWalls path,
+	.secondaryWalls,
+	.secondaryWalls path,
+	.stairs,
+	.stairs path,
+	.stairs line,
+	.core,
+	.core line,
+	.datum,
+	.dimensions,
+	.annotations,
+	.verticalAnnotation,
+	.drawingIdentifier,
+	.identifierLine {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+		stroke-dashoffset: 0 !important;
+	}
 }
