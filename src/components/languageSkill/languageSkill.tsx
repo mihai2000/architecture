@@ -32,7 +32,7 @@ export function LanguageSkill({
 	level,
 }: LanguageSkillProps) {
 	return (
-		<div className="flex flex-col gap-2 xl:flex-row xl:items-center xl:gap-4">
+		<div className="flex flex-col gap-2 @[22rem]:flex-row @[22rem]:items-center @[22rem]:gap-4">
 			<div className="flex-1">
 				<span className="leading-6">{label}</span>
 				<p className="text-sm text-zinc-600">{levelLabel}</p>

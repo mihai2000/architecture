@@ -37,24 +37,24 @@ export default function Home() {
 
 	return (
 		<>
-			<section className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
-				<Reveal className="max-w-200 rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10">
+			<section className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8 2xl:grid-cols-3">
+				<Reveal className="rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10 lg:order-3 lg:col-span-2 2xl:order-none 2xl:col-span-1">
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.eyebrow}
 					</p>
-					<h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[0.95] sm:text-5xl lg:text-6xl">
+					<h1 className="mt-5 text-4xl font-semibold leading-[0.95] sm:text-5xl lg:text-6xl">
 						{t.home.heading}
 					</h1>
-					<p className="mt-6 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
+					<p className="mt-6 text-base leading-8 text-zinc-700 sm:text-lg">
 						{t.home.lead}
 					</p>
-					<p className="mt-2 max-w-xl text-base leading-8 text-zinc-700 sm:text-lg">
+					<p className="mt-2 text-base leading-8 text-zinc-700 sm:text-lg">
 						{t.home.subLead}
 					</p>
 				</Reveal>
 				<Reveal
 					delay={120}
-					className="max-w-200 rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
+					className="mx-auto w-full max-w-200 rounded-[2rem] border border-zinc-300 bg-zinc-900 p-8 text-zinc-100 sm:p-10"
 				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-400">
 						{t.home.featuredLabel}
@@ -103,13 +103,13 @@ export default function Home() {
 
 				<Reveal
 					delay={200}
-					className="flex flex-1 flex-col rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10"
+					className="flex w-full max-w-200 flex-col rounded-[2rem] border border-zinc-300 bg-white/70 p-8 sm:p-10"
 				>
 					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
 						{t.home.skillsHeading}
 					</p>
 
-					<div className="mt-8 space-y-4">
+					<div className="@container mt-8 space-y-4">
 						{SKILLS.map((skill) => (
 							<LanguageSkill
 								key={skill.label}
@@ -172,7 +172,7 @@ export default function Home() {
 								{t.home.languagesTitle}
 							</h3>
 
-							<div className="space-y-4">
+							<div className="@container space-y-4">
 								<LanguageSkill label={`${t.home.language1}`} level={5} />
 								<LanguageSkill label={`${t.home.language2}`} level={4} />
 								<LanguageSkill label={`${t.home.language3}`} level={2} />
