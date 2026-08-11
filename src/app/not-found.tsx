@@ -2,7 +2,6 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import ArchitecturalPlan from "@/components/not-found/ArchitecturalPlan";
-// import ArchitecturalPlan from "@/components/not-found/Experimental";
 import NotFoundInfo from "@/components/not-found/NotFoundInfo";
 import NotFoundTitleBlock from "@/components/not-found/NotFoundTitleBlock";
 

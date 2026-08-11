@@ -2,7 +2,7 @@
 
 import type { SVGProps } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import styles from "./Expermimental.module.css";
+import styles from "./ArchitecturalPlan.module.css";
 
 export default function ArchitecturalPlan({
 	className,
