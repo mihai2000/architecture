@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import ArchitecturalPlan from "@/components/not-found/ArchitecturalPlan";
+// import ArchitecturalPlan from "@/components/not-found/Experimental";
 import NotFoundInfo from "@/components/not-found/NotFoundInfo";
 import NotFoundTitleBlock from "@/components/not-found/NotFoundTitleBlock";
 
@@ -54,8 +55,8 @@ export default function NotFound() {
 				>
 					<NotFoundInfo />
 
-					{/* <div className="absolute left-[48%] top-[14%] h-[58%] w-[48%]"> */}
 					<div className="absolute left-[49%] top-[15%] h-[52%] w-[43%]">
+						{/* <div className="absolute left-[5%] top-[-30%]"> */}
 						<ArchitecturalPlan className="h-full w-full" />
 					</div>
 
