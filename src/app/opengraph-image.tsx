@@ -4,11 +4,8 @@ export const dynamic = "force-static";
 export const alt = "Catalin Carp Studio — Architecture Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function OpengraphImage() {
-	const { t } = useLanguage();
-
 	return new ImageResponse(
 		<div
 			style={{
@@ -72,21 +69,19 @@ export default function OpengraphImage() {
 						fontSize: 54,
 						fontWeight: 700,
 						letterSpacing: 10,
-						textTransform: "uppercase",
 						color: "#f3efe8",
 					}}
 				>
-					{t.brand.name}
+					CATALIN CARP STUDIO
 				</div>
 				<div
 					style={{
 						fontSize: 24,
 						letterSpacing: 6,
-						textTransform: "uppercase",
 						color: "#a1a1aa",
 					}}
 				>
-					{t.notFound.projectValue}
+					ARCHITECTURE PORTFOLIO
 				</div>
 			</div>
 		</div>,
