@@ -199,6 +199,12 @@ export type Dictionary = {
 		scaleValue: string;
 		revisionValue: string;
 		undefinedSpace: string;
+		exploringSpace: string;
+		drawingCode: string;
+		planTitle: string;
+		planDescription: string;
+		dimensionPrimary: string;
+		dimensionSecondary: string;
 	};
 };
 
@@ -470,6 +476,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			scaleValue: "NTS",
 			revisionValue: "01 / 2026",
 			undefinedSpace: "UNDEFINED SPACE",
+			exploringSpace: "EXPLORING SPACE",
+			drawingCode: "6R07 / 14.40A",
+			planTitle: "Architectural floor plan",
+			planDescription:
+				"Architectural floor plan with technical construction grid, wall geometry, staircase, elevator core, dimensions and drafting annotations.",
+			dimensionPrimary: "12.60",
+			dimensionSecondary: "8.40",
 		},
 	},
 	ro: {
@@ -739,6 +752,13 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			scaleValue: "NTS",
 			revisionValue: "01 / 2026",
 			undefinedSpace: "SPAȚIU INDEFINIT",
+			exploringSpace: "SPAȚIU DE EXPLORAT",
+			drawingCode: "6R07 / 14.40A",
+			planTitle: "Plan arhitectural de etaj",
+			planDescription:
+				"Plan arhitectural de etaj cu grilă tehnică de construcție, geometria pereților, scară, nucleu de lift, cote și adnotări de proiectare.",
+			dimensionPrimary: "12,60",
+			dimensionSecondary: "8,40",
 		},
 	},
 };

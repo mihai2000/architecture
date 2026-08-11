@@ -14,9 +14,7 @@ export default function NotFoundInfo() {
 						CATALIN CARP STUDIO
 					</p>
 
-					<p className="mt-2 text-[0.57rem] text-zinc-600">
-						Architecture / Interior / Urban
-					</p>
+					<p className="mt-2 text-[0.57rem] text-zinc-600">{t.home.eyebrow}</p>
 				</div>
 
 				<p className="text-[3.5rem] font-light leading-none tracking-[-0.06em]">
@@ -61,13 +59,13 @@ export default function NotFoundInfo() {
 				<div className="h-full w-px bg-zinc-400" />
 
 				<p className="ml-[-0.1rem] -rotate-90 whitespace-nowrap text-[0.48rem] uppercase tracking-[0.3em] text-zinc-500">
-					Exploring Form and Space.
+					{t.home.heading}
 				</p>
 			</div>
 
 			<div className="absolute right-[4%] top-[15%] border-l border-zinc-400 pl-4">
 				<p className="origin-top-left rotate-90 whitespace-nowrap text-[0.55rem] uppercase tracking-[0.3em] text-zinc-500">
-					6R07 / 14.40A
+					{t.notFound.drawingCode}
 				</p>
 			</div>
 		</>

@@ -29,7 +29,7 @@ export default function NotFoundTitleBlock() {
 							</p>
 
 							<p className="mt-2 text-[0.7rem] text-zinc-600">
-								Timisoara, Romania
+								{t.contact.locationValue.join(", ")}
 							</p>
 						</div>
 					</div>
@@ -63,7 +63,9 @@ export default function NotFoundTitleBlock() {
 						{t.notFound.scale}
 					</p>
 
-					<p className="mt-4 text-[0.7rem] uppercase">{t.notFound.scaleValue}</p>
+					<p className="mt-4 text-[0.7rem] uppercase">
+						{t.notFound.scaleValue}
+					</p>
 				</div>
 
 				{/* Revision */}
