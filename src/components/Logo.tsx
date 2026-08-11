@@ -1,8 +1,14 @@
-﻿export default function Logo({
+﻿"use client";
+
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+export default function Logo({
 	className = "h-16 w-16 sm:h-20 sm:w-20",
 }: {
 	className?: string;
 }) {
+	const { t } = useLanguage();
+
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +16,7 @@
 			viewBox="0 0 1254 1254"
 			className={className}
 			role="img"
-			aria-label="Catalin Carp Studio"
+			aria-label={t.brand.name}
 			preserveAspectRatio="xMidYMid meet"
 			shapeRendering="geometricPrecision"
 			style={{ display: "block" }}

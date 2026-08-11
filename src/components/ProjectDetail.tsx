@@ -110,11 +110,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							width={75}
 							height={75}
 							src={project.logo}
-							alt={project.imageAlt}
+							alt={project.imageAlt[locale]}
 							className="h-[75px] w-[75px]"
 						/>
 
-						<p className="mt-4 text-base text-zinc-600">{project.location}</p>
+						<p className="mt-4 text-base text-zinc-600">
+							{project.location[locale]}
+						</p>
 
 						<dl className="mt-8 flex gap-x-10">
 							<div>
@@ -181,7 +183,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					{project.imageWidth && project.imageHeight ? (
 						<Image
 							src={project.image}
-							alt={project.imageAlt}
+							alt={project.imageAlt[locale]}
 							width={project.imageWidth}
 							height={project.imageHeight}
 							sizes="100vw"
@@ -194,7 +196,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						<div className="relative h-72 overflow-hidden rounded-[2rem] sm:h-96">
 							<Image
 								src={project.image}
-								alt={project.imageAlt}
+								alt={project.imageAlt[locale]}
 								fill
 								sizes="100vw"
 								loading="eager"
@@ -207,12 +209,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 			</div>
 			<div className="mx-auto max-w-6xl">
 				<p className=" mt-4 text-[0.7rem] uppercase tracking-[0.35em] text-zinc-500">
-					CONCEPT
+					{t.projectDetail.conceptHeading}
 				</p>
 
-				{/* <h2 className="mt-2 text-3xl font-semibold">
-					{t.projectDetail.conceptHeading}
-				</h2> */}
 				<Reveal
 					delay={180}
 					className="mx-auto mt-8 grid max-w-6xl gap-8  lg:grid-cols-2"
@@ -342,7 +341,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 										<div className="relative h-56 w-[21rem] sm:h-72 sm:w-[27rem]">
 											<Image
 												src={item.url}
-												alt={item.alt}
+												alt={item.alt[locale]}
 												fill
 												sizes="(min-width: 640px) 27rem, 21rem"
 												className="transform-gpu rounded-[2rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -351,7 +350,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 									) : item.width && item.height ? (
 										<Image
 											src={item.url}
-											alt={item.alt}
+											alt={item.alt[locale]}
 											width={item.width}
 											height={item.height}
 											sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
@@ -361,7 +360,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 										<div className="relative h-56 w-full">
 											<Image
 												src={item.url}
-												alt={item.alt}
+												alt={item.alt[locale]}
 												fill
 												sizes="(min-width: 640px) 50vw, 100vw"
 												className="transform-gpu rounded-[2rem] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -409,7 +408,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						{lightboxItem.width && lightboxItem.height ? (
 							<Image
 								src={lightboxItem.url}
-								alt={lightboxItem.alt}
+								alt={lightboxItem.alt[locale]}
 								width={lightboxItem.width}
 								height={lightboxItem.height}
 								sizes="(min-width: 1536px) 1300px, 90vw"
@@ -419,7 +418,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							// eslint-disable-next-line @next/next/no-img-element
 							<img
 								src={lightboxItem.url}
-								alt={lightboxItem.alt}
+								alt={lightboxItem.alt[locale]}
 								className="max-h-[85vh] max-w-full rounded-lg object-contain"
 							/>
 						)}
@@ -442,7 +441,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
 						>
 							<p className="text-right text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">
-								Next Project →
+								{t.projectDetail.nextProject} →
 							</p>
 
 							<h3 className="mt-5 text-right text-3xl font-semibold leading-tight">
@@ -450,7 +449,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							</h3>
 
 							<p className="mt-2 text-right text-zinc-600">
-								{nextProject.location}
+								{nextProject.location[locale]}
 							</p>
 						</Link>
 					</div>
@@ -462,14 +461,16 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							className="group block rounded-[2rem] border border-zinc-300 bg-white/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-900 hover:bg-white"
 						>
 							<p className="text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">
-								← Previous Project
+								← {t.projectDetail.previousProject}
 							</p>
 
 							<h3 className="mt-5 text-3xl font-semibold leading-tight">
 								{previousProject.title}
 							</h3>
 
-							<p className="mt-2 text-zinc-600">{previousProject.location}</p>
+							<p className="mt-2 text-zinc-600">
+								{previousProject.location[locale]}
+							</p>
 						</Link>
 					</div>
 				) : null}

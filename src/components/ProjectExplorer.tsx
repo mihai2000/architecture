@@ -12,7 +12,7 @@ type SortOption = "title-asc" | "title-desc" | "location-asc";
 const ALL_TYPES = "All";
 
 export default function ProjectExplorer({ projects }: { projects: Project[] }) {
-	const { t } = useLanguage();
+	const { t, locale } = useLanguage();
 	const [activeType, setActiveType] = useState(ALL_TYPES);
 	const [query, setQuery] = useState("");
 	const [sort, setSort] = useState<SortOption>("title-asc");
@@ -38,16 +38,16 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 				const matchesQuery =
 					q.length === 0 ||
 					project.title.toLowerCase().includes(q) ||
-					project.location.toLowerCase().includes(q);
+					project.location[locale].toLowerCase().includes(q);
 
 				return matchesType && matchesQuery;
 			})
 			.sort((a, b) => {
 				if (sort === "title-asc") return a.title.localeCompare(b.title);
 				if (sort === "title-desc") return b.title.localeCompare(a.title);
-				return a.location.localeCompare(b.location);
+				return a.location[locale].localeCompare(b.location[locale]);
 			});
-	}, [projects, activeType, query, sort]);
+	}, [projects, activeType, query, sort, locale]);
 
 	const hasActiveFilters = activeType !== ALL_TYPES || query.trim().length > 0;
 
@@ -70,7 +70,7 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 								: "border-zinc-300 text-zinc-600 hover:border-zinc-900 hover:text-zinc-900"
 						}`}
 					>
-						{type === ALL_TYPES ? t.explorer.all : type}
+						{type === ALL_TYPES ? t.explorer.all : (t.explorer.types[type] ?? type)}
 					</button>
 				))}
 			</div>

@@ -75,14 +75,14 @@ export default function Navigation() {
 					{/* <Logo className="h-20 w-20 shrink-0" /> */}
 					<Image
 						src="/logo/logo.svg"
-						alt="Catalin Carp Studio"
+						alt={t.brand.name}
 						width={80}
 						height={80}
 						className="h-12 w-12 shrink-0 sm:h-16 sm:w-16"
 						draggable={false}
 						decoding="async"
 					/>
-					<span className="whitespace-nowrap">Catalin Carp Studio</span>
+					<span className="whitespace-nowrap">{t.brand.name}</span>
 				</Link>
 
 				<div className="hidden items-center gap-4 md:flex">

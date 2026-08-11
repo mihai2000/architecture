@@ -1,12 +1,15 @@
 // components/not-found/ArchitecturalPlan.tsx
 
 import type { SVGProps } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import styles from "./Expermimental.module.css";
 
 export default function ArchitecturalPlan({
 	className,
 	...props
 }: SVGProps<SVGSVGElement>) {
+	const { t } = useLanguage();
+
 	return (
 		<svg
 			{...props}
@@ -18,12 +21,9 @@ export default function ArchitecturalPlan({
 			role="img"
 			aria-labelledby="plan-title plan-description"
 		>
-			<title id="plan-title">Architectural floor plan</title>
+			<title id="plan-title">{t.notFound.planTitle}</title>
 
-			<desc id="plan-description">
-				Architectural floor plan with technical construction grid, wall
-				geometry, staircase, elevator core, dimensions and drafting annotations.
-			</desc>
+			<desc id="plan-description">{t.notFound.planDescription}</desc>
 
 			{/* ----------------------------------------------------------------
 			    GRID
@@ -303,7 +303,7 @@ export default function ArchitecturalPlan({
 					textAnchor="middle"
 					className={styles.dimensionText}
 				>
-					12.60
+					{t.notFound.dimensionPrimary}
 				</text>
 			</g>
 
@@ -327,7 +327,7 @@ export default function ArchitecturalPlan({
 					transform="rotate(90 641 405)"
 					className={styles.dimensionText}
 				>
-					8.40
+					{t.notFound.dimensionSecondary}
 				</text>
 			</g>
 
@@ -337,7 +337,7 @@ export default function ArchitecturalPlan({
 
 			<g className={styles.annotations} aria-hidden="true">
 				<text x="49" y="485" className={styles.annotationText}>
-					UNDEFINED SPACE
+					{t.notFound.undefinedSpace}
 				</text>
 
 				<line x1="169" y1="482" x2="196" y2="482" />
@@ -354,7 +354,7 @@ export default function ArchitecturalPlan({
 				className={styles.verticalAnnotation}
 				aria-hidden="true"
 			>
-				EXPLORING SPACE
+				{t.notFound.exploringSpace}
 			</text>
 
 			{/* ----------------------------------------------------------------
@@ -368,7 +368,7 @@ export default function ArchitecturalPlan({
 				className={styles.drawingIdentifier}
 				aria-hidden="true"
 			>
-				6R07 / 14.40A
+				{t.notFound.drawingCode}
 			</text>
 
 			<line

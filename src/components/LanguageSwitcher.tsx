@@ -4,12 +4,12 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { locales } from "@/lib/i18n/translations";
 
 export default function LanguageSwitcher() {
-	const { locale, setLocale } = useLanguage();
+	const { t, locale, setLocale } = useLanguage();
 
 	return (
 		<div
 			role="group"
-			aria-label="Language"
+			aria-label={t.nav.languageLabel}
 			className="inline-flex items-center gap-1 rounded-full border border-zinc-300 p-0.5"
 		>
 			{locales.map((option) => (

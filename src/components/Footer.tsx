@@ -57,7 +57,7 @@ export default function Footer() {
 					))}
 				</div>
 				<p className="text-center text-xs text-zinc-600">
-					&copy; {new Date().getFullYear()} Catalin Carp Studio.{" "}
+					&copy; {new Date().getFullYear()} {t.brand.name}.{" "}
 					{t.footer.rights}
 				</p>
 			</div>

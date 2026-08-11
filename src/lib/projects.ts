@@ -4,7 +4,7 @@ export type GalleryCategory = "photo" | "sketch" | "plan";
 
 export type GalleryItem = {
 	url: string;
-	alt: string;
+	alt: Record<Locale, string>;
 	category: GalleryCategory;
 	groupKey?: string;
 	groupLabel?: Record<Locale, string>;
@@ -15,11 +15,11 @@ export type GalleryItem = {
 export type Project = {
 	slug: string;
 	title: string;
-	location: string;
+	location: Record<Locale, string>;
 	logo: string;
 	type: string;
 	image: string;
-	imageAlt: string;
+	imageAlt: Record<Locale, string>;
 	imageWidth?: number;
 	imageHeight?: number;
 	year: number;
@@ -31,19 +31,28 @@ export type Project = {
 
 const CONSTRUCTION_PHOTO: GalleryItem = {
 	url: "https://images.unsplash.com/photo-1760597307051-67946f9cf865?auto=format&fit=crop&w=1400&q=80",
-	alt: "Building under construction surrounded by scaffolding",
+	alt: {
+		en: "Building under construction surrounded by scaffolding",
+		ro: "Clădire în construcție, înconjurată de schele",
+	},
 	category: "photo",
 };
 
 const CONCEPT_SKETCH: GalleryItem = {
 	url: "https://images.unsplash.com/photo-1643569941917-95185f728355?auto=format&fit=crop&w=1400&q=80",
-	alt: "Minimalist pen sketch of a house",
+	alt: {
+		en: "Minimalist pen sketch of a house",
+		ro: "Schiță minimalistă în peniță a unei case",
+	},
 	category: "sketch",
 };
 
 const FLOOR_PLAN: GalleryItem = {
 	url: "https://images.unsplash.com/photo-1721244654210-a505a99661e9?auto=format&fit=crop&w=1400&q=80",
-	alt: "Architectural floor plan drawing of a house",
+	alt: {
+		en: "Architectural floor plan drawing of a house",
+		ro: "Plan arhitectural al unei case",
+	},
 	category: "plan",
 };
 
@@ -53,12 +62,14 @@ export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
 		title: "BIBILIOTECĂ-HUB CULTURAL „EDUARD PAMFIL”",
-		location: "Timișoara, Romania 2026",
-		type: "Hub",
+		location: { en: "Timișoara, Romania 2026", ro: "Timișoara, România 2026" },
+		type: "hub",
 		logo: "/projects/hub-cultural/logo/library-icon.svg",
 		image: "/projects/hub-cultural/renders/arrival-plaza.jpg",
-		imageAlt:
-			"Arrival plaza of the cultural hub with circular timber building on a rainy day",
+		imageAlt: {
+			en: "Arrival plaza of the cultural hub with circular timber building on a rainy day",
+			ro: "Piațeta de sosire a hub-ului cultural, cu clădirea circulară din lemn, într-o zi ploioasă",
+		},
 		imageWidth: 1600,
 		imageHeight: 899,
 		year: 2026,
@@ -77,7 +88,10 @@ export const projects: Project[] = [
 		gallery: [
 			{
 				url: "/projects/hub-cultural/renders/street-perspective.jpg",
-				alt: "Street-level perspective of the cultural hub highlighting the timber facade and surrounding urban streetscape",
+				alt: {
+					en: "Street-level perspective of the cultural hub highlighting the timber facade and surrounding urban streetscape",
+					ro: "Perspectivă la nivelul străzii a hub-ului cultural, care evidențiază fațada din lemn și peisajul urban înconjurător",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -86,7 +100,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/renders/urban-boulevard.jpg",
-				alt: "View of the cultural hub from the main urban boulevard with pedestrian-friendly public space",
+				alt: {
+					en: "View of the cultural hub from the main urban boulevard with pedestrian-friendly public space",
+					ro: "Vedere a hub-ului cultural dinspre bulevardul urban principal, cu spațiu public pietonal",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -95,7 +112,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/renders/rooftop-terrace.jpg",
-				alt: "Rooftop terrace with landscaped seating areas overlooking the city skyline",
+				alt: {
+					en: "Rooftop terrace with landscaped seating areas overlooking the city skyline",
+					ro: "Terasă pe acoperiș cu zone de relaxare amenajate peisagistic, cu vedere spre silueta orașului",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -104,7 +124,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/renders/library-interior.jpg",
-				alt: "Library interior featuring exposed timber structure, bookshelves and collaborative reading spaces",
+				alt: {
+					en: "Library interior featuring exposed timber structure, bookshelves and collaborative reading spaces",
+					ro: "Interiorul bibliotecii, cu structura din lemn aparentă, rafturi de cărți și spații de lectură colaborativă",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -113,7 +136,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-de-incadrare.jpg",
-				alt: "Site location plan showing the cultural hub within its surrounding urban context and neighboring streets",
+				alt: {
+					en: "Site location plan showing the cultural hub within its surrounding urban context and neighboring streets",
+					ro: "Plan de încadrare care arată hub-ul cultural în contextul urban înconjurător și străzile învecinate",
+				},
 				category: "plan",
 				groupKey: "plan-de-incadrare",
 				groupLabel: {
@@ -125,7 +151,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-etaj-minus-1.jpg",
-				alt: "Basement floor architectural plan of the cultural hub",
+				alt: {
+					en: "Basement floor architectural plan of the cultural hub",
+					ro: "Plan arhitectural al etajului subsol al hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-minus-1",
 				groupLabel: { en: "Minus 1 Floor Plan", ro: "Plan Etaj Minus 1" },
@@ -134,7 +163,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-parter.jpg",
-				alt: "Ground floor architectural plan showing public spaces and circulation",
+				alt: {
+					en: "Ground floor architectural plan showing public spaces and circulation",
+					ro: "Plan arhitectural al parterului, cu spațiile publice și circulația",
+				},
 				category: "plan",
 				groupKey: "plan-parter",
 				groupLabel: { en: "Ground Floor Plan", ro: "Plan Parter" },
@@ -143,7 +175,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-etaj-1.jpg",
-				alt: "First floor architectural plan of the cultural hub",
+				alt: {
+					en: "First floor architectural plan of the cultural hub",
+					ro: "Plan arhitectural al etajului 1 al hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-1",
 				groupLabel: { en: "Floor 1 Plan", ro: "Plan Etaj 1" },
@@ -152,7 +187,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-etaj-2.jpg",
-				alt: "Second floor architectural plan of the cultural hub",
+				alt: {
+					en: "Second floor architectural plan of the cultural hub",
+					ro: "Plan arhitectural al etajului 2 al hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-2",
 				groupLabel: { en: "Floor 2 Plan", ro: "Plan Etaj 2" },
@@ -161,7 +199,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-etaj-3.jpg",
-				alt: "Third floor architectural plan of the cultural hub",
+				alt: {
+					en: "Third floor architectural plan of the cultural hub",
+					ro: "Plan arhitectural al etajului 3 al hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-3",
 				groupLabel: { en: "Floor 3 Plan", ro: "Plan Etaj 3" },
@@ -170,7 +211,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/plan-etaj-4.jpg",
-				alt: "Fourth floor architectural plan of the cultural hub",
+				alt: {
+					en: "Fourth floor architectural plan of the cultural hub",
+					ro: "Plan arhitectural al etajului 4 al hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-4",
 				groupLabel: { en: "Floor 4 Plan", ro: "Plan Etaj 4" },
@@ -179,7 +223,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/sectiune-1.jpg",
-				alt: "Longitudinal building section illustrating the interior spatial organization",
+				alt: {
+					en: "Longitudinal building section illustrating the interior spatial organization",
+					ro: "Secțiune longitudinală a clădirii, care ilustrează organizarea spațială interioară",
+				},
 				category: "plan",
 				groupKey: "sectiune-1",
 				groupLabel: { en: "Section 1", ro: "Secțiune 1" },
@@ -188,7 +235,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/sectiune-2.jpg",
-				alt: "Cross section illustrating floor levels and interior spaces of the cultural hub",
+				alt: {
+					en: "Cross section illustrating floor levels and interior spaces of the cultural hub",
+					ro: "Secțiune transversală care ilustrează nivelurile și spațiile interioare ale hub-ului cultural",
+				},
 				category: "plan",
 				groupKey: "sectiune-2",
 				groupLabel: {
@@ -200,7 +250,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/fatada-vest.jpg",
-				alt: "West facade architectural elevation of the cultural hub",
+				alt: {
+					en: "West facade architectural elevation of the cultural hub",
+					ro: "Fațada de vest a hub-ului cultural — desen de elevație",
+				},
 				category: "plan",
 				groupKey: "fatada-vest",
 				groupLabel: { en: "West Facade", ro: "Fata Vest" },
@@ -209,7 +262,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/fatada-nord.jpg",
-				alt: "North facade architectural elevation of the cultural hub",
+				alt: {
+					en: "North facade architectural elevation of the cultural hub",
+					ro: "Fațada de nord a hub-ului cultural — desen de elevație",
+				},
 				category: "plan",
 				groupKey: "fatada-nord",
 				groupLabel: { en: "North Facade", ro: "Fatada Nord" },
@@ -218,7 +274,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/fatada-popa-sapca.jpg",
-				alt: "Popa Șapcă street facade architectural elevation of the cultural hub",
+				alt: {
+					en: "Popa Șapcă street facade architectural elevation of the cultural hub",
+					ro: "Fațada spre strada Popa Șapca a hub-ului cultural — desen de elevație",
+				},
 				category: "plan",
 				groupKey: "fatada-popa-sapca",
 				groupLabel: { en: "Popa Sapca Facade", ro: "Fatada Popa Săpca" },
@@ -227,7 +286,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/hub-cultural/plans/fatada-strada-oituz.jpg",
-				alt: "Oituz Street facade architectural elevation of the cultural hub",
+				alt: {
+					en: "Oituz Street facade architectural elevation of the cultural hub",
+					ro: "Fațada spre strada Oituz a hub-ului cultural — desen de elevație",
+				},
 				category: "plan",
 				groupKey: "fatada-strada-oituz",
 				groupLabel: { en: "Oituz Street Facade", ro: "Fatada Strada Oituz" },
@@ -239,12 +301,14 @@ export const projects: Project[] = [
 	{
 		slug: "take-ionescu-hostel",
 		title: "HOSTEL",
-		location: "Timișoara, Romania 2026",
-		type: "Hostel",
+		location: { en: "Timișoara, Romania 2026", ro: "Timișoara, România 2026" },
+		type: "hostel",
 		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
 		image: "/projects/take-ionescu-hostel/renders/facade-piateta.jpg",
-		imageAlt:
-			"Elevated hostel volume on pilotis with a public plaza opening beneath it",
+		imageAlt: {
+			en: "Elevated hostel volume on pilotis with a public plaza opening beneath it",
+			ro: "Volumul hostelului ridicat pe piloți, cu o piațetă publică deschisă dedesubt",
+		},
 		imageWidth: 1280,
 		imageHeight: 773,
 		year: 2026,
@@ -263,7 +327,10 @@ export const projects: Project[] = [
 		gallery: [
 			{
 				url: "/projects/take-ionescu-hostel/renders/ground-floor-plaza.jpg",
-				alt: "Covered ground-floor plaza beneath the elevated hostel volume",
+				alt: {
+					en: "Covered ground-floor plaza beneath the elevated hostel volume",
+					ro: "Piațetă acoperită la parter, sub volumul ridicat al hostelului",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -272,7 +339,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/renders/corner-view.jpg",
-				alt: "Corner view of the hostel massing addressing the street",
+				alt: {
+					en: "Corner view of the hostel massing addressing the street",
+					ro: "Vedere de colț a volumetriei hostelului, orientată spre stradă",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -281,7 +351,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/renders/pedestrian-approach.jpg",
-				alt: "Pedestrian approach toward the hostel entrance",
+				alt: {
+					en: "Pedestrian approach toward the hostel entrance",
+					ro: "Traseu pietonal de acces spre intrarea în hostel",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -290,7 +363,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/renders/shared-workshop.png",
-				alt: "Shared workshop space inside the hostel under an exposed concrete ceiling",
+				alt: {
+					en: "Shared workshop space inside the hostel under an exposed concrete ceiling",
+					ro: "Spațiu comun de atelier în interiorul hostelului, sub un tavan din beton aparent",
+				},
 				category: "sketch",
 				groupKey: "renders",
 				groupLabel: { en: "Renders", ro: "Randări" },
@@ -299,7 +375,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-situatie.jpg",
-				alt: "Site plan showing the corner plot within the city block",
+				alt: {
+					en: "Site plan showing the corner plot within the city block",
+					ro: "Plan de situație care arată parcela de colț în cadrul cvartalului",
+				},
 				category: "plan",
 				groupKey: "plan-situatie",
 				groupLabel: { en: "Site Plan", ro: "Plan de Situație" },
@@ -308,7 +387,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-parcare.jpg",
-				alt: "Basement parking plan",
+				alt: {
+					en: "Basement parking plan",
+					ro: "Plan de parcare la subsol",
+				},
 				category: "plan",
 				groupKey: "plan-parcare",
 				groupLabel: { en: "Parking Plan", ro: "Plan Parcare" },
@@ -317,7 +399,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-parter.jpg",
-				alt: "Ground floor plan with the public plaza and bistro",
+				alt: {
+					en: "Ground floor plan with the public plaza and bistro",
+					ro: "Plan de parter, cu piațeta publică și bistroul",
+				},
 				category: "plan",
 				groupKey: "plan-parter",
 				groupLabel: { en: "Ground Floor Plan", ro: "Plan Parter" },
@@ -326,7 +411,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-etaj-1.jpg",
-				alt: "First floor plan with studio units",
+				alt: {
+					en: "First floor plan with studio units",
+					ro: "Plan etaj 1, cu unități tip studio",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-1",
 				groupLabel: { en: "Floor 1 Plan", ro: "Plan Etaj 1" },
@@ -335,7 +423,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-etaj-2.jpg",
-				alt: "Second floor plan with shared dormitory rooms",
+				alt: {
+					en: "Second floor plan with shared dormitory rooms",
+					ro: "Plan etaj 2, cu camere comune de tip dormitor",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-2",
 				groupLabel: { en: "Floor 2 Plan", ro: "Plan Etaj 2" },
@@ -344,7 +435,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-etaj-3.jpg",
-				alt: "Third floor plan with shared dormitory rooms",
+				alt: {
+					en: "Third floor plan with shared dormitory rooms",
+					ro: "Plan etaj 3, cu camere comune de tip dormitor",
+				},
 				category: "plan",
 				groupKey: "plan-etaj-3",
 				groupLabel: { en: "Floor 3 Plan", ro: "Plan Etaj 3" },
@@ -353,7 +447,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-capac.jpg",
-				alt: "Attic-level plan with the common terrace and coffee spot",
+				alt: {
+					en: "Attic-level plan with the common terrace and coffee spot",
+					ro: "Plan la nivelul mansardei, cu terasa comună și colțul de cafea",
+				},
 				category: "plan",
 				groupKey: "plan-capac",
 				groupLabel: { en: "Attic Plan", ro: "Plan Capac" },
@@ -362,7 +459,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/plan-invelitoare.jpg",
-				alt: "Roof plan",
+				alt: {
+					en: "Roof plan",
+					ro: "Plan de învelitoare",
+				},
 				category: "plan",
 				groupKey: "plan-invelitoare",
 				groupLabel: { en: "Roof Plan", ro: "Plan Învelitoare" },
@@ -371,7 +471,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/sectiuni.jpg",
-				alt: "Building sections showing the shared interior spaces",
+				alt: {
+					en: "Building sections showing the shared interior spaces",
+					ro: "Secțiuni ale clădirii, care arată spațiile interioare comune",
+				},
 				category: "plan",
 				groupKey: "sectiuni",
 				groupLabel: { en: "Sections", ro: "Secțiuni" },
@@ -380,7 +483,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/facade-take-ionescu.jpg",
-				alt: "Elevation drawing facing Take Ionescu Boulevard",
+				alt: {
+					en: "Elevation drawing facing Take Ionescu Boulevard",
+					ro: "Desen de fațadă spre Bulevardul Take Ionescu",
+				},
 				category: "plan",
 				groupKey: "facade-take-ionescu",
 				groupLabel: {
@@ -392,7 +498,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/facade-nicu-filipescu.jpg",
-				alt: "Elevation drawing facing Nicu Filipescu Street",
+				alt: {
+					en: "Elevation drawing facing Nicu Filipescu Street",
+					ro: "Desen de fațadă spre strada Nicu Filipescu",
+				},
 				category: "plan",
 				groupKey: "facade-nicu-filipescu",
 				groupLabel: {
@@ -404,7 +513,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/facade-semenic.jpg",
-				alt: "Elevation drawing facing Semenic Street",
+				alt: {
+					en: "Elevation drawing facing Semenic Street",
+					ro: "Desen de fațadă spre strada Semenic",
+				},
 				category: "plan",
 				groupKey: "facade-semenic",
 				groupLabel: { en: "Facade — Semenic St.", ro: "Fațadă — Str. Semenic" },
@@ -413,7 +525,10 @@ export const projects: Project[] = [
 			},
 			{
 				url: "/projects/take-ionescu-hostel/plans/facade-courtyard.jpg",
-				alt: "Elevation drawing facing the interior courtyard",
+				alt: {
+					en: "Elevation drawing facing the interior courtyard",
+					ro: "Desen de fațadă spre curtea interioară",
+				},
 				category: "plan",
 				groupKey: "facade-courtyard",
 				groupLabel: {

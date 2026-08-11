@@ -1,9 +1,12 @@
 import { Project } from "@/lib/projects";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
 
 export default function ProjectCard({ project }: { project: Project }) {
+	const { t, locale } = useLanguage();
+
 	return (
 		<Link
 			href={`/projects/${project.slug}`}
@@ -14,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 					{project.imageWidth && project.imageHeight ? (
 						<Image
 							src={project.image}
-							alt={project.imageAlt}
+							alt={project.imageAlt[locale]}
 							width={project.imageWidth}
 							height={project.imageHeight}
 							loading="eager"
@@ -25,7 +28,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 						<div className="relative h-40">
 							<Image
 								src={project.image}
-								alt={project.imageAlt}
+								alt={project.imageAlt[locale]}
 								loading="eager"
 								fill
 								sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -36,7 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 				</ViewTransition>
 				<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 				<span className="pointer-events-none absolute bottom-4 left-4 hidden translate-y-2 text-[0.65rem] uppercase tracking-[0.3em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:block">
-					View project
+					{t.home.viewProject}
 				</span>
 			</div>
 			<div className="mt-4 flex flex-1 items-end justify-between gap-3">
@@ -45,7 +48,9 @@ export default function ProjectCard({ project }: { project: Project }) {
 						{project.title}
 					</h3>
 
-					<p className="mt-2 text-sm text-zinc-600">{project.location}</p>
+					<p className="mt-2 text-sm text-zinc-600">
+						{project.location[locale]}
+					</p>
 				</div>
 				<span className="text-lg text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
 					↗

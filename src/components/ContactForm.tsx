@@ -287,7 +287,9 @@ export default function ContactForm() {
 
 			{/* Honeypot: hidden from real users, catches basic bots */}
 			<div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
-				<label htmlFor="company">Company</label>
+				<label htmlFor="company" aria-hidden="true">
+					{t.contactForm.honeypotLabel}
+				</label>
 				<input
 					type="text"
 					id="company"

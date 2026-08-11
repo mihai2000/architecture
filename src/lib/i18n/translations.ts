@@ -7,11 +7,15 @@ type PhilosophyItem = {
 };
 
 export type Dictionary = {
+	brand: {
+		name: string;
+	};
 	nav: {
 		projects: string;
 		about: string;
 		contact: string;
 		menu: string;
+		languageLabel: string;
 	};
 	footer: {
 		rights: string;
@@ -48,6 +52,8 @@ export type Dictionary = {
 		contactText: string;
 		getInTouch: string;
 		skillsHeading: string;
+		skillLevelAdvanced: string;
+		skillLevelIntermediate: string;
 	};
 	projects: {
 		eyebrow: string;
@@ -70,9 +76,13 @@ export type Dictionary = {
 		closeLightbox: string;
 		pdfCtaTitle: string;
 		pdfCtaSubtitle: string;
+		conceptHeading: string;
+		nextProject: string;
+		previousProject: string;
 	};
 	explorer: {
 		all: string;
+		types: Record<string, string>;
 		searchPlaceholder: string;
 		sortLabel: string;
 		sortOptions: {
@@ -183,6 +193,7 @@ export type Dictionary = {
 		errorTooFast: string;
 		errorRecaptcha: string;
 		errorGeneric: string;
+		honeypotLabel: string;
 	};
 	notFound: {
 		eyebrow: string;
@@ -210,11 +221,15 @@ export type Dictionary = {
 
 export const dictionaries: Record<Locale, Dictionary> = {
 	en: {
+		brand: {
+			name: "Catalin Carp Studio",
+		},
 		nav: {
 			projects: "Projects",
 			about: "About",
 			contact: "Contact",
 			menu: "Menu",
+			languageLabel: "Language",
 		},
 		footer: {
 			rights: "All rights reserved.",
@@ -254,6 +269,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				"Open to feedback, collaborations, and conversations about architecture and future spaces.",
 			getInTouch: "Get in touch",
 			skillsHeading: "Tools & software",
+			skillLevelAdvanced: "Advanced",
+			skillLevelIntermediate: "Intermediate",
 		},
 		projects: {
 			eyebrow: "Selected work",
@@ -271,6 +288,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			closeLightbox: "Close",
 			pdfCtaTitle: "Full project booklet",
 			pdfCtaSubtitle: "Open the complete PDF presentation",
+			conceptHeading: "Concept",
+			nextProject: "Next Project",
+			previousProject: "Previous Project",
 			categories: {
 				photo: "Photo",
 				sketch: "Sketch",
@@ -279,6 +299,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		explorer: {
 			all: "All",
+			types: {
+				hub: "Hub",
+				hostel: "Hostel",
+			},
 			searchPlaceholder: "Search by title or location…",
 			sortLabel: "Sort",
 			sortOptions: {
@@ -459,6 +483,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			errorTooFast: "Please wait a moment before sending another message",
 			errorRecaptcha: "Please complete the CAPTCHA verification",
 			errorGeneric: "An unexpected error occurred.",
+			honeypotLabel: "Company",
 		},
 		notFound: {
 			eyebrow: "ERROR / 404",
@@ -486,11 +511,15 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 	},
 	ro: {
+		brand: {
+			name: "Catalin Carp Studio",
+		},
 		nav: {
 			projects: "Proiecte",
 			about: "Despre",
 			contact: "Contact",
 			menu: "Meniu",
+			languageLabel: "Limbă",
 		},
 		footer: {
 			rights: "Toate drepturile rezervate.",
@@ -530,6 +559,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				"Sunt deschis la feedback, colaborări și discuții despre arhitectură și spații viitoare.",
 			getInTouch: "Ia legătura",
 			skillsHeading: "Unelte și software",
+			skillLevelAdvanced: "Avansat",
+			skillLevelIntermediate: "Intermediar",
 		},
 		projects: {
 			eyebrow: "Lucrări selectate",
@@ -547,6 +578,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			closeLightbox: "Închide",
 			pdfCtaTitle: "Broșura completă a proiectului",
 			pdfCtaSubtitle: "Deschide prezentarea PDF completă",
+			conceptHeading: "Concept",
+			nextProject: "Proiectul Următor",
+			previousProject: "Proiectul Anterior",
 			categories: {
 				photo: "Foto",
 				sketch: "Schiță",
@@ -555,6 +589,10 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		},
 		explorer: {
 			all: "Toate",
+			types: {
+				hub: "Hub",
+				hostel: "Hostel",
+			},
 			searchPlaceholder: "Caută după titlu sau locație…",
 			sortLabel: "Sortează",
 			sortOptions: {
@@ -735,6 +773,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				"Te rugăm să aștepți un moment înainte de a trimite alt mesaj",
 			errorRecaptcha: "Te rugăm să completezi verificarea CAPTCHA",
 			errorGeneric: "A apărut o eroare neașteptată.",
+			honeypotLabel: "Companie",
 		},
 		notFound: {
 			eyebrow: "EROARE / 404",

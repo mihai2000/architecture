@@ -11,7 +11,7 @@ export default function NotFoundInfo() {
 			<header className="absolute inset-x-[3.5%] top-[4.5%] flex items-start justify-between">
 				<div>
 					<p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em]">
-						CATALIN CARP STUDIO
+						{t.brand.name}
 					</p>
 
 					<p className="mt-2 text-[0.57rem] text-zinc-600">{t.home.eyebrow}</p>

@@ -9,22 +9,17 @@ import Link from "next/link";
 import { Building2, Camera, PencilLine } from "lucide-react";
 import { LanguageSkill } from "@/components/languageSkill/languageSkill";
 const SKILLS = [
-	{ label: "Archicad", levelLabel: "Advanced", level: 4 },
-	{ label: "SketchUp", levelLabel: "Advanced", level: 4 },
-	{ label: "Adobe Photoshop", levelLabel: "Advanced", level: 4 },
-	{
-		label: "Microsoft Office (Word, Photoshop)",
-		levelLabel: "Advanced",
-		level: 4,
-	},
-	{ label: "Twinmotion", levelLabel: "Intermediate", level: 3 },
+	{ label: "Archicad", level: 4 },
+	{ label: "SketchUp", level: 4 },
+	{ label: "Adobe Photoshop", level: 4 },
+	{ label: "Microsoft Office (Word, Photoshop)", level: 4 },
+	{ label: "Twinmotion", level: 3 },
 ] satisfies {
 	label: string;
-	levelLabel: string;
 	level: 1 | 2 | 3 | 4 | 5;
 }[];
 export default function Home() {
-	const { t } = useLanguage();
+	const { t, locale } = useLanguage();
 	const featuredProject =
 		projects.find((project) => project.slug === "event-house") ?? projects[0];
 
@@ -56,7 +51,7 @@ export default function Home() {
 						{featuredProject.imageWidth && featuredProject.imageHeight ? (
 							<Image
 								src={featuredProject.image}
-								alt={featuredProject.imageAlt}
+								alt={featuredProject.imageAlt[locale]}
 								width={featuredProject.imageWidth}
 								height={featuredProject.imageHeight}
 								sizes="(min-width: 1024px) 45vw, 100vw"
@@ -68,7 +63,7 @@ export default function Home() {
 							<div className="relative h-56">
 								<Image
 									src={featuredProject.image}
-									alt={featuredProject.imageAlt}
+									alt={featuredProject.imageAlt[locale]}
 									fill
 									sizes="(min-width: 1024px) 45vw, 100vw"
 									loading="eager"
@@ -82,7 +77,7 @@ export default function Home() {
 						<div>
 							<p className="text-xl font-semibold">{featuredProject.title}</p>
 							<p className="mt-1 text-sm text-zinc-400">
-								{featuredProject.location}
+								{featuredProject.location[locale]}
 							</p>
 						</div>
 						<Link
@@ -107,7 +102,11 @@ export default function Home() {
 							<LanguageSkill
 								key={skill.label}
 								label={skill.label}
-								levelLabel={skill.levelLabel}
+								levelLabel={
+									skill.level >= 4
+										? t.home.skillLevelAdvanced
+										: t.home.skillLevelIntermediate
+								}
 								level={skill.level}
 							/>
 						))}
