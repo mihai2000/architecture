@@ -250,7 +250,7 @@ export default function ArchitecturalPlan({
 				<line x1="495" y1="399" x2="495" y2="431" />
 				<line x1="502" y1="399" x2="502" y2="431" />
 				{/* Lower stair boundary */}
-				/<path d="M453 390.5 V430" />
+				<path d="M453 390.5 V430" />
 				<path d="M454 439 H512" />
 				<path d="M454 434.5 H512" />
 				<path d="M454 430.5 H512" />

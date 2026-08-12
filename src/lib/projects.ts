@@ -29,35 +29,6 @@ export type Project = {
 	gallery: GalleryItem[];
 };
 
-const CONSTRUCTION_PHOTO: GalleryItem = {
-	url: "https://images.unsplash.com/photo-1760597307051-67946f9cf865?auto=format&fit=crop&w=1400&q=80",
-	alt: {
-		en: "Building under construction surrounded by scaffolding",
-		ro: "Clădire în construcție, înconjurată de schele",
-	},
-	category: "photo",
-};
-
-const CONCEPT_SKETCH: GalleryItem = {
-	url: "https://images.unsplash.com/photo-1643569941917-95185f728355?auto=format&fit=crop&w=1400&q=80",
-	alt: {
-		en: "Minimalist pen sketch of a house",
-		ro: "Schiță minimalistă în peniță a unei case",
-	},
-	category: "sketch",
-};
-
-const FLOOR_PLAN: GalleryItem = {
-	url: "https://images.unsplash.com/photo-1721244654210-a505a99661e9?auto=format&fit=crop&w=1400&q=80",
-	alt: {
-		en: "Architectural floor plan drawing of a house",
-		ro: "Plan arhitectural al unei case",
-	},
-	category: "plan",
-};
-
-const SHARED_GALLERY = [CONSTRUCTION_PHOTO, CONCEPT_SKETCH, FLOOR_PLAN];
-
 export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
@@ -365,7 +336,7 @@ export const projects: Project[] = [
 				height: 905,
 			},
 			{
-				url: "/projects/take-ionescu-hostel/renders/shared-workshop.png",
+				url: "/projects/take-ionescu-hostel/renders/shared-workshop.jpg",
 				alt: {
 					en: "Shared workshop space inside the hostel under an exposed concrete ceiling",
 					ro: "Spațiu comun de atelier în interiorul hostelului, sub un tavan din beton aparent",

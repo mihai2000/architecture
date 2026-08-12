@@ -1,3 +1,5 @@
+"use client";
+
 import { Project } from "@/lib/projects";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";

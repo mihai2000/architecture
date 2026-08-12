@@ -1,29 +1,19 @@
-"use client";
+import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
+import ProjectsContent from "@/components/ProjectsContent";
 
-import ProjectExplorer from "@/components/ProjectExplorer";
-import Reveal from "@/components/Reveal";
-import { projects } from "@/lib/projects";
-import { useLanguage } from "@/lib/i18n/LanguageContext";
+const title = "Projects | Catalin Carp Studio";
+const description =
+	"Selected architecture projects and case studies by Catalin Carp, including cultural, residential, and urban design work.";
 
-export default function ProjectsPage() {
-	const { t } = useLanguage();
+export const metadata: Metadata = {
+	title,
+	description,
+	alternates: { canonical: `${siteUrl}/projects/` },
+	openGraph: { title, description },
+	twitter: { title, description },
+};
 
-	return (
-		<section id="projects">
-			<Reveal className="border-b border-zinc-300 pb-6">
-				<div>
-					<p className="text-[0.7rem] uppercase tracking-[0.35em] text-zinc-600">
-						{t.projects.eyebrow}
-					</p>
-					<h2 className="mt-3 text-3xl font-semibold lg:text-4xl">
-						{t.projects.heading}
-					</h2>
-				</div>
-			</Reveal>
-
-			<div className="mt-6">
-				<ProjectExplorer projects={projects} />
-			</div>
-		</section>
-	);
+export default function Page() {
+	return <ProjectsContent />;
 }

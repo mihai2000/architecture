@@ -72,7 +72,6 @@ export default function Navigation() {
 					transitionTypes={[directionTo("/")]}
 					className="flex items-center gap-2 text-[0.6rem] font-semibold uppercase tracking-[0.2em] sm:gap-3 sm:text-[0.7rem] sm:tracking-[0.35em]"
 				>
-					{/* <Logo className="h-20 w-20 shrink-0" /> */}
 					<Image
 						src="/logo/logo.svg"
 						alt={t.brand.name}

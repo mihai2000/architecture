@@ -1,25 +1,3 @@
-// type LanguageSkillProps = {
-// 	label: string;
-// 	level: number;
-// };
-
-// export function LanguageSkill({ label, level }: LanguageSkillProps) {
-// 	return (
-// 		<div className="space-y-2">
-// 			<div className="flex justify-between text-sm">
-// 				<span>{label}</span>
-// 				<span className="text-zinc-500">{level}%</span>
-// 			</div>
-
-// 			<div className="h-2 overflow-hidden rounded-full bg-zinc-200">
-// 				<div
-// 					className="h-full rounded-full bg-zinc-800 transition-all duration-300"
-// 					style={{ width: `${level}%` }}
-// 				/>
-// 			</div>
-// 		</div>
-// 	);
-// }
 type LanguageSkillProps = {
 	label: string;
 	levelLabel?: string;

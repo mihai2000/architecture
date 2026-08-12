@@ -42,9 +42,15 @@ export default function ProjectCarousel({
 	projects: Project[];
 }) {
 	const { t } = useLanguage();
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-		Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
-	]);
+	const prefersReducedMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)"
+	).matches;
+	const [emblaRef, emblaApi] = useEmblaCarousel(
+		{ loop: true },
+		prefersReducedMotion
+			? []
+			: [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })]
+	);
 
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);

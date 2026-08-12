@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ViewTransition } from "react";
+import { useEffect, ViewTransition } from "react";
 
 export default function PageTransition({
 	children,
@@ -9,6 +9,10 @@ export default function PageTransition({
 	children: React.ReactNode;
 }) {
 	const pathname = usePathname();
+
+	useEffect(() => {
+		document.getElementById("main-content")?.focus();
+	}, [pathname]);
 
 	return (
 		<ViewTransition

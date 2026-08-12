@@ -1,5 +1,5 @@
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
-import { siteUrl } from "@/lib/site";
+import { jsonLd, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -40,6 +40,28 @@ export const metadata: Metadata = {
 	},
 };
 
+const socialLinks = [
+	process.env.NEXT_PUBLIC_FACEBOOK &&
+		`https://www.facebook.com/${process.env.NEXT_PUBLIC_FACEBOOK}`,
+	process.env.NEXT_PUBLIC_INSTAGRAM &&
+		`https://www.instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM}`,
+	process.env.NEXT_PUBLIC_LINKEDIN &&
+		`https://www.linkedin.com/in/${process.env.NEXT_PUBLIC_LINKEDIN}`,
+].filter((value): value is string => Boolean(value));
+
+const personJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Catalin Carp",
+	url: siteUrl,
+	jobTitle: "Architecture Student",
+	affiliation: {
+		"@type": "CollegeOrUniversity",
+		name: "Politehnica University of Timișoara, Faculty of Architecture and Urban Planning",
+	},
+	...(socialLinks.length ? { sameAs: socialLinks } : {}),
+};
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -52,6 +74,10 @@ export default function RootLayout({
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col bg-[#f3efe8] text-zinc-900">
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: jsonLd(personJsonLd) }}
+				/>
 				<LanguageProvider>{children}</LanguageProvider>
 			</body>
 		</html>

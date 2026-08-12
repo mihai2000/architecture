@@ -187,9 +187,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							width={project.imageWidth}
 							height={project.imageHeight}
 							sizes="100vw"
-							loading="eager"
-							fetchPriority="high"
-							// className="mx-auto block h-auto w-[88%] max-w-[1100px] rounded-[2rem]"
+							priority
 							className="mx-auto block h-auto w-full max-w-7xl rounded-[2rem]"
 						/>
 					) : (
@@ -199,8 +197,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 								alt={project.imageAlt[locale]}
 								fill
 								sizes="100vw"
-								loading="eager"
-								fetchPriority="high"
+								priority
 								className="object-cover"
 							/>
 						</div>
