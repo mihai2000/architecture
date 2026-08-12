@@ -177,8 +177,6 @@ export type Dictionary = {
 		namePlaceholder: string;
 		emailLabel: string;
 		emailPlaceholder: string;
-		subjectLabel: string;
-		subjectPlaceholder: string;
 		messageLabel: string;
 		messagePlaceholder: string;
 		requiredNote: string;
@@ -237,7 +235,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				facebook: "Facebook",
 				instagram: "Instagram",
 				linkedin: "LinkedIn",
-				whatsapp: "Whatsapp",
+				whatsapp: "Chat on WhatsApp",
 			},
 		},
 		home: {
@@ -251,7 +249,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			selectedWork: "Selected work",
 			recentProjects: "Recent projects",
 			viewProjects: "View Projects",
-			aboutLabel: "About",
+			aboutLabel: "At a glance",
 			languagesTitle: "Languages",
 			language1: "Romanian - Native",
 			language2: "Russian - Advanced",
@@ -273,8 +271,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			skillLevelIntermediate: "Intermediate",
 		},
 		projects: {
-			eyebrow: "Selected work",
-			heading: "Recent projects",
+			eyebrow: "Portfolio",
+			heading: "All projects",
 		},
 		projectDetail: {
 			back: "Back to projects",
@@ -284,7 +282,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			typeLabel: "Type",
 			galleryHeading: "Gallery",
 			filterLabel: "Filter",
-			filterAll: "All",
+			filterAll: "All categories",
 			closeLightbox: "Close",
 			pdfCtaTitle: "Full project booklet",
 			pdfCtaSubtitle: "Open the complete PDF presentation",
@@ -324,7 +322,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			subtitle: "Currently in the works",
 		},
 		about: {
-			eyebrow: "About",
+			eyebrow: "Profile",
 			heading: "Learning to turn ideas into thoughtful spaces.",
 			intro:
 				"I am a fourth-year Architecture student at the Faculty of Architecture and Urbanism, Politehnica University of Timișoara, with a strong interest in architectural design, visual representation, and developing projects from concept to implementation.",
@@ -435,8 +433,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			heading: "Let's create meaningful spaces together.",
 			lead: "If you have a question, a collaboration proposal, or would like to discuss a project, feel free to send me a message. I'll get back to you as soon as possible..",
 			emailLabel: "Email",
-			phoneLabel: "Whatsapp",
-			locationLabel: "Location",
+			phoneLabel: "WhatsApp",
+			locationLabel: "Based in",
 			locationValue: ["Timișoara", "Romania"],
 
 			subjectLabel: "Subject",
@@ -464,10 +462,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		contactForm: {
 			nameLabel: "Name",
 			namePlaceholder: "Your name",
-			emailLabel: "Email",
+			emailLabel: "Your email",
 			emailPlaceholder: "your@email.com",
-			subjectLabel: "Subject",
-			subjectPlaceholder: "Project inquiry",
 			messageLabel: "Message",
 			messagePlaceholder: "Tell me a bit about your inquiry...",
 			requiredNote: "Required fields",
@@ -497,7 +493,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			scale: "SCALE",
 			revision: "REVISION",
 			projectValue: "ARCHITECTURE PORTFOLIO",
-			drawingValue: "ERROR / 404",
+			drawingValue: "SHEET 404",
 			scaleValue: "NTS",
 			revisionValue: "01 / 2026",
 			undefinedSpace: "UNDEFINED SPACE",
@@ -527,7 +523,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 				facebook: "Facebook",
 				instagram: "Instagram",
 				linkedin: "LinkedIn",
-				whatsapp: "Whatsapp",
+				whatsapp: "Discută pe WhatsApp",
 			},
 		},
 		home: {
@@ -541,7 +537,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			selectedWork: "Lucrări selectate",
 			recentProjects: "Proiecte recente",
 			viewProjects: "Vezi proiectele",
-			aboutLabel: "Despre",
+			aboutLabel: "Dintr-o privire",
 			languagesTitle: "Limbi străine",
 			language1: "Română - nativ",
 			language2: "Rusă - avansat",
@@ -553,7 +549,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			aboutHeading: "Riguroși în liniște, profund umani.",
 			aboutText:
 				"Proiectele mele variază de la locuințe pentru studenți la intervenții urbane, dezvoltate pe parcursul studiilor mele de arhitectură. Fiecare pornește de la claritate, proporție și un dialog atent cu împrejurimile sale.",
-			contactLabel: "Contact",
+			contactLabel: "Să discutăm",
 			contactHeading: "Fiecare proiect începe cu o conversație.",
 			contactText:
 				"Sunt deschis la feedback, colaborări și discuții despre arhitectură și spații viitoare.",
@@ -563,8 +559,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			skillLevelIntermediate: "Intermediar",
 		},
 		projects: {
-			eyebrow: "Lucrări selectate",
-			heading: "Proiecte recente",
+			eyebrow: "Portofoliu",
+			heading: "Toate proiectele",
 		},
 		projectDetail: {
 			back: "Înapoi la proiecte",
@@ -574,7 +570,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			typeLabel: "Tip",
 			galleryHeading: "Galerie",
 			filterLabel: "Filtrează",
-			filterAll: "Toate",
+			filterAll: "Toate categoriile",
 			closeLightbox: "Închide",
 			pdfCtaTitle: "Broșura completă a proiectului",
 			pdfCtaSubtitle: "Deschide prezentarea PDF completă",
@@ -614,7 +610,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			subtitle: "În lucru momentan",
 		},
 		about: {
-			eyebrow: "Despre",
+			eyebrow: "Profil",
 			heading: "Învăț să transform ideile în spații.",
 			intro:
 				"Sunt student la Facultatea de Arhitectură și Urbanism din cadrul Universității Politehnica Timișoara, interesat de proiectarea arhitecturală, reprezentarea grafică și dezvoltarea proiectelor de la concept până la implementare.",
@@ -664,7 +660,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 
 			interests: [
 				"Arhitectură rezidențială",
-				"Clădiri publice",
+				"Clădiri Publice",
 				"Spații culturale",
 				"Urbanism",
 				"Vizualizare arhitecturală",
@@ -726,8 +722,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			heading: "Hai să discutăm despre următorul proiect.",
 			lead: "Dacă ai o întrebare, o propunere de colaborare sau dorești să discutăm despre un proiect, trimite-mi un mesaj și îți voi răspunde cât mai curând.",
 			emailLabel: "Email",
-			phoneLabel: "Whatsapp",
-			locationLabel: "Locație",
+			phoneLabel: "WhatsApp",
+			locationLabel: "Locuiesc în",
 			locationValue: ["Timișoara", "România"],
 			subjectLabel: "Subiect",
 
@@ -751,10 +747,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
 		contactForm: {
 			nameLabel: "Nume",
 			namePlaceholder: "Numele tău",
-			emailLabel: "Email",
+			emailLabel: "Emailul tău",
 			emailPlaceholder: "emailul.tau@example.com",
-			subjectLabel: "Subiect",
-			subjectPlaceholder: "Solicitare proiect",
 			messageLabel: "Mesaj",
 			messagePlaceholder:
 				"Scrie câteva detalii despre motivul pentru care mă contactezi...",
@@ -787,7 +781,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
 			scale: "SCARĂ",
 			revision: "REVIZIE",
 			projectValue: "PORTOFOLIU DE ARHITECTURĂ",
-			drawingValue: "EROARE / 404",
+			drawingValue: "PLANȘA 404",
 			scaleValue: "NTS",
 			revisionValue: "01 / 2026",
 			undefinedSpace: "SPAȚIU INDEFINIT",
