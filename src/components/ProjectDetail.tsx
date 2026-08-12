@@ -139,7 +139,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
 					{/* Center */}
 					<div className="flex justify-center">
-						<h1 className="max-w-5xl text-center text-3xl font-semibold leading-tight sm:text-5xl">
+						<h1 className="max-w-6xl text-center text-3xl font-semibold leading-tight sm:text-5xl">
 							{project.title[locale]}
 						</h1>
 					</div>
