@@ -75,7 +75,9 @@ export default function Home() {
 					</div>
 					<div className="mt-6 flex items-end justify-between gap-4">
 						<div>
-							<p className="text-xl font-semibold">{featuredProject.title}</p>
+							<p className="text-xl font-semibold">
+								{featuredProject.title[locale]}
+							</p>
 							<p className="mt-1 text-sm text-zinc-400">
 								{featuredProject.location[locale]}
 							</p>

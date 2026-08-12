@@ -37,14 +37,16 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 					activeType === ALL_TYPES || project.type === activeType;
 				const matchesQuery =
 					q.length === 0 ||
-					project.title.toLowerCase().includes(q) ||
+					project.title[locale].toLowerCase().includes(q) ||
 					project.location[locale].toLowerCase().includes(q);
 
 				return matchesType && matchesQuery;
 			})
 			.sort((a, b) => {
-				if (sort === "title-asc") return a.title.localeCompare(b.title);
-				if (sort === "title-desc") return b.title.localeCompare(a.title);
+				if (sort === "title-asc")
+					return a.title[locale].localeCompare(b.title[locale]);
+				if (sort === "title-desc")
+					return b.title[locale].localeCompare(a.title[locale]);
 				return a.location[locale].localeCompare(b.location[locale]);
 			});
 	}, [projects, activeType, query, sort, locale]);
@@ -70,7 +72,9 @@ export default function ProjectExplorer({ projects }: { projects: Project[] }) {
 								: "border-zinc-300 text-zinc-600 hover:border-zinc-900 hover:text-zinc-900"
 						}`}
 					>
-						{type === ALL_TYPES ? t.explorer.all : (t.explorer.types[type] ?? type)}
+						{type === ALL_TYPES
+							? t.explorer.all
+							: (t.explorer.types[type] ?? type)}
 					</button>
 				))}
 			</div>

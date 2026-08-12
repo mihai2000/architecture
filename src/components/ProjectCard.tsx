@@ -45,7 +45,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 			<div className="mt-4 flex flex-1 items-end justify-between gap-3">
 				<div className="flex flex-col">
 					<h3 className="text-base font-semibold leading-snug line-clamp-2 sm:text-lg lg:text-xl">
-						{project.title}
+						{project.title[locale]}
 					</h3>
 
 					<p className="mt-2 text-sm text-zinc-600">

@@ -140,7 +140,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 					{/* Center */}
 					<div className="flex justify-center">
 						<h1 className="max-w-5xl text-center text-3xl font-semibold leading-tight sm:text-5xl">
-							{project.title}
+							{project.title[locale]}
 						</h1>
 					</div>
 				</div>
@@ -155,7 +155,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 						className="h-[75px] w-[75px]"
 					/>
 					<h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-5xl">
-						{project.title}
+						{project.title[locale]}
 					</h1>
 				</div>
 				<p className="mt-2 text-base text-zinc-600">{project.location}</p>
@@ -445,7 +445,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							</p>
 
 							<h3 className="mt-5 text-right text-3xl font-semibold leading-tight">
-								{nextProject.title}
+								{nextProject.title[locale]}
 							</h3>
 
 							<p className="mt-2 text-right text-zinc-600">
@@ -465,7 +465,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 							</p>
 
 							<h3 className="mt-5 text-3xl font-semibold leading-tight">
-								{previousProject.title}
+								{previousProject.title[locale]}
 							</h3>
 
 							<p className="mt-2 text-zinc-600">

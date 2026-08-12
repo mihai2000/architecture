@@ -14,7 +14,7 @@ export type GalleryItem = {
 
 export type Project = {
 	slug: string;
-	title: string;
+	title: Record<Locale, string>;
 	location: Record<Locale, string>;
 	logo: string;
 	type: string;
@@ -61,7 +61,10 @@ const SHARED_GALLERY = [CONSTRUCTION_PHOTO, CONCEPT_SKETCH, FLOOR_PLAN];
 export const projects: Project[] = [
 	{
 		slug: "hub-cultural",
-		title: "BIBILIOTECĂ-HUB CULTURAL „EDUARD PAMFIL”",
+		title: {
+			en: "CULTURAL LIBRARY HUB „EDUARD PAMFIL”",
+			ro: "BIBILIOTECĂ-HUB CULTURAL „EDUARD PAMFIL",
+		},
 		location: { en: "Timișoara, Romania 2026", ro: "Timișoara, România 2026" },
 		type: "hub",
 		logo: "/projects/hub-cultural/logo/library-icon.svg",
@@ -300,7 +303,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "take-ionescu-hostel",
-		title: "HOSTEL",
+		title: { en: "HOSTEL", ro: "HOSTEL" },
 		location: { en: "Timișoara, Romania 2026", ro: "Timișoara, România 2026" },
 		type: "hostel",
 		logo: "/projects/take-ionescu-hostel/logo/hostel-logo.svg",
